@@ -207,3 +207,48 @@
   background:#ffffff;
   text-align: center;
 }
+/*
+@media (min-width: 768px) {
+  .banner {
+     height: 85vh;
+     width:auto;
+     background-size: cover;
+     background-position: center;
+     background-attachment: fixed;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+img {
+width: 100%;
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+background-color: #464646;
+}
+}
+body {
+  background-color: lightgreen;
+}
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+*/
+
+@media only screen and (max-width: 768px) {
+.container1 {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.container1 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+}
+
