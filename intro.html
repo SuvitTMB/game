@@ -74,16 +74,16 @@
     <div class="intro">
       <div class="ldp1 carousel-inner" role="listbox">
         <div class="item active">
-          <div><img src="./img/intro/intro-5.jpg" style="width:100%"></div>
+          <div><img src="./img/intro/intro-5.jpg" style='max-width: 500px'></div>
         </div>
         <div class="item">
-          <div><img src="./img/intro/intro-66.jpg" style="width:100%"></div>
+          <div class="illustration"><img src="./img/intro/intro-66.jpg" style='max-width: 500px'></div>
         </div>
         <div class="item">
           <div><img src="./img/intro/intro-77.jpg" style="width:100%"></div>
         </div>
         <div class="item">
-          <div><img src="./img/intro/intro-4.jpg" style="width:90%"></div>
+          <div class="illustration"><img src="./img/intro/intro-4.jpg" style='max-width: 500px'></div>
         </div>
       </div>
     </div>
@@ -368,6 +368,12 @@ $(document).ready(function(){
 })
 </script>
 -->
-
+<script type="text/javascript">
+	$(‘.banner’).css({‘height’: (($(window).height()))+’px’});
+	 
+	$(window).on(‘resize’, function(){
+	 $(‘.banner’).css({‘height’: (($(window).height()))+’px’});
+	});	
+</script>
 </body>
 </html>
