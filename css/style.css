@@ -1,5 +1,5 @@
   body {
-    font: 400 15px Lato, sans-serif;
+    font: 400 15px ekachon-regular, sans-serif;
     line-height: 1.8;
     color: #818181;
   }
@@ -191,8 +191,8 @@
   margin-top:40px;
 }
 .ldp1 {
-  width:100%; height:85vh;
   margin-top:40px;
+  width:100%; height:85vh;
 }
 .ldp_img {
   width:100%; height: 100%;
@@ -204,6 +204,7 @@
   color:#ffffff !important;
 }
 .intro {
+  /*margin-top:58px;*/
   background:#ffffff;
   text-align: center;
 }
@@ -239,16 +240,86 @@ body {
 */
 
 @media only screen and (max-width: 768px) {
-.container1 {
-  width: 50%;
-  height: 200px;
-  overflow: hidden;
+  .container1 {
+    width: 50%;
+    height: 200px;
+    /*overflow: hidden;*/
+  }
+
+  .container1 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 }
 
-.container1 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.clr {
+  clear: both;
 }
+.header-line {
+  letter-spacing: 2px;margin-top:90px;color:#ffffff;font-size:18px;
+}
+.gameNumber {
+  text-align:center;
+  font-size: 110px; color:#ffffff;
+  margin-top:-20px; margin-bottom: -20px;
+}
+.game2-score {
+  margin:auto;
+  width:80%;
+  background:#ffff00;
+  height:60px;
+}
+.game2-box {
+  width:22%; height: 80px; border:2px; float: left;
+  background:#bdd3ff; text-align: center; border-radius: 10px;
+  margin:4px;
+}
+.game2-box1 {
+  width:30%; height: 60px; border:2px; float: left;
+  background:#f68b1f; text-align: center; border-radius: 10px;
+  margin:4px;
+}
+.game2-box1:hover {
+  background-color: #002d63; cursor: pointer;
+}
+.game2-boxs {
+  width:22%; height: 80px; border:2px; float: left;
+  background:#0056ff; text-align: center; border-radius: 10px;
+  margin:4px;
 }
 
+.text-score {
+  width:100%; font-size:12px; text-align: center; color:#bdd3ff;padding:8px 0 8px 0;
+}
+.game-a1 {
+  text-align: center; font-size: 50px; font-weight: 600; color:#0056ff; margin-top:-5px;
+}
+.game-a2 {
+  text-align: center; font-size: 10px; font-weight: 600; color:#002d63; margin-top:-10px;
+}
+.game-a3 {
+  text-align: center; font-size: 36px; font-weight: 600; color:#ffffff; margin-top:-8px;
+}
+.game-a4 {
+  text-align: center; font-size: 10px; font-weight: 600; color:#ffffff; margin-top:-5px;
+}
+.game-a5 {
+  text-align: center; font-size: 50px; font-weight: 600; color:#000000; margin-top:-5px;
+}
+.box-score {
+  width:280px; background-color: #f68b1f; height:40px; color:#ffffff; border-radius: 8px; 
+  text-align: center; margin:auto; font-size:12px;
+}
+.box-tscore1 {
+  width:110px; padding:10px 0px; float: left;
+}
+.box-tscore2 {
+  width:90px; float: left; font-size:30px; margin-top:-3px;
+}
+.box-tscore3 {
+  width:70px; padding:10px 0px; float: left;
+}
+.TextLastScore {
+  font-size: 15px; width:100%; padding-top:30px; text-align: center; color:#f68b1f;
+}
