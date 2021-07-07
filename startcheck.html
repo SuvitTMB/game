@@ -13,27 +13,25 @@
   <link href='css/button.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="js/jquery-input-mask-phone-number.js"></script>
-
 </head>
-<body data-spy="scroll" data-offset="60" style="background-color: #0056ff;">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
 
 <div class="navbar1">
-  <center><div class="btn-t2" onclick="location.href='intro.html'">ดูรายละเอียดกิจกรรม</div></center>
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
 </div>
 
-      <!--
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
+      <!--
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">Retail Society</a>
-    </div>
     -->
+      <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+    </div>
     <!--
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -44,85 +42,40 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
+  -->
   </div>
 </nav>
-  -->
-
-<div class="jumbotron text-center" style="height:500px;">
-  <p>LINE Retail Socitey</p> 
-  <div class="btn-in" style="margin-top:40px;">เข้าใช้งาน</div>
-  <div style="margin-top:40px;color:#fff;">ยังไม่เคยเข้าร่วมกิจกรรม ใช่หรือไม่?</div>
-  <div class="btn-out" style="margin-top:5px;" onclick="location.href='startregister.html'">ลงทะเบียนเข้าร่วมกิจกรรม</div>
-</div>
 
 <!--
+<div class="jumbotron text-center">
+  <h1>Company</h1> 
+  <p>We specialize in blablabla</p> 
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Subscribe</button>
+      </div>
+    </div>
+  </form>
+</div>
+-->
+
 
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <div class="intro">
-      <div class="ldp1 carousel-inner" role="listbox">
-        <div class="item active">
-          <div><img src="./img/intro/intro-1.jpg" style="height: 85vh;"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-2.jpg" style="height: 85vh;"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-3.jpg" style="height: 85vh;"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-4.jpg" style="height: 85vh;"></div>
-        </div>
-      </div>
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
--->
 <!--
-<div id="contact" class="container-fluid bg-grey">
-  <div class="row">
-    <center>
-      <h3 class="text-center">ลงทะเบียน</h3>
-      <div style="margin-top:-15px;"><img src="./img/profile.png" style="width: 100px;"></div>
-      <div style="color:#f68b1f;font-weight: 600;">Website</div>
-      <div style="color:#555;font-size: 12px;padding:8px;">กรุณาระบุรหัสพนักงาน และชื่อ-นามสกุล ให้ถูกต้อง</div>
-    </center>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="empid" name="eid" placeholder="เลขที่พนักงาน" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="empname" name="ename" placeholder="ชื่อ-นามสกุล (ภาษาไทย)" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="yourphone2" name="ephone" placeholder="โทรศัพท์มือถือ" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="empaddress" name="eaddress" placeholder="ที่อยู่ (สาขา) สำหรับการจัดส่งของรางวัล" rows="5"></textarea><br>
-      <div class="row">
-        <center>
-          <div class="btn-t2">ยืนยันการลงทะเบียน</div>
-        </center>
-      </div>
-    </div>
-  </div>
-</div>
+    <h3><font color="#00b300">LINE</font> <font color="#002d63">Retail</font> <font color="#0056ff">So</font><font color="#f68b1f">citey</font></h3> 
 -->
+    <div class="header-line">LINE Retail Socitey</div> 
+    <div style="margin-top:25px;"><img src="./img/profile.png" style="width: 100px;"></div>
+    <div style="color:#f68b1f;font-weight: 600;padding-top:10px;">Website</div>
+    <div style="margin-top:25px;color:#9ab3fd;">เคยลงทะเบียนแล้ว คลิกเลย</div>
+    <div class="btn-in" style="margin-top:5px;" onclick="location.href='game2.html'">เข้าใช้งาน</div>
+    <div style="margin-top:40px;color:#9ab3fd;">ยังไม่เคยเข้าร่วมกิจกรรม ใช่หรือไม่?</div>
+    <div class="btn-out" style="margin-top:5px;" onclick="location.href='startregister.html'">ลงทะเบียนเพื่อยืนยันตัวตน</div>
+  </div>
+
+
 <!-- Container (About Section) -->
 <!--
 <div id="about" class="container-fluid">
@@ -391,17 +344,6 @@ $(document).ready(function(){
 })
 </script>
 -->
-<script>
-  $(document).ready(function () {
-      $('#yourphone').usPhoneFormat({
-          format: 'xxx-xxx-xxxx',
-      });
-      
-      $('#yourphone2').usPhoneFormat();
-  });
-
-
-</script>
 
 </body>
 </html>

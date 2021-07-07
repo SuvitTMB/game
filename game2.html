@@ -11,39 +11,37 @@
   <link href='css/ekachon.css' rel="stylesheet" type="text/css">
   <link href='css/style.css' rel="stylesheet" type="text/css">
   <link href='css/button.css' rel="stylesheet" type="text/css">
-  <link href='css/w3.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
 
+<!--
 <div class="navbar1">
-  <center><div class="btn-t2" onclick="location.href='startcheck.html'">รับทราบ และไปขั้นตอนต่อไป</div></center>
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
 </div>
+-->
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <!--
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-    -->
-      <a class="navbar-brand" href="#myPage">Retail Society</a>
+      <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
     </div>
-    <!--
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#about">เกมส์ที่ 1</a></li>
+        <li><a href="#services">เกมส์ที่ 2</a></li>
+        <li><a href="#portfolio">เกมส์ที่ 3</a></li>
         <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="#contact">แก้ไขข้อมูล</a></li>
       </ul>
     </div>
-  -->
   </div>
 </nav>
 
@@ -64,41 +62,60 @@
 
 
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <div class="intro">
-      <div class="ldp1 carousel-inner" role="listbox">
-        <div class="item active">
-          <div><img src="./img/intro/intro-1@.png" style="max-width: 320px"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-2@.png" style="max-width: 320px"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-3@.png" style="max-width: 320px"></div>
-        </div>
-        <div class="item">
-          <div><img src="./img/intro/intro-4@.png" style="max-width: 320px"></div>
-        </div>
-      </div>
+    <div class="header-line">เกมส์วัดดวง</div> 
+    <div style="margin-top:25px;"><img src="./img/profile.png" style="width: 100px;"></div>
+    <div style="color:#f68b1f;font-weight: 600;padding-top:10px;">Website</div>
+    <div style="color:#ffffff;font-weight: 300;">
+      <div>กติกาการแข่งขัน</div>
+      <ul>
+        <li>ผู้เข้าแข่งขันเข้าร่วมเก็บคะแนนวันละ 1 ครั้ง</li>
+        <li>เกมส์นี้เป็นเกมส์ทายตัวเลขมากกว่า หรือน้อยกว่า</li>
+        <li>ตอบถูกแต่ละครั้งได้ 1 คะแนน ตอบผิดได้ 0 คะแนน</li>
+        <li>กรณีตอบถูกทั้ง 3 ครั้ง ได้คะแนนเพิ่มอีก 2 คะแนน</li>
+        <li></li>
+      </ul>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="btn-t1" style="margin-top:5px;" onclick="location.href='game2.html'">เข้าสู่การแข่งขัน</div>
+    <div onclick="test()">test popup</div>
   </div>
+
+
+  <div class="header-line" style="margin-top:80px;text-align: center;padding:15px;">เกมส์วัดดวง</div> 
+  <div style="margin-top:5px; margin-bottom: 10px;">
+      <div class="box-score">
+        <div class="box-tscore1">คะแนนของคุณ</div>
+        <div class="box-tscore2" id="DisplayScore"></div>
+        <div class="box-tscore3">คะแนน</div>
+      </div>
+  </div>
+  <div class="clr"></div>
+  <div style="width:80%;margin:auto;">
+    <div id="DisplayNumber0"></div>
+    <div id="DisplayNumber1"></div>
+    <div id="DisplayNumber2"></div>
+    <div id="DisplayNumber3"></div>
+    <!--<div class="col-sm-3 game2-box"><div class="game-a1" id="DisplayNumber0"></div><div class="game-a2">เริ่มเกมส์</div></div>
+    <div class="col-sm-3 game2-box"><div class="game-a1">2</div><div class="game-a2">มากกว่า</div></div>
+    <div class="col-sm-3 game2-box"><div class="game-a1">3</div><div class="game-a2">เท่ากับ</div></div>
+    <div class="col-sm-3 game2-boxs"><div class="game-a5">?</div></div>-->
+  </div>  
+  <div class="clr"></div>
+  <div class="text-score">ตารางการแข่งขันของคุณ</div>
+  <div id="DisplayNumber"></div>
+  <div class="text-score">เลือกตัวเลข 1-10 ตัวต่อไปว่าจะ น้อยกว่า | เท่ากับ | มากกว่า</div>
+  <div id="DisplayRound"></div>
+  <div class="clr"></div>
+  <div class="text-score" id="DisplayMessage" style="color:#ffff00;"></div>
+<!--
+  <div style="width:50%;margin:auto;">
+    <div class="col-sm-4 game2-box1" onclick="SendNumber(5,1)"><div class="game-a3"><</div><div class="game-a4">น้อยกว่า</div></div>
+    <div class="col-sm-4 game2-box1" onclick="SendNumber(5,2)"><div class="game-a3">=</div><div class="game-a4">เท่ากับ</div></div>
+    <div class="col-sm-4 game2-box1" onclick="SendNumber(5,3)"><div class="game-a3">></div><div class="game-a4">มากกว่า</div></div>
+  </div>  
+  <center><div class="btn-t1" style="margin-top:30px;" onclick="location.href='game2.html'">คลิกเพื่อลุ้นตัวเลข</div></center>
+-->
+  <div style="height: 200px;"></div>
+
 
 
 <!-- Container (About Section) -->
@@ -369,12 +386,53 @@ $(document).ready(function(){
 })
 </script>
 -->
-<script type="text/javascript">
-	$(‘.banner’).css({‘height’: (($(window).height()))+’px’});
-	 
-	$(window).on(‘resize’, function(){
-	 $(‘.banner’).css({‘height’: (($(window).height()))+’px’});
-	});	
-</script>
+<script src="./js/game2.js"></script>
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+<!--
+    <header class="w3-container w3-teal"> 
+      <span onclick="CloseAll()" class="w3-button w3-large w3-display-topright">&times;</span>
+      <div>รายชื่อผู้ร่วมงานของคุณที่ได้รับการชื่นชมจาก โครงการ 4 ใจ</div>
+    </header> style="margin-bottom: 40px;background-color: #f2f3f8;"
+-->
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayLastScore" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+<!--
+    <footer class="w3-container w3-teal">
+      <div id="Header_bottom">ให้ทำการคลิกเลือกผู้ที่จะนำเสนอเข้าประกวด 4 ใจ ประจำเดือน (เลือกได้เพียง 1 รายชื่อ)</div>
+    </footer>
+-->
+  </div>
+</div>
+
+
+<div id="id02" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4" style="margin-bottom: 40px;background-color: #f2f3f8;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayEndScore" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+<div id="id03" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4" style="margin-bottom: 40px;background-color: #f2f3f8;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayExtraPoint" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
