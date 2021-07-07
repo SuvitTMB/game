@@ -101,7 +101,7 @@ function DisplayRound() {
 	$("#DisplayRound").val(cleararray);
 	var str = "";
 	if(EndGame==0) {
-		str+='<div style="width:60%;margin:auto;">';
+		str+='<div style="width:65%;margin:auto;">';
 		str+='<div class="col-sm-4 game2-box1" onclick="SendNumber('+RoundNumber+','+ getNumberStart +',1)"><div class="game-a3"><</div><div class="game-a4">น้อยกว่า</div></div>';
 		str+='<div class="col-sm-4 game2-box1" onclick="SendNumber('+RoundNumber+','+ getNumberStart +',2)"><div class="game-a3">=</div><div class="game-a4">เท่ากับ</div></div>';
 		str+='<div class="col-sm-4 game2-box1" onclick="SendNumber('+RoundNumber+','+ getNumberStart +',3)"><div class="game-a3">></div><div class="game-a4">มากกว่า</div></div>';
