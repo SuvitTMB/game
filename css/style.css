@@ -30,7 +30,7 @@
     font-family: ekachon-regular, sans-serif;
   }
   .container-fluid {
-    padding: 60px 50px;
+    padding: 30px 30px;
   }
   .bg-grey {
     background-color: #f6f6f6;
@@ -278,7 +278,7 @@ body {
 .game2-box1 {
   width:28%; height: 60px; border:2px; float: left;
   background:#f68b1f; text-align: center; border-radius: 10px;
-  margin:4px;
+  margin:6px;
 }
 .game2-box1:hover {
   background-color: #002d63; cursor: pointer;
@@ -288,9 +288,36 @@ body {
   background:#0056ff; text-align: center; border-radius: 10px;
   margin:4px;
 }
-
+.NameLine {
+  color:#f68b1f;font-weight: 600;padding-top:10px;
+}
+.box-msgtext {
+  width:90%;background:#bdd3ff; border-radius: 10px; font-size: 12px; color:#555555;
+  margin-top:30px; margin-right: auto; margin-left: auto; padding:20px; margin-bottom: 25px;
+}
+.box-linkapp {
+  width:90%;background:#bdd3ff; border-radius: 10px; font-size: 12px; color:#555555;
+  margin:10px; margin-right: auto; margin-left: auto; padding:10px; cursor: pointer;
+}
+.box-linkapp:hover {
+  background:#f68b1f; color:#ffffff;
+}
+.box-text1 {
+  width:10%; text-align: center; float: left;
+}
+.box-text2 {
+  width:100%; text-align: left; 
+}
+.text-false {
+  padding:10px 0 20px 0; color:#f68b1f; font-weight: 600; text-align: center; width:100%; font-size:16px;
+}
 .text-score {
   width:100%; font-size:12px; text-align: center; color:#bdd3ff;padding:8px 0 8px 0;
+}
+.text-warning {
+  width:100%; font-size:12px; text-align: center; color:#ffffff;padding:8px;
+  background:#000; border-radius: 10px; width:80%; margin-left: auto; margin-right: auto;
+  margin-top:36px;
 }
 .game-a1 {
   text-align: center; font-size: 50px; font-weight: 600; color:#0056ff; margin-top:-5px;
@@ -308,18 +335,31 @@ body {
   text-align: center; font-size: 50px; font-weight: 600; color:#000000; margin-top:-5px;
 }
 .box-score {
-  width:280px; background-color: #f68b1f; height:40px; color:#ffffff; border-radius: 8px; 
+  width:300px; background-color: #f68b1f; height:40px; color:#ffffff; border-radius: 8px; 
   text-align: center; margin:auto; font-size:12px;
 }
 .box-tscore1 {
-  width:110px; padding:10px 0px; float: left;
+  width:120px; padding:10px 0px; float: left;
 }
 .box-tscore2 {
   width:90px; float: left; font-size:30px; margin-top:-3px;
 }
 .box-tscore3 {
-  width:70px; padding:10px 0px; float: left;
+  width:80px; padding:10px 0px; float: left;
 }
 .TextLastScore {
-  font-size: 15px; width:100%; padding-top:30px; text-align: center; color:#f68b1f;
+  font-size: 14px; width:100%; padding-top:10px; text-align: center; color:#0056ff;padding-bottom: 30px;
+}
+.profile-user {
+  position: relative; width:90px; height:90px; margin:auto; 
+}
+.profile-user .profile-level {
+  width:35px; height: 35px; border-radius: 50%; background:#002d63; 
+  color:#fff; position: absolute; bottom: 0px; right: 0px; 
+}
+.profile-user .profile-numberlevel {
+  font-size: 18px; text-align: center; margin-top:-2px;
+}
+.profile-user .profile-textlevel {
+  font-size: 8px; text-align: center; margin-top:-8px;
 }
