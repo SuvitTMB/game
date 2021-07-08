@@ -58,27 +58,35 @@
     </div>
   </form>
 </div>
--->
 
 
   <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
     <div class="header-line">เกมส์วัดดวง</div> 
     <div style="margin-top:25px;"><img src="./img/profile.png" style="width: 100px;"></div>
-    <div style="color:#f68b1f;font-weight: 600;padding-top:10px;">Website</div>
-    <div style="color:#ffffff;font-weight: 300;">
-      <div>กติกาการแข่งขัน</div>
-      <ul>
-        <li>ผู้เข้าแข่งขันเข้าร่วมเก็บคะแนนวันละ 1 ครั้ง</li>
-        <li>เกมส์นี้เป็นเกมส์ทายตัวเลขมากกว่า หรือน้อยกว่า</li>
-        <li>ตอบถูกแต่ละครั้งได้ 1 คะแนน ตอบผิดได้ 0 คะแนน</li>
-        <li>กรณีตอบถูกทั้ง 3 ครั้ง ได้คะแนนเพิ่มอีก 2 คะแนน</li>
-        <li></li>
-      </ul>
+    <div class="NameLine">Website</div>
+    <div class="box-msgtext">
+      <div style="padding:10px;font-weight: 600;width:100%;">กติกาการแข่งขัน</div>
+      <div class="box-text1">1.</div>
+      <div class="box-text2">ผู้เข้าแข่งขันสามารถเข้าเก็บคะแนนเกมส์นี้ได้วันละ 1 ครั้ง</div>
+      <div class="box-text1">2.</div>
+      <div class="box-text2">เกมส์นี้เป็นเกมส์ทายตัวเลขน้อยกว่า เท่ากับ หรือมากกว่า</div>
+      <div class="box-text1">3.</div>
+      <div class="box-text2">ถ้าทายผลถูกได้รับ 1 คะแนน และสามารถเลือกทายตัวเลขต่อไปได้</div>
+      <div class="box-text1">4.</div>
+      <div class="box-text2">กรณีตอบผิดเกมส์การแข่งขันสิ้นสุด ได้คะแนนตามที่ทำได้</div>
+      <div class="box-text1">5.</div>
+      <div class="box-text2">ผู้แข่งขันสามารถเลือก น้อยกว่า เท่ากับ หรือมากกว่า ได้</div>
+      <div class="box-text1">6.</div>
+      <div class="box-text2">กรณีเลือกตอบเท่ากับ และถูกต้องได้รับคะแนนเพิ่ม 3 คะแนน</div>
+      <div class="box-text1">7.</div>
+      <div class="box-text2">กรณีตอบถูกครบทั้ง 3 ข้อ ได้รับคะแนนเพิ่ม 2 คะแนน</div>
+      <div class="box-text1">8.</div>
+      <div class="box-text2">ถ้าพร้อมที่จะเข้าแข่งขันแล้วกด "<b>เข้าสู่การแข่งขัน</b>"</div>
     </div>
     <div class="btn-t1" style="margin-top:5px;" onclick="location.href='game2.html'">เข้าสู่การแข่งขัน</div>
-    <div onclick="test()">test popup</div>
   </div>
 
+-->
 
   <div class="header-line" style="margin-top:80px;text-align: center;padding:15px;">เกมส์วัดดวง</div> 
   <div style="margin-top:5px; margin-bottom: 10px;">
@@ -89,23 +97,21 @@
       </div>
   </div>
   <div class="clr"></div>
-  <div style="width:80%;margin:auto;">
+  <div style="width:82%;margin:auto;">
     <div id="DisplayNumber0"></div>
     <div id="DisplayNumber1"></div>
     <div id="DisplayNumber2"></div>
     <div id="DisplayNumber3"></div>
-    <!--<div class="col-sm-3 game2-box"><div class="game-a1" id="DisplayNumber0"></div><div class="game-a2">เริ่มเกมส์</div></div>
-    <div class="col-sm-3 game2-box"><div class="game-a1">2</div><div class="game-a2">มากกว่า</div></div>
-    <div class="col-sm-3 game2-box"><div class="game-a1">3</div><div class="game-a2">เท่ากับ</div></div>
-    <div class="col-sm-3 game2-boxs"><div class="game-a5">?</div></div>-->
   </div>  
   <div class="clr"></div>
   <div class="text-score">ตารางการแข่งขันของคุณ</div>
   <div id="DisplayNumber"></div>
-  <div class="text-score">เลือกตัวเลข 1-10 ตัวต่อไปว่าจะ น้อยกว่า | เท่ากับ | มากกว่า</div>
+  <div id="Displayintromessage"></div>
   <div id="DisplayRound"></div>
   <div class="clr"></div>
   <div class="text-score" id="DisplayMessage" style="color:#ffff00;"></div>
+  <div id="DisplayWarning"></div>
+  <div style="height: 40px;"><a href="game2.html">เล่นอีกครั้ง</a></div>
 <!--
   <div style="width:50%;margin:auto;">
     <div class="col-sm-4 game2-box1" onclick="SendNumber(5,1)"><div class="game-a3"><</div><div class="game-a4">น้อยกว่า</div></div>
@@ -114,7 +120,6 @@
   </div>  
   <center><div class="btn-t1" style="margin-top:30px;" onclick="location.href='game2.html'">คลิกเพื่อลุ้นตัวเลข</div></center>
 -->
-  <div style="height: 200px;"></div>
 
 
 
@@ -388,31 +393,39 @@ $(document).ready(function(){
 -->
 <script src="./js/game2.js"></script>
 
-<div id="id01" class="w3-modal w3-animate-opacity">
-  <div class="w3-modal-content w3-card-4">
 <!--
     <header class="w3-container w3-teal"> 
       <span onclick="CloseAll()" class="w3-button w3-large w3-display-topright">&times;</span>
       <div>รายชื่อผู้ร่วมงานของคุณที่ได้รับการชื่นชมจาก โครงการ 4 ใจ</div>
     </header> style="margin-bottom: 40px;background-color: #f2f3f8;"
+  <div class="w3-modal-content w3-card-4" style="margin-bottom: 40px;background-color: #f2f3f8;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayEndScore" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
 -->
+<!--
+    <footer class="w3-container w3-teal">
+      <div id="Header_bottom">ให้ทำการคลิกเลือกผู้ที่จะนำเสนอเข้าประกวด 4 ใจ ประจำเดือน (เลือกได้เพียง 1 รายชื่อ)</div>
+    </footer>
+-->
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
     <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
       <center>
         <div id="DisplayLastScore" class="TextLastScore"></div>
         <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
       </center>
     </div>
-<!--
-    <footer class="w3-container w3-teal">
-      <div id="Header_bottom">ให้ทำการคลิกเลือกผู้ที่จะนำเสนอเข้าประกวด 4 ใจ ประจำเดือน (เลือกได้เพียง 1 รายชื่อ)</div>
-    </footer>
--->
   </div>
 </div>
 
 
 <div id="id02" class="w3-modal w3-animate-opacity">
-  <div class="w3-modal-content w3-card-4" style="margin-bottom: 40px;background-color: #f2f3f8;">
+  <div class="w3-modal-content w3-card-4">
     <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
       <center>
         <div id="DisplayEndScore" class="TextLastScore"></div>
@@ -423,7 +436,7 @@ $(document).ready(function(){
 </div>
 
 <div id="id03" class="w3-modal w3-animate-opacity">
-  <div class="w3-modal-content w3-card-4" style="margin-bottom: 40px;background-color: #f2f3f8;">
+  <div class="w3-modal-content w3-card-4">
     <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
       <center>
         <div id="DisplayExtraPoint" class="TextLastScore"></div>
@@ -433,6 +446,17 @@ $(document).ready(function(){
   </div>
 </div>
 
+
+<div id="id04" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4" style="background-color: #f68b1f;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div><img src='./img/introgame.jpg' style='max-width: 300px; margin-bottom: 20px;'></div>
+        <div class="btn-t1" onclick="CloseAll()">เริ่มเกมส์ของคุณ</div>
+      </center>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
