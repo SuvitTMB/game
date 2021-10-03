@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
+</div>
+-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="introgame.html">กิจกรรม</a></li>
+        <li><a href="#services">คะแนนผู้นำ</a></li>
+        <li><a href="#portfolio">ของรางวัล</a></li>
+        <li><a href="#pricing">แนะนำเรา</a></li>
+        <li><a href="#contact">เกี่ยวกับคุณ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="header-line" style="margin-top:80px;text-align: center;padding:15px;">เกมส์วัดดวง</div> 
+<div style="margin-top:5px; margin-bottom: 10px;">
+    <div class="box-score">
+      <div class="box-tscore1">Score ของคุณ</div>
+      <div class="box-tscore2" id="DisplayScore"></div>
+      <div class="box-tscore3">คะแนน</div>
+    </div>
+</div>
+<div class="clr"></div>
+<div style="max-width:360px;width:100%;margin:auto;background-color: #ff0000;">
+  <div id="DisplayNumber0"></div>
+  <div id="DisplayNumber1"></div>
+  <div id="DisplayNumber2"></div>
+  <div id="DisplayNumber3"></div>
+</div>  
+<div class="clr"></div>
+<div class="text-score">ตารางการแข่งขันของคุณ</div>
+<div id="DisplayNumber"></div>
+<div id="Displayintromessage"></div>
+<div id="DisplayRound"></div>
+<div class="clr"></div>
+<div class="text-score" id="DisplayMessage" style="color:#ffff00;"></div>
+<div id="DisplayWarning"></div>
+<div class="clr" style="height: 40px;text-align: center;">
+  <a href="gamenumber.html"><font color="#ffffff">เล่นอีกครั้ง</font></a>
+</div>
+
+<script src="./js/gamenumber.js"></script>
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayLastScore" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
+<div id="id02" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4" style="background-color: #ffffff;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayEndScore" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+<div id="id03" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div id="DisplayExtraPoint" class="TextLastScore"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+
+<div id="id04" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4" style="background-color: #f68b1f;">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+      <center>
+        <div><img src='./img/introgame.jpg' style='max-width: 300px; margin-bottom: 20px;'></div>
+        <div class="btn-t1" onclick="CloseAll()">เริ่มเกมส์ของคุณ</div>
+      </center>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

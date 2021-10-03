@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #5686ac;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>#0016ed
+</div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="introgame.html">กิจกรรม</a></li>
+          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
+          <li><a href="#portfolio">ของรางวัล</a></li>
+          <li><a href="#pricing">แนะนำเรา</a></li>
+          <li><a href="#contact">เกี่ยวกับคุณ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <center>
+  <div class="row" style="margin:60px auto; width:100%;">
+    <div class="leaderboard-head">เหรียญรางวัลของคุณ</div>
+    <div style="margin-top:65px;">
+      <div id="MyScore"></div>
+    </div>
+    <div class="clr"></div>
+
+    <div style="margin-top:30px;max-width:360px;width:100%;">
+      <div class="box-badges badges-gray" onclick="ShowBadges(1)">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">เหรียญต้อนรับ</div>
+      </div>
+      <div class="box-badges" onclick="ShowBadges(1)">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges badges-gray">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges badges-gray">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges badges-gray">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+      <div class="box-badges">
+        <div><img src="./img/leader-1.png" class="badges-img"></div>
+        <div class="badges-txt">Welcome</div>
+      </div>
+    </div>
+
+        <div class="clr"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="clr" style="height: 20px;"></div>
+  <div class="btn-t1" style="margin-top:20px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
+  <div style="height: 30px;"></div>
+  </center>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fbf8f7;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;line-height: 1.2;">
+            เหรียญรางวัล</div>
+          <div><img src="./img/badge.png" width="250px"></div>
+          <div style="font-size: 14px;font-weight: 600;color:#000;">เหรียญต้อนรับ</div>
+          <div>เมื่อผู้เข้าร่วมการแข่งขันเข้าร่วมการแข่งขันเป็นครั้งแรก ผู้เข้าแข่งขันจะได้รับเหรียญต้อนรับ สำหรับการเดินทางอันแสนยาวไกล</div>
+          <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <script src="./js/scorepoint.js"></script>
+  <script src="./js/mybadges.js"></script>
+</body>
+</html>

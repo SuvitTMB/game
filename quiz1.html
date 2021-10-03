@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
+</div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!--
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        -->
+        <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+<!--
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#about">เกมส์ที่ 1</a></li>
+          <li><a href="#services">เกมส์ที่ 2</a></li>
+          <li><a href="#portfolio">เกมส์ที่ 3</a></li>
+          <li><a href="#pricing">PRICING</a></li>
+          <li><a href="#contact">แก้ไขข้อมูล</a></li>
+        </ul>
+-->
+      </div>
+    </div>
+  </nav>
+
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <div class="header-line">เกมส์วัดใจ (มี 4 ใจได้ใจแน่นอน)</div> 
+    <div style="margin-top:30px;background:#002d63;min-height: 160px;padding:20px;">
+      <div id="DisplayTimer"></div>
+      <!--<div class="txt-q">คำถาม</div>-->
+      <div id="DisplayDay"></div>
+      <div id="DisplayQuestion"></div>
+    </div>
+    <div class="clr"></div>
+    <div id="DisplayChoice" style="color:#fff;margin-top:30px;"></div>
+    <!--
+    <div class="box-linkapp" onclick="location.href='quiz1.html'" style="margin-top:35px;">เกมส์วัดใจ (มี 4 ใจได้ใจแน่นอน)</div>
+    <div class="box-linkapp" onclick="location.href='introgame2.html'">Main Bank</div>
+    <div class="box-linkapp">เกมส์ที่ 3</div>
+    <div class="box-linkapp">เกมส์ที่ 4</div>
+    -->
+    <div style="height: 30px;"></div>
+<!--
+    <div class="btn-t1" style="margin-top:5px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
+    <div style="height: 40px;"></div>
+-->
+  </div>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div id="CloseQuiz"></div>
+          <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div id="SelectWay"></div>
+          <div class="btn-t1" onclick="CloseAll()">คลิกเพื่อดูข้อเสนอของเรา</div>
+        </center>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div id="ShowEndPoint"></div>
+          <div class="btn-t1" onclick="CloseAll()">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <script  src="./js/session.js"></script>
+  <script src="./js/quiz1.js"></script>
+</body>
+</html>

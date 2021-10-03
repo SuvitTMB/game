@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/app.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #5686ac;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>#0016ed
+</div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="introgame.html">กิจกรรม</a></li>
+          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
+          <li><a href="#portfolio">ของรางวัล</a></li>
+          <li><a href="#pricing">แนะนำเรา</a></li>
+          <li><a href="#contact">เกี่ยวกับคุณ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <center>
+  <div class="row" style="margin:-10px auto; width:100%;">
+    <div style="position: relative;width:360px;text-align: center;">
+      <img src="./img/animation.gif" style="width:100%;">
+    </div>
+    <div class="leaderboard-head">ตารางผู้นำการแข่งขัน</div>
+      <div style="margin-top:25px;">
+        <div id="MyScore"></div>
+      </div>
+      <div class="clr"></div>
+      <div style="margin-top:65px;max-width:360px;width:100%;">
+        <div id="DisplayBoard"></div>
+
+<!--
+        <div class="box-5h1" onclick="LeaderBoard(1)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">1</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+
+        <div class="box-5h2" onclick="LeaderBoard(2)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">2</div>
+          </div>
+          <div class="number5">2,123.40p</div>
+        </div>
+
+        <div class="box-5h3" onclick="LeaderBoard(3)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">30</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+
+        <div class="box-5h" onclick="LeaderBoard(4)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">4</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+
+
+        <div class="box-5h" onclick="LeaderBoard(5)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">5</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+
+        <div class="box-5h" onclick="LeaderBoard(5)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">6</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+        <div class="box-5h" onclick="LeaderBoard(7)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">7</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+        <div class="box-5h" onclick="LeaderBoard(8)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">8</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+        <div class="box-5h" onclick="LeaderBoard(9)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">9</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+        <div class="box-5h" onclick="LeaderBoard(10)">
+          <div style="width:60px;text-align: center;float: left;"><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:50px;"></div>
+          <div class="box-5h-name1">Website<br>สุวิทย์ ชัยรุ่งปัญญา</div>
+          <div class="box-5h-number1"><img src="./img/leader-1.png" width="50">
+            <div class="number4">10</div>
+          </div>
+          <div class="number5">123.40p</div>
+        </div>
+-->
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="clr" style="height: 20px;"></div>
+  <div id="loadmore" class="btn-t2">Load More...</div>
+  <div class="btn-t1" style="margin-top:20px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+  <div style="height: 30px;"></div>
+  </center>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #dce5f6;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">ข้อมูลผู้แข่งขัน</div>
+          <div style="margin-top: 10px;">
+            <div id="UserScore"></div>
+            <!--
+            <div ><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="imgprofile-ss" style="width:120px;"></div>
+          -->
+
+            
+          </div>
+          <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่าง</div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <script  src="./js/session.js"></script>
+  <script src="./js/leaderboard.js"></script>
+</body>
+</html>

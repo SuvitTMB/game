@@ -1,0 +1,429 @@
+<!--
+	https://www.youtube.com/watch?v=ofZg0J4LR5Q
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css?ver=0001' rel="stylesheet" type="text/css">
+  <link href='css/table.css' rel="stylesheet" type="text/css">
+  <link href='css/dropdown.css' rel="stylesheet" type="text/css">
+
+
+<!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+-->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+</head>
+<body style="font-size: 12px;">
+
+
+	<div id="FormAdd" style="display: none; margin:auto;width:90%;" class="t-table">
+		<div style="color:#0056ff;text-align: center;padding:8px;font-weight: 600;">รายการคำถาม</div>
+		<div style="width:100px;float: left;">หมวดคำถาม</div>
+		<div style="width:100%;">
+          <select id="txtGroupQuiz" class="input">
+            <option value="QuizRelax">คำถามคลายเครียด (สุ่มเลือกคำถาม)</option>
+            <option value="QuizoftheDay">คำถามประจำวัน (สุ่มเลือกคำถาม)</option>
+            <option value="MainBank">คำถาม Main Bank (สุ่มเลือกคำถาม)</option>
+          </select>
+          วันที่คำถาม <input type="text" id="txtQuizDate" class="input" style="width:120px;text-align: center;">
+        </div>
+<!--
+		<div style="width:100px;float: left;">วันที่ตั้งคำถาม</div>
+		<div style="width:100%;"><input type="text" id="txtQuizDate" class="input"></div>
+-->
+		<div style="width:100px;float: left;">สถานะของคำถาม</div>
+		<div style="width:100%;">
+          <select id="txtQuizStatus" class="input">
+            <option value="1">1. เปิดการแสดงผล</option>
+            <option value="2">2. ปิดไม่ให้แสดงผล</option>
+          </select>
+        </div>
+		<div style="width:100px;float: left;">ประเภทคำถาม</div>
+		<div style="width:100%;">
+          <select id="txtQuizTypeQuestion" class="input">
+            <option value="1">1. ประเภทคำถาม 4 ตัวเลือก</option>
+            <option value="2">2. ประเภทคำถามรูปภาพ และพิมพ์คำตอบ</option>
+            <option value="3">3. ประเภท VDO และมี 4 ตัวเลือก</option>
+            <option value="4">4. ประเภท VDO และพิมพ์คำตอบ</option>
+          </select>
+        </div>
+		<div style="width:100px;float: left;">คำถาม</div>
+		<div style="width:100%;"><input type="text" id="txtQuizQuestion" class="input" style="width:80%;"></div>
+		<div style="width:100px;float: left;">ตัวเลือกที่ 1</div>
+		<div style="width:100%;"><input type="text" id="txtChoice1" class="input" style="width:70%;"> 
+			<input type="text" id="txtSumChoice1" class="input" style="width:50px;text-align: center;"></div>
+		<div style="width:100px;float: left;">ตัวเลือกที่ 2</div>
+		<div style="width:100%;"><input type="text" id="txtChoice2" class="input" style="width:70%;">
+		    <input type="text" id="txtSumChoice2" class="input" style="width:50px;text-align: center;"></div>
+		<div style="width:100px;float: left;">ตัวเลือกที่ 3</div>
+		<div style="width:100%;"><input type="text" id="txtChoice3" class="input" style="width:70%;"> 
+			<input type="text" id="txtSumChoice3" class="input" style="width:50px;text-align: center;"></div>
+		<div style="width:100px;float: left;">ตัวเลือกที่ 4</div>
+		<div style="width:100%;"><input type="text" id="txtChoice4" class="input" style="width:70%;">
+			<input type="text" id="txtSumChoice4" class="input" style="width:50px;text-align: center;"></div>
+		<div style="width:100px;float: left;">ตัวเลือกข้อที่ถูก</div>
+		<div style="width:100%;"><input type="text" id="txtQuizAnswer" class="input" style="width:50px;text-align: center;"> คะนนที่ได้รับ <input type="text" id="txtQuizPoint" class="input" style="width:50px;text-align: center;"></div>
+		<div style="width:100px;float: left;">URL รูปภาพ</div>
+		<div style="width:100%;"><input type="text" id="txtQuizImg" class="input"> คำตอบที่ถูกต้อง <input type="text" id="txtQuizAnswerText" class="input" style="width:150px;text-align: center;"></div>
+		<div style="width:100px;float: left;">URL VDO</div>
+		<div style="width:100%;margin-top:2px;"><textarea class="textarea" id="txtQuizVDO"></textarea></div>
+		<div style="width:100px;float: left;">คำอธิบายเพิ่มเติม</div>
+		<div style="width:100%;"><input type="text" id="txtMoreDetail" class="input" style="width:80%;"></div>
+
+
+		<div style="width:100px;float: left;">เวลาที่ใช้ตอบ</div>
+		<div style="width:100%;"><input type="text" id="txtQuizTimer" class="input" style="width:50px;text-align: center;">
+			จำนวนการตอบ (ครั้ง) <input type="text" id="txtSumQuiz" class="input" style="width:50px;text-align: center;">
+			จำนวนตอบถูก <input type="text" id="txtSumQuizTrue" class="input" style="width:50px;text-align: center;">
+			จำนวนตอบผิด <input type="text" id="txtSumQuizFalse" class="input" style="width:50px;text-align: center;">
+		</div>
+		<div style="width:100px;float: left;">หมายเหตุ</div>
+		<div style="width:100%;"><input type="text" id="txtMemo" class="input"></div>
+
+		<div style="width:100px;float: left;">.</div>
+		<div style="width:100%;margin-top:2px;">
+		<button onclick="AddData(document.getElementById('txtGroupQuiz').value)">Save</button>
+		</div>	
+	</div>
+	<div class="clr"></div>
+	<div class="t-table" stye="margin:auto;">
+		<center>
+			<div style="margin-top: 25px ;color:#0056ff;padding:8px;font-weight: 600;">ข้อมูลคำถาม</div>
+			<div class="col">
+				<center>
+					<span class="dropdown-container" style="margin-top:-5px; margin-bottom:15px;">
+			          <select id="SelectGroup" onchange="getListValue()" class="input" style="width:250px;background: #f68b1f; color:#ffffff;border-radius: 10px;cursor: pointer;">
+			            <option value="QuizRelax">คำถามคลายเครียด (สุ่มเลือกคำถาม)</option>
+			            <option value="QuizoftheDay">คำถามประจำวัน (สุ่มเลือกคำถาม)</option>
+			            <option value="MainBank">คำถาม Main Bank (สุ่มเลือกคำถาม)</option>
+			          </select>
+					</span>
+					<span><button onclick="AddRec()">Add</button></span>
+				</center>
+			</div>
+		</center>
+		<ul id="show" class="showInColumn"></ul>
+	</div>
+
+
+<script type="text/javascript">
+
+var Eid = "";
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear()+543;
+today = dd + '/' + mm + '/' + yyyy;
+
+var _0x2223a8=_0x4a06;function _0x4a06(_0x58d05f,_0x37522b){var _0x51897b=_0x5189();return _0x4a06=function(_0x4a065c,_0x574a38){_0x4a065c=_0x4a065c-0xa6;var _0x5ad908=_0x51897b[_0x4a065c];return _0x5ad908;},_0x4a06(_0x58d05f,_0x37522b);}function _0x5189(){var _0x4c9d9a=['1193208OLbmRR','retailproject-6f4fc.firebaseapp.com','793537bcfEnc','1029280khHJRm','AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','3048VLbdVv','retailproject-6f4fc','653667385625','15090327YLbHCA','3241BeunWp','20392sIqUAD','retailproject-6f4fc.appspot.com','380qTLowL','1133772GbhIaw','G-9SKTRHHSW9'];_0x5189=function(){return _0x4c9d9a;};return _0x5189();}(function(_0xd95154,_0xe1abc4){var _0xb84bf7=_0x4a06,_0x110b75=_0xd95154();while(!![]){try{var _0x27bd57=-parseInt(_0xb84bf7(0xab))/0x1+-parseInt(_0xb84bf7(0xa9))/0x2+-parseInt(_0xb84bf7(0xa7))/0x3+-parseInt(_0xb84bf7(0xb3))/0x4*(-parseInt(_0xb84bf7(0xa6))/0x5)+parseInt(_0xb84bf7(0xae))/0x6*(parseInt(_0xb84bf7(0xb2))/0x7)+-parseInt(_0xb84bf7(0xac))/0x8+parseInt(_0xb84bf7(0xb1))/0x9;if(_0x27bd57===_0xe1abc4)break;else _0x110b75['push'](_0x110b75['shift']());}catch(_0x436a60){_0x110b75['push'](_0x110b75['shift']());}}}(_0x5189,0x624c6));var firebaseConfig={'apiKey':_0x2223a8(0xad),'authDomain':_0x2223a8(0xaa),'projectId':_0x2223a8(0xaf),'storageBucket':_0x2223a8(0xb4),'messagingSenderId':_0x2223a8(0xb0),'appId':'1:653667385625:web:a5aed08500de80839f0588','measurementId':_0x2223a8(0xa8)};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore().collection("QuizoftheDay");
+
+
+getListValue();
+
+
+
+
+function getListValue() {
+	var selectedOption, st;
+	//var selectedOption;
+	selectedOption = document.getElementById("SelectGroup").selectedIndex;
+	st = document.getElementById("SelectGroup").options[selectedOption].value;
+	if(st!="") { sGroupQuiz = st; }
+	document.getElementById('FormAdd').style.display = 'none';
+	ReadData();
+	//alert(sGroupQuiz);
+	//document.getElementById("myTextBoxResult").value=st;
+}
+
+
+//ReadData();
+
+//AddData('Staff','09/08/2564','[{"Rank": 1,"Bank": "TBANK","Branch Name": "สาขาบางนา","Zone": "บางนา","Region": "RH1","Score": "83.88%"},{"Rank": 649,"Bank": "TBANK","Branch Name": "สาขาบิ๊กซี บางพลี","Zone": "บางนา","Region": "RH1","Score": "73.70%"}]');
+
+function ReadData() {
+  //alert(sGroupQuiz);
+  document.getElementById("show").innerHTML = "";
+  //db.where('GroupQuiz','==',sGroupQuiz)
+  //db.orderBy('GroupQuiz')
+  db.where('GroupQuiz','==',sGroupQuiz)
+  .orderBy('QuizDate','desc')
+  .onSnapshot(function(snapshot) {
+    snapshot.docChanges().forEach(function(change) {
+    	if(change.type === "added") {
+    		ShowData(change.doc);
+    	}
+    	if(change.type === "modified") {
+    		//document.getElementById("show").innerHTML = "";
+    		UpdateData(change.doc);
+    	}
+    	if(change.type === "removed") {
+    		var node = document.getElementById("L_"+change.doc.id);
+    		node.parentNode.removeChild(node);
+    	}
+    });
+  });
+}
+
+
+function UpdateData(doc) {
+//document.getElementById("show").innerHTML = "";
+	var node = document.createElement("LI");
+	node.innerHTML = "";	
+	var t1 = document.createTextNode(' | ' + doc.data().GroupQuiz);
+	var t2 = document.createTextNode(' | ' + doc.data().QuizDate);
+	var t3 = document.createTextNode(' | Type-' + doc.data().QuizTypeQuestion);
+	var t4 = document.createTextNode(' | Ans-' + doc.data().QuizAnswer);
+	var t5 = document.createTextNode(' | ' + doc.data().QuizQuestion);
+	//var t5 = document.createTextNode(doc.data().txtChoice1);
+	//var t6 = document.createTextNode(doc.data().txtChoice2);
+	//var t7 = document.createTextNode(doc.data().txtChoice3);
+	//var t8 = document.createTextNode(doc.data().txtChoice4);
+	node.appendChild(t1);
+	node.appendChild(t2);
+	node.appendChild(t3);
+	node.appendChild(t4);
+	node.appendChild(t5);
+	//node.appendChild(t3);
+
+	var b = document.createElement("BUTTON");
+	b.innerHTML = "delete";
+	b.addEventListener("click", function() {
+		RemoveData(doc.id);
+	});
+	node.appendChild(b);
+
+
+	var b2 = document.createElement("BUTTON");
+	b2.innerHTML = "edit";
+	b2.addEventListener("click", function() {
+		//EditData(doc.id,doc.data().GroupQuiz,doc.data().QuizDate,doc.data().QuizQuestion,doc.data().QuizTimer,doc.data().QuizStatus);
+		EditData(doc.id);
+	});
+	node.appendChild(b2);
+	
+}
+
+
+
+function ShowData(doc) {
+  	//document.getElementById("show").innerHTML = "";
+	var ul = document.getElementById("show");
+	var node = document.createElement("LI");
+	node.id = "L_"+doc.id;
+	var t1 = document.createTextNode(' | ' + doc.data().GroupQuiz);
+	var t2 = document.createTextNode(' | ' + doc.data().QuizDate);
+	var t3 = document.createTextNode(' | Type-' + doc.data().QuizTypeQuestion);
+	var t4 = document.createTextNode(' | Ans-' + doc.data().QuizAnswer);
+	var t5 = document.createTextNode(' | ' + doc.data().QuizQuestion.substring(0,80) + " ...");
+
+
+	var b = document.createElement("BUTTON");
+	b.innerHTML = "delete";
+	b.addEventListener("click", function() {
+		RemoveData(doc.id);
+	});
+	node.appendChild(b);
+
+
+	var b2 = document.createElement("BUTTON");
+	b2.innerHTML = "edit";
+	b2.addEventListener("click", function() {
+		EditData(
+			doc.id
+			/*
+			doc.data().GroupQuiz,
+			doc.data().QuizDate,
+			doc.data().QuizQuestion,
+			doc.data().QuizTypeQuestion,
+			doc.data().QuizChoice1,
+			doc.data().QuizChoice2,
+			doc.data().QuizChoice3,
+			doc.data().QuizChoice4
+			*/
+		);
+	});
+	node.appendChild(b2);
+
+	//node.appendChild(t1);
+	node.appendChild(t2);
+	node.appendChild(t3);
+	node.appendChild(t4);
+	node.appendChild(t5);
+
+	ul.appendChild(node);
+}
+
+
+function RemoveData(id) {
+	db.doc(id).delete();
+	alert("Remove Record Done");
+    document.getElementById('FormAdd').style.display = 'none';
+}
+
+
+function EditData(id) {
+	  Eid = id;
+	  db.where(firebase.firestore.FieldPath.documentId(), "==", Eid)
+	  .get().then((snapshot)=> {
+	    snapshot.forEach(doc=> {
+			document.getElementById("txtGroupQuiz").value = doc.data().GroupQuiz;
+			document.getElementById("txtQuizDate").value = doc.data().QuizDate;
+			document.getElementById("txtQuizTypeQuestion").value = doc.data().QuizTypeQuestion;
+			document.getElementById("txtQuizPoint").value = parseFloat(doc.data().QuizPoint);
+			document.getElementById("txtQuizQuestion").value = doc.data().QuizQuestion;
+/*
+			document.getElementById("txtChoice1").value = doc.data().txtChoice1;
+			document.getElementById("txtChoice2").value = doc.data().txtChoice2;
+			document.getElementById("txtChoice3").value = doc.data().txtChoice3;
+			document.getElementById("txtChoice4").value = doc.data().txtChoice4;
+*/
+
+			document.getElementById("txtChoice1").value = doc.data().QuizChoice1;
+			document.getElementById("txtChoice2").value = doc.data().QuizChoice2;
+			document.getElementById("txtChoice3").value = doc.data().QuizChoice3;
+			document.getElementById("txtChoice4").value = doc.data().QuizChoice4;
+
+			document.getElementById("txtSumQuiz").value = parseInt(doc.data().SumQuiz);
+			document.getElementById("txtSumChoice1").value = parseFloat(doc.data().SumChoice1);
+			document.getElementById("txtSumChoice2").value = parseFloat(doc.data().SumChoice2);
+			document.getElementById("txtSumChoice3").value = parseFloat(doc.data().SumChoice3);
+			document.getElementById("txtSumChoice4").value = parseFloat(doc.data().SumChoice4);
+			document.getElementById("txtQuizAnswer").value = parseFloat(doc.data().QuizAnswer);
+			document.getElementById("txtQuizAnswerText").value = doc.data().QuizAnswerText;
+			document.getElementById("txtQuizImg").value = doc.data().QuizImg;
+			document.getElementById("txtQuizVDO").value = doc.data().QuizVDO;
+			document.getElementById("txtMoreDetail").value = doc.data().MoreDetail;
+			document.getElementById("txtQuizStatus").value = parseFloat(doc.data().QuizStatus);
+			document.getElementById("txtQuizTimer").value = parseFloat(doc.data().QuizTimer);
+			document.getElementById("txtSumQuizTrue").value = parseFloat(doc.data().SumQuizTrue);
+			document.getElementById("txtSumQuizFalse").value = parseFloat(doc.data().SumQuizFalse);
+			document.getElementById("txtMemo").value = doc.data().Memo;
+	    });
+	  });  
+      document.getElementById('FormAdd').style.display = 'block';
+}
+
+
+
+
+function AddData() {
+	if(document.getElementById("txtGroupQuiz").value!="" && document.getElementById("txtQuizQuestion").value!="") {
+		if(Eid=="") {
+		  db.add({
+		    GroupQuiz : document.getElementById("txtGroupQuiz").value,
+		    QuizDate : document.getElementById("txtQuizDate").value,
+		    QuizTypeQuestion : parseInt(document.getElementById("txtQuizTypeQuestion").value),
+		    QuizQuestion : document.getElementById("txtQuizQuestion").value,			
+		    QuizPoint : parseInt(document.getElementById("txtQuizPoint").value),			
+	    	QuizChoice1 : document.getElementById("txtChoice1").value,
+	    	QuizChoice2 : document.getElementById("txtChoice2").value,
+	    	QuizChoice3 : document.getElementById("txtChoice3").value,
+	    	QuizChoice4 : document.getElementById("txtChoice4").value,
+	    	SumQuiz : parseInt(document.getElementById("txtSumQuiz").value),
+	    	SumChoice1 : parseInt(document.getElementById("txtSumChoice1").value),
+	    	SumChoice2 : parseInt(document.getElementById("txtSumChoice2").value),
+	    	SumChoice3 : parseInt(document.getElementById("txtSumChoice3").value),
+	    	SumChoice4 : parseInt(document.getElementById("txtSumChoice4").value),
+	    	QuizAnswer : parseInt(document.getElementById("txtQuizAnswer").value),
+	    	QuizAnswerText : document.getElementById("txtQuizAnswerText").value,
+	    	QuizImg : document.getElementById("txtQuizImg").value,
+	    	QuizVDO : document.getElementById("txtQuizVDO").value,
+	    	MoreDetail : document.getElementById("txtMoreDetail").value,
+	    	QuizStatus : parseInt(document.getElementById("txtQuizStatus").value),
+	    	QuizTimer : parseInt(document.getElementById("txtQuizTimer").value),
+	    	SumQuizTrue : parseInt(document.getElementById("txtSumQuizTrue").value),
+	    	SumQuizFalse : parseInt(document.getElementById("txtSumQuizFalse").value),
+	    	Memo : document.getElementById("txtMemo").value
+		  });
+		} else {
+			db.doc(Eid).update({
+			    GroupQuiz : document.getElementById("txtGroupQuiz").value,
+			    QuizDate : document.getElementById("txtQuizDate").value,
+			    QuizTypeQuestion : parseInt(document.getElementById("txtQuizTypeQuestion").value),
+			    QuizQuestion : document.getElementById("txtQuizQuestion").value,			
+			    QuizPoint : parseInt(document.getElementById("txtQuizPoint").value),			
+		    	QuizChoice1 : document.getElementById("txtChoice1").value,
+		    	QuizChoice2 : document.getElementById("txtChoice2").value,
+		    	QuizChoice3 : document.getElementById("txtChoice3").value,
+		    	QuizChoice4 : document.getElementById("txtChoice4").value,
+		    	SumQuiz : parseInt(document.getElementById("txtSumQuiz").value),
+		    	SumChoice1 : parseInt(document.getElementById("txtSumChoice1").value),
+		    	SumChoice2 : parseInt(document.getElementById("txtSumChoice2").value),
+		    	SumChoice3 : parseInt(document.getElementById("txtSumChoice3").value),
+		    	SumChoice4 : parseInt(document.getElementById("txtSumChoice4").value),
+		    	QuizAnswer : parseInt(document.getElementById("txtQuizAnswer").value),
+		    	QuizAnswerText : document.getElementById("txtQuizAnswerText").value,
+		    	QuizImg : document.getElementById("txtQuizImg").value,
+		    	QuizVDO : document.getElementById("txtQuizVDO").value,
+	    		MoreDetail : document.getElementById("txtMoreDetail").value,
+		    	QuizStatus : parseInt(document.getElementById("txtQuizStatus").value),
+		    	QuizTimer : parseInt(document.getElementById("txtQuizTimer").value),
+		    	SumQuizTrue : parseInt(document.getElementById("txtSumQuizTrue").value),
+		    	SumQuizFalse : parseInt(document.getElementById("txtSumQuizFalse").value),
+		    	Memo : document.getElementById("txtMemo").value
+			});
+			Eid = "";
+			ClearData();
+			ReadData();
+		}
+	} else {
+		alert("กรณีเพิ่มข้อมูลใหม่ต้องกรอกข้อมูลให้ครบถ้วน");
+	}
+    //document.getElementById("show").innerHTML = "";
+	document.getElementById('FormAdd').style.display = 'none';
+	//ReadData();
+
+}
+
+
+function AddRec() {
+	ClearData();
+    document.getElementById('FormAdd').style.display = 'block';
+}
+
+
+function ClearData() {
+	Eid = "";
+	document.getElementById("txtGroupQuiz").value = sGroupQuiz;
+	document.getElementById("txtQuizDate").value = today;
+	document.getElementById("txtQuizTypeQuestion").value = 0;
+	document.getElementById("txtQuizPoint").value = 1;
+	document.getElementById("txtQuizQuestion").value = "";
+	document.getElementById("txtChoice1").value = "";
+	document.getElementById("txtChoice2").value = "";
+	document.getElementById("txtChoice3").value = "";
+	document.getElementById("txtChoice4").value = "";
+	document.getElementById("txtSumQuiz").value = 0;
+	document.getElementById("txtSumChoice1").value = 0;
+	document.getElementById("txtSumChoice2").value = 0;
+	document.getElementById("txtSumChoice3").value = 0;
+	document.getElementById("txtSumChoice4").value = 0;
+	document.getElementById("txtQuizAnswer").value = 0;
+	document.getElementById("txtQuizAnswerText").value = "";
+	document.getElementById("txtQuizImg").value = "";
+	document.getElementById("txtQuizVDO").value = "";
+	document.getElementById("txtQuizStatus").value = 0;
+	document.getElementById("txtQuizTimer").value = 60;
+	document.getElementById("txtSumQuizTrue").value = 0;
+	document.getElementById("txtSumQuizFalse").value = 0;
+	document.getElementById("txtMemo").value = "";
+}
+
+</script>
+</body>
+</html>
