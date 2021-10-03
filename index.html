@@ -47,18 +47,17 @@
 
   <main id="main">
     <section id="team" class="team section-bg">
-
       <div class="container" id="CheckLogin">
         <div class="section-title" data-aos="fade-up" style="margin-top:10px;">
           <div style="color:#0056ff;font-size:18px;margin-top:-20px;">LINE Retail Society</div>
           <div style="padding:15px 0px 15px 0px;">
             <center>
               <div style="margin-top:60px;font-size: 18px;color:#0056ff;line-height: 1.4;font-weight: 600;">ยินดีต้อนรับสู่<br>LINE Retail Society</div>
-              <div style="margin-top:40px;"><img id="pictureUrl" class="profile-user1"></div>
+              <div style="margin-top:40px;"><img id="pictureUrl" class="imgprofile"></div>
               <div style="color:#0056ff;font-weight: 700; font-size:16px;margin-top:12px;"><p id="displayName"></p></div>
               <div id="loading" style="margin-top:20px;text-align: center;"><img src="./img/loading.gif"></div>
               <div id="UserYesReg" style="display:none;">
-                <div class="btn-t2" onclick="ClickCheckLogin()">ลงทะเบียนเข้าร่วมงาน</div>
+                <div class="btn-t2" onclick="ClickCheckLogin()">ลงทะเบียนเข้าใช้งาน</div>
                 <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการกรอกข้อมูลของท่าน<br>ก่อนเริ่มการเข้าใช้งาน <b>LINE Retail Society</b><br><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
               </div>
               <div id="UserNoReg" style="display:none;">
@@ -74,8 +73,23 @@
                       <div onclick="window.location.href='digitalympic.html'"><img src="./img/DigitalYmpic.png" style="padding:8px 0 0 0;height: 104px;"><br>BBD DIGITALYMPIC 2021</div>
                     </div>
                     <div class="col-xs-6 boxmenu">
+                      <div onclick="window.open('https://drive.google.com/file/d/1reG1d_nVUDH5cSSn3JUFSaTqOKVs2FCM/view?usp=sharing')"><img src="./img/DigitalYmpic.png" style="padding:8px 0 0 0;height: 104px;"><br>ttb Guidebook</div>
+                    </div>
+                    <div class="col-xs-6 boxmenu">
+                      <div onclick="window.open('https://liff.line.me/1655966947-ldWjy463')"><img src="./img/DigitalYmpic.png" style="padding:8px 0 0 0;height: 104px;"><br>Job AID Guidebook</div>
+                    </div>
+                    <div class="col-xs-6 boxmenu">
+                      <div onclick="window.open('https://suvittmb.github.io/culture/index.html')"><img src="./img/DigitalYmpic.png" style="padding:8px 0 0 0;height: 104px;"><br>I CARE</div>
+                    </div>
+
+                    <div class="col-xs-6 boxmenu">
+                      <div style="padding-top:36px;font-size:14px;">เตรียมพบกับ<br>กิจกรรมใหม่<br>ที่นี่เร็ว ๆ นี้</div>
+                    </div>
+                    <!--
+                    <div class="col-xs-6 boxmenu">
                       <div onclick="window.location.href='digitalympic.html'"><img src="./img/mainbank.png" style="padding:8px 0 0 0;height: 104px;"><br>ภารกิจพิชิต MAIN BANK</div>
                     </div>
+                    -->
                   </div>
                   <div class="clr" style="height:20px;"></div>
                   </center>
@@ -92,7 +106,7 @@
         <div class="section-title" data-aos="fade-up">
           <center>
           <div style="font-size: 16px;margin-top:90px;font-weight: 600;color:#000;">แก้ไขข้อมูลของคุณ</div>
-          <div style="margin-top:20px;"><img id="pictureUrl1" class="profile-user1"></div>
+          <div style="margin-top:20px;"><img id="pictureUrl1" class="imgprofile"></div>
           <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName1"></p></div>
           </center>
           <div style="color:#888888;text-align: left;padding:5px 30px;margin-top:15px;font-size:12px;">
@@ -128,7 +142,12 @@
                 <option value="Oth">อื่น ๆ</option>
               </select>
             </div>
-
+            <!--
+            <div>สังกัดหน่วยงาน</div>
+            <div><input type="text" id="br" placeholder="หน่วยงาน / สาขา (รหัสสาขา) .."></div>
+            <div>Email@ttbbank.com</div>
+            <div><input type="text" id="email" placeholder="ระบุอีเมล์ .."></div>
+            -->
             <div>ที่อยู่สาขาสำหรับการจัดส่งของรางวัล (กรณีที่ได้รับรางวัล)</div>
             <div style="color:#0056ff;"><textarea id="address" placeholder="ที่อยู่สาขาสำหรับการจัดส่งของรางวัล .." style="height:100px"></textarea></div>
             <div>ระบุเหตุผลในการเข้าใช้งาน <font color="#ff0000">*</font></div>
@@ -140,10 +159,11 @@
         </div>
       </div>
 
+
       <div class="container" id="UserWaitting" style="display: none;background:#ffffff;margin-bottom: 50px;width:95%;border-radius: 15px;">
         <div class="section-title" data-aos="fade-up">
           <center>
-            <div class="btn-t2" onclick="ClickCheckLogin()">เช็คข้อมูลของคุณให้ถูกต้อง</div>
+            <div class="btn-t2" onclick="ClickCheckLogin()">อยู่ระหว่างตรวจสอบข้อมูล</div>
             <div style="padding-top:25px;color:#55555;"><font color="#ff0000"><b>
               ขณะนี้อยู่ในขั้นตอนการตรวจสอบข้อมูลการลงทะเบียนของคุณ<br>
               โปรดรอการตรวจข้อมูลสอบภายใน 24 ชั่วโมง</b></font><br><br>
@@ -154,10 +174,25 @@
         </div>
       </div>
 
+
+      <div class="container" id="PleaseRegister" style="display: none;background:#ffffff;margin-bottom: 50px;width:95%;border-radius: 15px;">
+        <div class="section-title" data-aos="fade-up">
+          <center>
+            <div class="btn-t2" onclick="ClickCheckLogin()">กรุณาลงทะเบียนก่อนเริ่มใช้งาน</div>
+            <div style="padding-top:25px;color:#55555;"><font color="#ff0000"><b>
+              ขอให้ทำการลงทะเบียนเพื่อขอใช้งาน LINE Retail Society<br></b></font><br><br>
+            *** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
+
+          </center>
+          <div class="clr" style="height: 40px;"></div>
+        </div>
+      </div>
+
+
       <div class="container" id="UserBlocked" style="display: none;background:#ffffff;margin-bottom: 50px;width:95%;border-radius: 15px;">
         <div class="section-title" data-aos="fade-up">
           <center>
-            <div class="btn-t3" onclick="ClickCheckLogin()">ตรวจสอบของคุณอีกครั้ง</div>
+            <div class="btn-t3" onclick="ClickCheckLogin()">กรุณาตรวจสอบข้อมูลอีกครั้ง</div>
             <div style="padding-top:25px;color:#55555;"><font color="#ff0000"><b>
               ข้อมูลของคุณไม่ถูกต้อง ระบบไม่อนุญาตให้เข้าใช้งาน<br>
               กรุณาติดต่อผ่านช่องทาง Email<br>เพื่อขอเปิดใช้งาน LINE Retail Society</b></font><br>
@@ -169,6 +204,8 @@
           <div class="clr" style="height: 40px;"></div>
         </div>
       </div>
+
+
     </section>
     <center>
     <div style="margin-top:30px;font-size:10px;color:#555555;margin-bottom: 20px;font-weight: 700;">@LINE Retail Socitey</div>
@@ -181,9 +218,9 @@
   <!-- Template Main JS File 
   <script src="js/config.js"></script>-->
 <script src="./js/session.js?ver=0002"></script>
-<script src="./js/scorepoint.js"></script>
-<script type="text/javascript">
 
+<script type="text/javascript">
+  var sstatusconfirm = 1;
   var aCheck = 0;
   var Eid = "";
   //var aStatusConfirm = 0;
@@ -191,8 +228,10 @@
   //var sGroupReg = "Prudentital";
   var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
 
+
   async function main() {
-    await liff.init({ liffId: "1655966947-oZd1EXDA" });
+    //await liff.init({ liffId: "1655966947-pvwn54O3" });
+    function _0x51ad(){var _0x1daa12=['507881MNKeel','60kADfQk','675626UiQbhI','26788joBNPx','855mPwhfF','32jLznmn','init','22180XwEdWZ','4kQSSoO','2204076JbvbFA','138zDliUE','133629GTjuPG','345720lLAsml'];_0x51ad=function(){return _0x1daa12;};return _0x51ad();}var _0x84dbe8=_0xe581;function _0xe581(_0x1f2da1,_0x30500f){var _0x51ada0=_0x51ad();return _0xe581=function(_0xe581c0,_0x5611ae){_0xe581c0=_0xe581c0-0x1a7;var _0x3796cf=_0x51ada0[_0xe581c0];return _0x3796cf;},_0xe581(_0x1f2da1,_0x30500f);}(function(_0x7e1e19,_0x1919fa){var _0x51fa3d=_0xe581,_0x41263d=_0x7e1e19();while(!![]){try{var _0x10b1ae=parseInt(_0x51fa3d(0x1b2))/0x1*(parseInt(_0x51fa3d(0x1af))/0x2)+parseInt(_0x51fa3d(0x1b1))/0x3*(-parseInt(_0x51fa3d(0x1aa))/0x4)+-parseInt(_0x51fa3d(0x1b3))/0x5+parseInt(_0x51fa3d(0x1b0))/0x6+-parseInt(_0x51fa3d(0x1a9))/0x7*(-parseInt(_0x51fa3d(0x1ac))/0x8)+parseInt(_0x51fa3d(0x1ab))/0x9*(-parseInt(_0x51fa3d(0x1ae))/0xa)+parseInt(_0x51fa3d(0x1a7))/0xb*(-parseInt(_0x51fa3d(0x1a8))/0xc);if(_0x10b1ae===_0x1919fa)break;else _0x41263d['push'](_0x41263d['shift']());}catch(_0xc3cf79){_0x41263d['push'](_0x41263d['shift']());}}}(_0x51ad,0x314b1),await liff[_0x84dbe8(0x1ad)]({'liffId':'1655966947-oZd1EXDA'}));
     document.getElementById("isLoggedIn").append(liff.isLoggedIn());
     if(liff.isLoggedIn()) {
       getUserProfile();
@@ -201,6 +240,7 @@
     }
   }
   main()
+
 
 
   async function getUserProfile() {
@@ -226,39 +266,20 @@
   }
 
 
-//alert(sessionStorage.getItem("LineID"));
-/*
-document.getElementById("pictureUrl").src = sessionStorage.getItem("LinePicture");
-document.getElementById("pictureUrl1").src = sessionStorage.getItem("LinePicture");
-document.getElementById("userId").append(sessionStorage.getItem("LineID"));
-document.getElementById("displayName").append(sessionStorage.getItem("LineName"));
-document.getElementById("displayName1").append(sessionStorage.getItem("LineName"));
-*/
+var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyTrxx','7bCBAQW','653667385625','AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','retailproject-6f4fc.appspot.com','1419925GCpPWr','760546LkSITF','1696203mZSXTm','5403408fGtPDE','705CRdNvB','734689zthemP','G-9SKTRHHSW9','retailproject-6f4fc.firebaseapp.com','3437670bYFyWr'];_0x4fd8=function(){return _0x2c747e;};return _0x4fd8();}(function(_0x5c3ae7,_0x2d4910){var _0x369a58=_0x3bd4,_0x4ebe83=_0x5c3ae7();while(!![]){try{var _0x21d03c=parseInt(_0x369a58(0xef))/0x1+parseInt(_0x369a58(0xfa))/0x2+-parseInt(_0x369a58(0xee))/0x3*(parseInt(_0x369a58(0xf4))/0x4)+parseInt(_0x369a58(0xf9))/0x5+parseInt(_0x369a58(0xf2))/0x6+-parseInt(_0x369a58(0xf5))/0x7*(parseInt(_0x369a58(0xfc))/0x8)+-parseInt(_0x369a58(0xfb))/0x9;if(_0x21d03c===_0x2d4910)break;else _0x4ebe83['push'](_0x4ebe83['shift']());}catch(_0x4c5dba){_0x4ebe83['push'](_0x4ebe83['shift']());}}}(_0x4fd8,0x63e15));function _0x3bd4(_0x22c177,_0x160c6e){var _0x4fd82e=_0x4fd8();return _0x3bd4=function(_0x3bd4ce,_0x13cd8f){_0x3bd4ce=_0x3bd4ce-0xee;var _0x11a971=_0x4fd82e[_0x3bd4ce];return _0x11a971;},_0x3bd4(_0x22c177,_0x160c6e);}var firebaseConfig={'apiKey':_0xc34a52(0xf7),'authDomain':_0xc34a52(0xf1),'projectId':'retailproject-6f4fc','storageBucket':_0xc34a52(0xf8),'messagingSenderId':_0xc34a52(0xf6),'appId':'1:653667385625:web:a5aed08500de80839f0588','measurementId':_0xc34a52(0xf0)};firebase['initializeApp'](firebaseConfig);var db=firebase['firestore']()['collection'](_0xc34a52(0xf3));
 
-
-  var firebaseConfig = {
-    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
-    authDomain: "retailproject-6f4fc.firebaseapp.com",
-    projectId: "retailproject-6f4fc",
-    storageBucket: "retailproject-6f4fc.appspot.com",
-    messagingSenderId: "653667385625",
-    appId: "1:653667385625:web:a5aed08500de80839f0588",
-    measurementId: "G-9SKTRHHSW9"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore().collection("CheckProfile");
 
   function ClickCheckLogin() {
     document.getElementById('CheckProfile').style.display='block';
     document.getElementById('CheckLogin').style.display='none';
     document.getElementById('UserWaitting').style.display = 'none';
     document.getElementById('UserWaitting').style.display = 'none';
+    document.getElementById('PleaseRegister').style.display = 'none';
   }
-  ReadData();
-
+  //ReadData();
 
   function ReadData() {
+    //alert("Get ID = "+sessionStorage.getItem("LineID"));
     //alert(alineID);
     db.where('lineID','==',sessionStorage.getItem("LineID"))
     .get().then((snapshot)=> {
@@ -279,16 +300,19 @@ document.getElementById("displayName1").append(sessionStorage.getItem("LineName"
         var ShowRegister = "เมื่อวันที่ : "+doc.data().RegisterDate;
         $("#RegisterDate").html(ShowRegister);
         Eid = doc.id;
+        sstatusconfirm = doc.data().statusconfirm;
+        //alert("Status = "+doc.data().statusconfirm);
         aCheck = 1;
         //StatusConfirm 0 = ใหม่ , 1 = อนุมัติ , 2 = รออนุมัติ , 9 = ไม่อนุมัติ
         //alert(doc.data().statusconfirm);
         if(doc.data().statusconfirm==1) {
           //อนุมัติ
-          window.location.href = 'introgame.html';
-          //document.getElementById('loading').style.display = 'none';
-          //document.getElementById('UserWaitting').style.display = 'none';
-          //document.getElementById('UserNoReg').style.display = 'block';
-          //document.getElementById('UserYesReg').style.display = 'none';
+          //sessionStorage.getItem("StatusPass") = doc.data().statusconfirm;
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('UserWaitting').style.display = 'none';
+          document.getElementById('UserNoReg').style.display = 'block';
+          document.getElementById('UserYesReg').style.display = 'none';
+          document.getElementById('PleaseRegister').style.display = 'none';
         } else if(doc.data().statusconfirm==2) {
           //รออนุมัติ
           document.getElementById('loading').style.display = 'none';
@@ -296,6 +320,16 @@ document.getElementById("displayName1").append(sessionStorage.getItem("LineName"
           document.getElementById('UserNoReg').style.display = 'none';
           document.getElementById('UserYesReg').style.display = 'none';
           document.getElementById('UserBlocked').style.display = 'none';
+          document.getElementById('PleaseRegister').style.display = 'none';
+        } else if(doc.data().statusconfirm==0) {
+          //ขอเข้าใช้งาน
+          sstatusconfirm = 2;
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('UserWaitting').style.display = 'none';
+          document.getElementById('UserNoReg').style.display = 'none';
+          document.getElementById('UserYesReg').style.display = 'none';
+          document.getElementById('UserBlocked').style.display = 'none';
+          document.getElementById('PleaseRegister').style.display = 'block';
         } else if(doc.data().statusconfirm==9) {
           //ไม่อนุมัติ
           document.getElementById('loading').style.display = 'none';
@@ -303,12 +337,14 @@ document.getElementById("displayName1").append(sessionStorage.getItem("LineName"
           document.getElementById('UserNoReg').style.display = 'none';
           document.getElementById('UserYesReg').style.display = 'none';
           document.getElementById('UserBlocked').style.display = 'block';
+          document.getElementById('PleaseRegister').style.display = 'none';
         } else {
           document.getElementById('loading').style.display = 'none';
           document.getElementById('UserWaitting').style.display = 'none';
           document.getElementById('UserNoReg').style.display = 'none';
           document.getElementById('UserYesReg').style.display = 'none';
           document.getElementById('UserBlocked').style.display = 'block';
+          document.getElementById('PleaseRegister').style.display = 'none';
         }
       });
       if(aCheck==0) {
@@ -317,8 +353,11 @@ document.getElementById("displayName1").append(sessionStorage.getItem("LineName"
         document.getElementById('UserNoReg').style.display = 'none';
         document.getElementById('UserYesReg').style.display = 'block';
         document.getElementById('UserBlocked').style.display = 'none';
+        document.getElementById('PleaseRegister').style.display = 'none';
       }
     });
+
+
   }
 
 
@@ -347,7 +386,6 @@ function ClickSaveProfile() {
     CheckReq = CheckReq+1;
     document.getElementById("memo_req").innerHTML = "";
   } 
-
   if(CheckReq==3) {
     if(document.getElementById("fname").value!="") { var a1 = document.getElementById("fname").value; } else { var a1 = "";}
     if(document.getElementById("empid").value!="") { var a2 = document.getElementById("empid").value; } else { var a2 = "";}
@@ -359,6 +397,7 @@ function ClickSaveProfile() {
     if(document.getElementById("memo").value!="") { var a8 = document.getElementById("memo").value; } else { var a8 = "";}
     NewDate();
     if(aCheck==1) {
+      //alert("Save "+sstatusconfirm);
       db.doc(Eid).update({
         lineID : sessionStorage.getItem("LineID"),
         linename : sessionStorage.getItem("LineName"),
@@ -370,6 +409,7 @@ function ClickSaveProfile() {
         empRH : a7,
         empAddress : a6,   
         memo : a8, 
+        statusconfirm : sstatusconfirm,  
         lastcheckin : dateString,
         RegisterDate : dateString
       });
@@ -388,7 +428,7 @@ function ClickSaveProfile() {
         memo : a8, 
         lastcheckin : dateString,
         RegisterDate : dateString,
-        statusconfirm : 1,  
+        statusconfirm : 2,  
         statuspass : 0,
         statusedit : 1   
       });
@@ -399,7 +439,10 @@ function ClickSaveProfile() {
       //GotoWeb();
       document.getElementById('CheckLogin').style.display='block';
       document.getElementById('CheckProfile').style.display='none';
+      //document.getElementById('CheckConfirm').style.display='block';
       document.getElementById('DisplayList').style.display='none';
+      //document.getElementById('CheckLockUser').style.display='none';
+      //window.location.href = 'index.html';
     }
     ReadData();
 
@@ -416,8 +459,13 @@ function CloseAll() {
 
 function CloseAgenda() {
     document.getElementById('UserWaitting').style.display = 'none';
+/*
+    document.getElementById('ViewQRcode').style.display='none';
+    document.getElementById('ViewAgenda').style.display='none';
+    document.getElementById('ViewSurvey').style.display='none';
+    document.getElementById('ViewReward').style.display='none';
+*/
 }
-
 
 function GotoWeb() {
   window.location.href = 'register.html';
@@ -456,7 +504,6 @@ function DisplayOCSE() {
   }
   //document.getElementById('tbresult').innerHTML = "";
 }
-
 
 function export2csv() {
   let data = "";
@@ -621,7 +668,7 @@ function checkZero(data){
   <div class="w3-modal-content w3-card-4">
     <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
       <div style="padding-top:20px;"><img src="./img/true.jpg" width="120px;"></div>
-        <div style="padding-top:20px;color:#0056ff;padding-bottom: 30px;">ระบบได้ทำการบันทึกรายการเรียบร้อยแล้ว<br>หากต้องการแก้ไขให้กด "เช็คข้อมูลของคุณให้ถูกต้อง" อีกครั้ง<br><br><font color="#ff0000"><b>กรุณาตรวจสอบความถูกต้องของ<br>รหัสพนักงาน, ชื่อ-นามสกุล<br>
+        <div style="padding-top:20px;color:#0056ff;padding-bottom: 30px;">ระบบได้ทำการบันทึกรายการเรียบร้อยแล้ว<br>หากต้องการแก้ไขให้กด<br>"อยู่ระหว่างตรวจสอบข้อมูล" อีกครั้ง<br><br><font color="#ff0000"><b>กรุณาตรวจสอบความถูกต้องของ<br>รหัสพนักงาน, ชื่อ-นามสกุล<br>
           หากข้อมูลไม่ถูกต้องจะไม่ได้รับอนุญาตให้เข้าใช้งาน</b></font></div>
         <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
       </center>
