@@ -64,7 +64,7 @@ function CheckScorePoint() {
 	    sessionStorage.setItem("LineLogin", doc.data().EmpID);
 	    sessionStorage.setItem("LineID", doc.data().LineID);
 	    sessionStorage.setItem("LineName", doc.data().LineName);
-	    sessionStorage.setItem("LinePicture", sLinePicture);
+	    sessionStorage.setItem("LinePicture", doc.data().LinePicture);
 	    sessionStorage.setItem("EmpID", doc.data().EmpID);
 	    sessionStorage.setItem("EmpName", doc.data().EmpName);
 	    sessionStorage.setItem("EmpBR", doc.data().EmpBr);
