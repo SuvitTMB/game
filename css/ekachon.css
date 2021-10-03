@@ -16,5 +16,6 @@
 }
 div {
   font-family: ekachon-regular;
-  font-size: 13px;
+  /*font-size: 12px;*/
+  font-size: clamp(12px, 2vw, 12px);
 }

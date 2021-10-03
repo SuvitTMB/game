@@ -57,9 +57,9 @@
     padding: 5px 25px;
     background-color: #0056ff;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
-    min-width:140px !important;
+    /*min-width:140px !important;*/
     letter-spacing: 2px;
 }
 
@@ -269,7 +269,7 @@ input[type="radio"]:checked + label:after {
     background-color: #f68b1f;
     border-color: #f68b1f;    
     color: #ffffff;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
     min-width:120px;
     letter-spacing: 2px;
@@ -308,11 +308,23 @@ input[type="radio"]:checked + label:after {
     background-color: #999;
     border-color: #666;    
     color: #ffffff;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
     min-width:120px;
     letter-spacing: 2px;
 }
+
+
+.btn-t0:focus, .btn-t0:hover, a.btn-t0:focus, a.btn-t0:hover {
+    background-color: #0238a3;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 0px 4px #E2E2E2; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+
 
 
 .btn-in, a.btn-in {
@@ -339,7 +351,7 @@ input[type="radio"]:checked + label:after {
     color: #ffffff;
     font-size: 13px;
     cursor: pointer;
-    min-width:80%;
+    min-width:300px;
     letter-spacing: 2px;
 }
 .btn-in:hover {
@@ -373,7 +385,9 @@ input[type="radio"]:checked + label:after {
     color: #ffffff;
     font-size: 13px;
     cursor: pointer;
-    min-width:80%;
+    min-width:300px;
+    letter-spacing: 2px;
+    
 }
 .btn-out:hover {
   background-color: #002d63;
