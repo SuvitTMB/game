@@ -488,10 +488,10 @@ function ChangeNow() {
   var str1 = "";
   if(YourScore>newScore) {
     str1 += '<div class="header-line1">เสียใจนิด ๆ น้า<div>';
-    str1 += '<div><img src="./img/sad@.gif" style="margin-top:15px;width:310px;border-radius: 12px;"></div>';
+    str1 += '<div><img src="./img/sad@.gif" style="margin-top:15px;width:100%;border-radius: 12px;"></div>';
   } else {
     str1 += '<div class="header-line1">ดีใจด้วยน้า<div>';
-    str1 += '<div><img src="./img/congratulations@.gif" style="margin-top:15px;width:310px;border-radius: 12px;"></div>';
+    str1 += '<div><img src="./img/congratulations@.gif" style="margin-top:15px;width:100%;border-radius: 12px;"></div>';
   }
   str1 += '<div style="padding:10px 0;">คุณได้รับคะแนนใหม่ : <span class="txt-qqq" style="color:#000000;"><b>'+parseFloat(newScore).toFixed(2)+'</b></span> คะแนน</div>';
   //alert(CheckAddEdit+"line 479");
