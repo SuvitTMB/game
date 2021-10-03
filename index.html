@@ -270,6 +270,8 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
   }
   //ReadData();
 
+
+
   function ReadData() {
     //alert("Get ID = "+sessionStorage.getItem("LineID"));
     //alert(alineID);
@@ -294,18 +296,19 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         Eid = doc.id;
         sstatusconfirm = doc.data().statusconfirm;
 
-
-        db.doc(Eid).update({
-          lineID : sessionStorage.getItem("LineID"),
-          linename : sessionStorage.getItem("LineName"),
-          empPicture : sessionStorage.getItem("LinePicture")
-        });
-        alert("Update-2"+getPicture+"----"+sessionStorage.getItem("LinePicture"));
         //alert("Status = "+doc.data().statusconfirm);
         aCheck = 1;
         //StatusConfirm 0 = ใหม่ , 1 = อนุมัติ , 2 = รออนุมัติ , 9 = ไม่อนุมัติ
         //alert(doc.data().statusconfirm);
         if(doc.data().statusconfirm==1) {
+
+          db.doc(Eid).update({
+            lineID : sessionStorage.getItem("LineID"),
+            linename : sessionStorage.getItem("LineName"),
+            empPicture : sessionStorage.getItem("LinePicture")
+          });
+          alert("Update-3"+sessionStorage.getItem("LinePicture"));
+
           window.location.href = 'intro.html';
           //อนุมัติ
           //sessionStorage.getItem("StatusPass") = doc.data().statusconfirm;
