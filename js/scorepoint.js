@@ -52,7 +52,7 @@ function CheckScorePoint() {
     	sRewardsRP = doc.data().RewardsRP;
     	sDateCheckIN = doc.data().DateCheckIN;
     	sCountTimeJoin = doc.data().CountTimeJoin;
-    	sCheckAlert = doc.data().RCheckAlert;
+    	//sCheckAlert = doc.data().RCheckAlert;
 		sessionStorage.setItem("Level", doc.data().UserLevel);
 		sessionStorage.setItem("XP", parseFloat(doc.data().RewardsXP).toFixed(2));
 		sessionStorage.setItem("RP", parseFloat(doc.data().RewardsRP).toFixed(2));
@@ -262,7 +262,7 @@ function DisplayScore() {
 	str += '<div class="profile-level"><div class="profile-numberlevel">'+ sessionStorage.getItem("Level") +'</div>';
 	str += '<div class="profile-textlevel">Level</div>';
 	str += '</div></div><div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
-	if(sessionStorage.getItem("StatusConfirm")==2) {
+	//if(sessionStorage.getItem("StatusConfirm")==1) {
 	  str += '<center><div style="width:300px;background-color: #f1f1f1;margin:10px auto;">';
 	  str += '<div class="col-lg-4 box-level" style="background:#0056ff; width:30%;padding:5px;float: left;">';
 	  str += '<div><img src="./img/levels.png" width="30px"></div>';
@@ -274,7 +274,7 @@ function DisplayScore() {
 	  str += '<div><img src="./img/coin@.png" width="30px"></div>';
 	  str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("RP")) +'</div><div class="txt-level">เหรียญรางวัล</div></div>';
 	  str += '</div></center><div class="clr"></div>';
-	}
+	//}
 	$("#MyScore").html(str);  
 }
 
