@@ -53,11 +53,6 @@ function CheckScorePoint() {
     	sDateCheckIN = doc.data().DateCheckIN;
     	sCountTimeJoin = doc.data().CountTimeJoin;
     	//sCheckAlert = doc.data().RCheckAlert;
-		sessionStorage.setItem("Level", doc.data().UserLevel);
-		sessionStorage.setItem("XP", parseFloat(doc.data().RewardsXP).toFixed(2));
-		sessionStorage.setItem("RP", parseFloat(doc.data().RewardsRP).toFixed(2));
-
-
 
 	    sessionStorage.setItem("StatusConfirm", doc.data().StatusConfirm);
 	    sessionStorage.setItem("StatusPass", doc.data().StatusPass);
@@ -68,6 +63,9 @@ function CheckScorePoint() {
 	    sessionStorage.setItem("EmpID", doc.data().EmpID);
 	    sessionStorage.setItem("EmpName", doc.data().EmpName);
 	    sessionStorage.setItem("EmpBR", doc.data().EmpBr);
+		sessionStorage.setItem("Level", doc.data().UserLevel);
+		sessionStorage.setItem("XP", parseFloat(doc.data().RewardsXP).toFixed(2));
+		sessionStorage.setItem("RP", parseFloat(doc.data().RewardsRP).toFixed(2));
 
 
 
@@ -150,6 +148,7 @@ function UpdateTimeLine() {
 				sessionStorage.setItem("XP", sRewardsXP+sPoint);
 				sessionStorage.setItem("RP", sRewardsRP+sPoint);
     			GetBadges("Join"+sCountTimeJoin+"Days");
+    			GetSession();
 				DisplayScore();
 			}
 		} else {
@@ -168,6 +167,27 @@ function UpdateTimeLine() {
 			}
 		}
 	}
+}
+
+
+function GetSession() {
+  dbScorePoint.where('LineID','==',sessionStorage.getItem("LineID"))
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+	    sessionStorage.setItem("StatusConfirm", doc.data().StatusConfirm);
+	    sessionStorage.setItem("StatusPass", doc.data().StatusPass);
+	    sessionStorage.setItem("LineLogin", doc.data().EmpID);
+	    sessionStorage.setItem("LineID", doc.data().LineID);
+	    sessionStorage.setItem("LineName", doc.data().LineName);
+	    sessionStorage.setItem("LinePicture", doc.data().LinePicture);
+	    sessionStorage.setItem("EmpID", doc.data().EmpID);
+	    sessionStorage.setItem("EmpName", doc.data().EmpName);
+	    sessionStorage.setItem("EmpBR", doc.data().EmpBr);
+		sessionStorage.setItem("Level", doc.data().UserLevel);
+		sessionStorage.setItem("XP", parseFloat(doc.data().RewardsXP).toFixed(2));
+		sessionStorage.setItem("RP", parseFloat(doc.data().RewardsRP).toFixed(2));
+   });
+  });
 }
 
 
