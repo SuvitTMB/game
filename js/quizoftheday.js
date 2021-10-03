@@ -147,6 +147,7 @@ var ArrQuestion = [];
 var NewQuestion = "";
 function RandomQuestion() { 
   db.where('GroupQuiz','==',sGroupQuiz)
+  .where('QuizStatus','==',1)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       i = i+1;
@@ -506,9 +507,9 @@ function ChangeNow() {
   newScore = random_item(newPoint);
   var str2 = "";
   if(YourScore>newScore) {
-    str2 += '<div class="txt-qq">เสียใจนิด ๆ น้า<div>';
+    str2 += '<div class="header-line" style="margin-top:-30px;">เสียใจนิด ๆ น้า<div>';
   } else {
-    str2 += '<div class="txt-qq">ดีใจด้วยน้า<div>';
+    str2 += '<div class="header-line" style="margin-top:-30px;">ดีใจด้วยน้า<div>';
   }
   str2 += '<div>คุณได้รับคะแนนใหม่ : <span class="txt-qqq">'+parseFloat(newScore).toFixed(2)+'</span> คะแนน</div>';
   str2 += '<div class="btn-t2" onclick="gotoweb()" style="margin-top;25px;"">พรุ่งนี้กลับมาเล่นกันใหม่น้า</div>';
@@ -519,11 +520,11 @@ function ChangeNow() {
 
   var str1 = "";
   if(YourScore>newScore) {
-    str1 += '<div class="txt-qq" style="color:#f68b1f;">เสียใจนิด ๆ น้า<div>';
-    str1 += '<div><img src="./img/sad@.jpg" width="200px;"></div>';
+    str1 += '<div class="header-line1" style="color:#f68b1f;">เสียใจนิด ๆ น้า<div>';
+    str1 += '<div><img src="./img/sad@.gif" style="width:100%;border-radius: 10px;"></div>';
   } else {
-    str1 += '<div class="txt-qq" style="color:#f68b1f;">ดีใจด้วยน้า<div>';
-    str1 += '<div><img src="./img/happy@.jpg" width="200px;"></div>';
+    str1 += '<div class="header-line1" style="color:#f68b1f;">ดีใจด้วยน้า<div>';
+    str1 += '<div><img src="./img/congratulations@.gif" style="width:100%;border-radius: 10px;"></div>';
   }
   str1 += '<div style="padding:10px 0;">คุณได้รับคะแนนใหม่ : <span class="txt-qqq" style="color:#000000;"><b>'+parseFloat(newScore).toFixed(2)+'</b></span> คะแนน</div>';
   //alert(CheckAddEdit+"line 479");

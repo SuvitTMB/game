@@ -307,6 +307,7 @@ function RandomQuestion() {
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='block';
   db.where('GroupQuiz','==',sGroupQuiz)
+  .where('QuizStatus','==',1)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=>{
       i = i+1;
@@ -629,9 +630,9 @@ function ChangeNow() {
   newScore = random_item(newPoint);
   var str2 = "";
   if(YourScore>newScore) {
-    str2 += '<div class="txt-qq">เสียใจนิด ๆ น้า<div>';
+    str2 += '<div class="header-line" style="margin-top:-30px;">เสียใจนิด ๆ น้า<div>';
   } else {
-    str2 += '<div class="txt-qq">ดีใจด้วยน้า<div>';
+    str2 += '<div class="header-line" style="margin-top:-30px;">ดีใจด้วยน้า<div>';
   }
   str2 += '<div>คุณได้รับคะแนนใหม่ : <span class="txt-qqq">'+parseFloat(newScore).toFixed(2)+'</span> คะแนน</div>';
   str2 += '<div class="btn-t2" onclick="gotoweb()" style="margin-top;25px;"">พรุ่งนี้กลับมาเล่นกันใหม่น้า</div><br><br>';
@@ -641,11 +642,11 @@ function ChangeNow() {
   //$("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ doc.data().LastScore +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
   var str1 = "";
   if(YourScore>newScore) {
-    str1 += '<div class="txt-qq" style="color:#f68b1f;">เสียใจนิด ๆ น้า<div>';
-    str1 += '<div><img src="./img/sad.gif" style="padding-top:8px;width:310px;border-radius: 12px;"></div>';
+    str1 += '<div class="header-line1">เสียใจนิด ๆ น้า<div>';
+    str1 += '<div><img src="./img/sad.gif" style="margin-top:15px;width:310px;border-radius: 12px;"></div>';
   } else {
-    str1 += '<div class="txt-qq" style="color:#f68b1f;">ดีใจด้วยน้า<div>';
-    str1 += '<div><img src="./img/congratulations@.gif" style="padding-top:8px;width:310px;border-radius: 12px;"></div>';
+    str1 += '<div class="header-line1">ดีใจด้วยน้า<div>';
+    str1 += '<div><img src="./img/congratulations@.gif" style="margin-top:15px;width:310px;border-radius: 12px;"></div>';
   }
   str1 += '<div style="padding:10px 0;">คุณได้รับคะแนนใหม่ : <span class="txt-qqq" style="color:#000000;"><b>'+parseFloat(newScore).toFixed(2)+'</b></span> คะแนน</div>';
   //alert(CheckAddEdit+"line 479");
