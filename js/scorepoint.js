@@ -192,7 +192,7 @@ function GetSession() {
 
 
 function GetBadges(x) { 
-	alert("Get New Badges = "+x);
+	//alert("Get New Badges = "+x);
 	//alert("Get New Badges - "+x);
 }
 
