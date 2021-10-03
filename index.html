@@ -303,16 +303,7 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         //StatusConfirm 0 = ใหม่ , 1 = อนุมัติ , 2 = รออนุมัติ , 9 = ไม่อนุมัติ
         //alert(doc.data().statusconfirm);
         if(doc.data().statusconfirm==1) {
-
-          alert("Update-3"+Eid);
-          db.doc(Eid).update({
-            lineID : sessionStorage.getItem("LineID"),
-            linename : sessionStorage.getItem("LineName"),
-            empPicture : getPicture
-            //empPicture : sessionStorage.getItem("LinePicture")
-          });
-          alert("Update-3"+sessionStorage.getItem("LinePicture"));
-
+          UpdateLine();
           window.location.href = 'intro.html';
           //อนุมัติ
           //sessionStorage.getItem("StatusPass") = doc.data().statusconfirm;
@@ -364,9 +355,19 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         document.getElementById('PleaseRegister').style.display = 'none';
       }
     });
-
-
   }
+
+
+function UpdateLine() {
+  alert("Update-3 "+Eid);
+  db.doc(Eid).update({
+    lineID : sessionStorage.getItem("LineID"),
+    linename : sessionStorage.getItem("LineName"),
+    empPicture : sessionStorage.getItem("LinePicture")
+  });
+  alert("Update-3 "+sessionStorage.getItem("LinePicture"));
+
+}
 
 
 function ClickSaveProfile() {
