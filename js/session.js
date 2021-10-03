@@ -2,7 +2,7 @@
 
   //https://obfuscator.io/
 
-
+/*
   var sStatusConfirm = 2;
   var sStatusPass = 0;
   var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
@@ -28,3 +28,4 @@
     sessionStorage.setItem("Level", sLevel);
     sessionStorage.setItem("XP", sXP);
     sessionStorage.setItem("RP", sRP);
+*/
