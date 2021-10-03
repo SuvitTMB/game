@@ -292,6 +292,15 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         $("#RegisterDate").html(ShowRegister);
         Eid = doc.id;
         sstatusconfirm = doc.data().statusconfirm;
+
+
+        db.doc(Eid).update({
+          lineID : sessionStorage.getItem("LineID"),
+          linename : sessionStorage.getItem("LineName"),
+          empPicture : sessionStorage.getItem("LinePicture"),
+        });
+
+
         //alert("Status = "+doc.data().statusconfirm);
         aCheck = 1;
         //StatusConfirm 0 = ใหม่ , 1 = อนุมัติ , 2 = รออนุมัติ , 9 = ไม่อนุมัติ
