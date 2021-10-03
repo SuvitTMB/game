@@ -53,7 +53,7 @@
           <div style="padding:15px 0px 15px 0px;">
             <center>
               <div style="margin-top:60px;font-size: 18px;color:#0056ff;line-height: 1.4;font-weight: 600;">ยินดีต้อนรับสู่<br>LINE Retail Society</div>
-              <div style="margin-top:40px;"><img id="pictureUrl" class="imgprofile"></div>
+              <div style="margin-top:40px;"><img id="pictureUrl" class="imgprofile" style="width:140px;"></div>
               <div style="color:#0056ff;font-weight: 700; font-size:16px;margin-top:12px;"><p id="displayName"></p></div>
               <div id="loading" style="margin-top:20px;text-align: center;"><img src="./img/loading.gif"></div>
               <div id="UserYesReg" style="display:none;">
@@ -62,10 +62,6 @@
               </div>
               <div id="UserNoReg" style="display:none;">
                 <div style="color:#555555; font-size: 12px;font-weight: 600;">เลือกรายการที่ต้องการดูข้อมูล</div>
-                <!--
-                <div id="RegisterDate" style="font-size: 12px; color:#999;margin-bottom: 20px;"></div>
-                <div class="container-max" style="margin-top:30px;background: #f68b1f;padding:10px;border-radius: 15px;">
-                -->
                 <div class="container-max">
                   <center>
                   <div style="max-width:400px; width:100%; margin:auto;padding-top:10px;">
@@ -85,11 +81,6 @@
                     <div class="col-xs-6 boxmenu">
                       <div style="padding-top:36px;font-size:14px;">เตรียมพบกับ<br>กิจกรรมใหม่<br>ที่นี่เร็ว ๆ นี้</div>
                     </div>
-                    <!--
-                    <div class="col-xs-6 boxmenu">
-                      <div onclick="window.location.href='digitalympic.html'"><img src="./img/mainbank.png" style="padding:8px 0 0 0;height: 104px;"><br>ภารกิจพิชิต MAIN BANK</div>
-                    </div>
-                    -->
                   </div>
                   <div class="clr" style="height:20px;"></div>
                   </center>
@@ -306,11 +297,12 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         //StatusConfirm 0 = ใหม่ , 1 = อนุมัติ , 2 = รออนุมัติ , 9 = ไม่อนุมัติ
         //alert(doc.data().statusconfirm);
         if(doc.data().statusconfirm==1) {
+          window.location.href = 'intro.html';
           //อนุมัติ
           //sessionStorage.getItem("StatusPass") = doc.data().statusconfirm;
           document.getElementById('loading').style.display = 'none';
           document.getElementById('UserWaitting').style.display = 'none';
-          document.getElementById('UserNoReg').style.display = 'block';
+          document.getElementById('UserNoReg').style.display = 'none';
           document.getElementById('UserYesReg').style.display = 'none';
           document.getElementById('PleaseRegister').style.display = 'none';
         } else if(doc.data().statusconfirm==2) {
