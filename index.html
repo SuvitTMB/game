@@ -302,10 +302,12 @@ var _0xc34a52=_0x3bd4;function _0x4fd8(){var _0x2c747e=['CheckProfile','11896DyT
         //alert(doc.data().statusconfirm);
         if(doc.data().statusconfirm==1) {
 
+          alert("Update-3"+sessionStorage.getItem("LineName"));
           db.doc(Eid).update({
             lineID : sessionStorage.getItem("LineID"),
             linename : sessionStorage.getItem("LineName"),
-            empPicture : sessionStorage.getItem("LinePicture")
+            empPicture : getPicture
+            //empPicture : sessionStorage.getItem("LinePicture")
           });
           alert("Update-3"+sessionStorage.getItem("LinePicture"));
 
