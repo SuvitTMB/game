@@ -25,9 +25,7 @@
   <link href='css/app.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!--
   <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
--->
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
@@ -193,9 +191,8 @@
   //var sGroupReg = "Prudentital";
   var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
 
-/*
   async function main() {
-    await liff.init({ liffId: "1655966947-8DgrpDq6" });
+    await liff.init({ liffId: "1655966947-oZd1EXDA" });
     document.getElementById("isLoggedIn").append(liff.isLoggedIn());
     if(liff.isLoggedIn()) {
       getUserProfile();
@@ -227,15 +224,16 @@
       external: true     
     })
   }
-*/
+
 
 //alert(sessionStorage.getItem("LineID"));
+/*
 document.getElementById("pictureUrl").src = sessionStorage.getItem("LinePicture");
 document.getElementById("pictureUrl1").src = sessionStorage.getItem("LinePicture");
 document.getElementById("userId").append(sessionStorage.getItem("LineID"));
 document.getElementById("displayName").append(sessionStorage.getItem("LineName"));
 document.getElementById("displayName1").append(sessionStorage.getItem("LineName"));
-
+*/
 
 
   var firebaseConfig = {
