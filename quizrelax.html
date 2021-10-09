@@ -26,11 +26,11 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #f4f7fb;">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!--
+<!--#0016ed;
 <div class="navbar1">
   <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
 </div>
@@ -62,18 +62,33 @@
     </div>
   </nav>
 
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <div class="header-line">คำถามคลายเครียด</div> 
-    <div style="margin-top:30px;background:#002d63;min-height: 160px;padding:20px;">
-      <div id="DisplayTimer"></div>
-      <!--<div class="txt-q">คำถาม</div>-->
+  <div id="ShowScoreGame" class="carousel slide text-center" data-ride="carousel" style="display: block;">
+    <div class="header-line"><img src="./img/head-2.png" style="height:45px;"></div>
+    <div class="bg-scorepoint">
+      <!--<div id="DisplayTimer" style="padding-top:70px;color:#000"></div>
       <div id="DisplayDay"></div>
-      <div id="DisplayQuestion"></div>
+      <div id="DisplayQuestion"></div>-->
+      <div id="DisplaySummary" style="padding-top:70px;color:#000"></div>
+      <div style="height: 70px;"></div>
+      <div class="btn-t2" onclick="GetBadgeUser()">ดูภารกิจ</div>
+      <div class="btn-t1" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
     </div>
     <div class="clr"></div>
-    <div id="DisplayChoice" style="color:#fff;margin-top:30px;"></div>
-    <div style="height: 30px;"></div>
   </div>
+
+
+
+  <div id="ShowQuizGame" class="carousel slide text-center" data-ride="carousel" style="display: none;">
+    <!--<div class="header-line"><img src="./img/head-2.png" style="height:45px;"></div>-->
+    <div class="bg-Question">
+      <div id="DisplayTimer" style="padding-top:90px;"></div>
+      <div id="DisplayDay"></div>
+      <div id="DisplayQuestion" style="padding:10px 0 20px 0;"></div>
+    </div>
+    <div class="clr"></div>
+    <div id="DisplayChoice" style="color:#fff;"></div>
+  </div>
+
 
 
   <div id="id01" class="w3-modal w3-animate-opacity">
@@ -121,7 +136,53 @@
     </div>
   </div>
 
+
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>
+          <div><img src="./img/levelup.gif" style="padding-top:8px;width:100%;border-radius: 15px;"></div>
+          <div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">เหรียญคลายเครียด</div>
+          <div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">
+            เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม 30 ครั้ง<br>รับแต้มพิเศษ 5 แต้ม</div>
+          <div class="btn-t2" onclick="window.location='mybadges.html';" style="margin-top:20px;">ดูเหรียญรางวัล</div>
+          <div class="btn-t1" onclick="CloseAll()">ปิดหน้านี้</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
+  <div id="id06" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background:#dce5f6">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayTimetoJoin"></div>
+        <div class="clr"></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>
+        <div style="height: 20px;"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+<!--
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+          <div class="txt-qq" style="color:#000000;">คุณได้เหรียญเพิ่ม</div>
+          <div><br><img src="./img/timer.gif" width="230px"></div>
+          <div style="padding:20px 10px; color:#0056ff;font-weight: 600;">ขณะนี้เราเริ่มจับเวลาในการตอบคำถามแล้ว<br>หากออกจากเกมส์โดยไม่ส่งคำตอบจะได้ 0 คะแนน</div>
+          <div class="btn-t1" onclick="CloseAll()">เริ่มตอบคำถาม</div><br><br>
+        </center>
+      </div>
+    </div>
+  </div>
+-->
+
   <script  src="./js/config.js"></script>
   <script src="./js/quizrelax.js"></script>
+  <script src="./js/quizrelax-point.js"></script>
 </body>
 </html>

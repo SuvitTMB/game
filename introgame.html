@@ -26,7 +26,8 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #0016ed;">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <!--#0016ed-->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -49,85 +50,113 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="introgame.html">กิจกรรม</a></li>
-          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
-          <li><a href="#portfolio">ของรางวัล</a></li>
-          <li><a href="#pricing">แนะนำเรา</a></li>
+          <li><a href="leaderboard.html">ตารางผู้นำ</a></li>
+          <li><a href="rewards.html">ของรางวัล</a></li>
+          <li><a href="aboutus.html">แนะนำเรา</a></li>
           <li><a href="mybadges.html">เกี่ยวกับคุณ</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <div class="header-line">อ่าน เล่น รับ</div> 
-    <div style="margin-top:25px;">
-      <div id="MyScore"></div>
+  <div class="game-bg" style="margin-top:70px;">
+    <div style="background-color: #eef2f8;margin-top:-20px;padding:10px 0;margin-bottom: -20px;">
+      <img src="./img/logoGame.png" style="width:320px;">
     </div>
-    <div class="clr"></div>
-<!--
-    <div class="box-linkapp" onclick="location.href='showgame1.html'" style="margin-top:35px;">เกมส์วัดใจ (สะสมคะแนนรายวัน)</div>
-    <div class="box-linkapp" onclick="location.href='quiz2.html'">เกมส์เปิดใจ (สะสมคะแนนรายวัน)</div>
-    <div class="box-linkapp">Main Bank</div>
-    <div class="box-linkapp">เกมส์ที่ 4</div>
-    <div style="height: 30px;"></div>
-    <div class="btn-t1" style="margin-top:5px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
-    <div style="height: 40px;"></div>
--->
+    <div id="MyScore" style="margin-top:35px;"></div>
+  </div>
+  <div class="clr"></div>
+
+  <center>
+  <div class="row" style="margin:30px auto; max-width:100%; width:100%;background-color: #fff;">
+    <div style="padding-bottom: 10px;">
+      <div><img src="./img/head-1.png" style="height:45px;"></div>
+    </div>
+    <div><img src="./img/t.png" class="game-link" onclick="location.href='quizrelax-intro.html'"></div>
+    <div><img src="./img/t1.png" class="game-link" onclick="location.href='mainbank-intro.html'"></div>
   </div>
 
-    <center>
-    <div class="row" style="margin:20px auto; max-width:90%; width:100%;">
-      <div style="padding-bottom: 10px;">
-        <!--<div style="padding:20px 10px; font-weight:600; color:#0056ff; font-size:15px;">กิจกรรมของคุณ</div>-->
-        <div class="text-title"><b>ทุก ๆ แต้มที่สะสมสามารถนำมาใช้สำหรับการแลกของรางวัล<br>และการร่วมกิจกรรมของ LINE Retail Society</b></div>
-      </div>
-      <div style="max-width:80%; margin:auto; width:100%;">
-        <div class="box-4h" onclick="location.href='quizrelax.html'">
-          <div><img src="./img/quiz.png" width="60px;"></div>
-          <div class="msg-4h1"><b>คำถามคลายเครียด</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='mainbank.html'">
-          <div><img src="./img/mainbank.png" width="60px;"></div>
-          <div class="msg-4h1"><b>รู้จักกับ MainBank</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='gamenumber.html'">
-          <div><img src="./img/thumbnails.png" width="60px;"></div>
-          <div class="msg-4h1"><b>เกมส์วัดดวง</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='mainbank.html'">
-          <div><img src="./img/oftheday.png" width="60px;"></div>
-          <div class="msg-4h1"><b>เลขนำโชค</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='introgame4.html'">
-          <div><img src="./img/coins.png" width="60px;"></div>
-          <div class="msg-4h1"><b>ประมูลสินค้า</b></div>
-        </div>
+    <!--<div class="btn-t1" onclick="location.href='quizrelax.html'" style="margin-top:0px;"><b>เข้าไปแข่งเลย</b></div>-->
+
 
 <!--
-        <div class="box-4h" onclick="location.href='quizoftheday.html'">
-          <div><img src="./img/oftheday.png" width="60px;"></div>
-          <div class="msg-4h1"><b>คำถามประจำวัน</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='quiz1.html'">
-          <div><img src="./img/list.png" width="60px;"></div>
-          <div class="msg-4h1"><b>เกมส์วัดใจ</b></div>
-        </div>
-        <div class="box-4h" onclick="location.href='quiz2.html'">
-          <div><img src="./img/calculator.png" width="60px;"></div>
-          <div class="msg-4h1"><b>เกมส์เปิดใจ</b></div>
-        </div>
 
-      -->
-        <!--<div class="clr text-title" style="margin-top:20px;">เลือกกิจกรรมที่คุณต้องการ</div>-->
+    <div style="margin-top:80px;max-width:80%;  width:100%;">
+      <div class="box-4h" onclick="location.href='quizrelax.html'">
+        <div><img src="./img/quiz.png" width="60px;"></div>
+        <div class="msg-4h1"><b>คำถามคลายเครียด</b></div>
       </div>
+      <div class="box-4h" onclick="location.href='mainbank.html'">
+        <div><img src="./img/mainbank.png" width="60px;"></div>
+        <div class="msg-4h1"><b>รู้จักกับ MainBank</b></div>
+      </div>
+      <div class="box-4h" onclick="location.href='gamenumber.html'">
+        <div><img src="./img/thumbnails.png" width="60px;"></div>
+        <div class="msg-4h1"><b>เกมส์วัดดวง</b></div>
+      </div>
+      <div class="box-4h" onclick="location.href='mainbank.html'">
+        <div><img src="./img/oftheday.png" width="60px;"></div>
+        <div class="msg-4h1"><b>เลขนำโชค</b></div>
+      </div>
+      <div class="box-4h" onclick="location.href='introgame4.html'">
+        <div><img src="./img/coins.png" width="60px;"></div>
+        <div class="msg-4h1"><b>ประมูลสินค้า</b></div>
+      </div>
+
+      <div class="box-4h" onclick="location.href='quizoftheday.html'">
+        <div><img src="./img/oftheday.png" width="60px;"></div>
+        <div class="msg-4h1"><b>คำถามประจำวัน</b></div>
+      </div>
+      <div class="box-4h" onclick="location.href='quiz1.html'">
+        <div><img src="./img/list.png" width="60px;"></div>
+        <div class="msg-4h1"><b>เกมส์วัดใจ</b></div>
+      </div>
+      <div class="box-4h" onclick="location.href='quiz2.html'">
+        <div><img src="./img/calculator.png" width="60px;"></div>
+        <div class="msg-4h1"><b>เกมส์เปิดใจ</b></div>
+      </div>
+
     </div>
-    <div>
-      sdafasdf
+    -->
+<!--
+  <div style="width:330px;margin:auto;">
+    <div class="box1">1</div>
+  </div>
+
+  <div style="background-color: #ffff00;width:330px;margin:auto;">
+    <div class="box3">1</div>
+    <div class="box3">2</div>
+    <div class="box3">3</div>
+  </div>
+  <div class="clr"></div>
+-->
+  <!--<div style="height: 30px;"></div>col-sm-6 #fbf8f7-->
+
+
+  <center>
+    <div style="max-width:320px;background-color: #f1f1f1;margin:10px auto;width:100%;">
+      <div class="game-badge" onclick="window.location.href='intro.html';">
+        <div><img src="./img/item-1.png" width="95%"></div><div class="box-text">เกี่ยวกับกิจกรรม</div></div>
+      <div class="game-badge" onclick="window.location.href='leaderboard.html';">
+        <div><img src="./img/item-4.png" width="95%"></div><div class="box-text">ตารางผู้นำ</div></div>
+      <div class="game-badge" onclick="window.location.href='rewards.html';"><div>
+        <img src="./img/item-7.png" width="95%"></div><div class="box-text">ของรางวัล</div></div>
+      <div class="game-badge" onclick="window.location.href='mybadges.html';">
+        <div><img src="./img/item-2.png" width="95%"></div><div class="box-text">เหรียญรางวัล</div></div>
+      <div class="game-badge" onclick="window.location.href='recommend.html';">
+        <div><img src="./img/item-8.png" width="95%"></div><div class="box-text">แนะนำเรา</div></div>
+      <div class="game-badge" onclick="window.location.href='aboutus.html';">
+        <div><img src="./img/item-3.png" width="95%"></div><div class="box-text">เกี่ยวกับคุณ</div></div>
     </div>
-    <!--<div style="height: 30px;"></div>col-sm-6 #fbf8f7-->
-    <div class="btn-t1" style="margin-top:20px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
-    <div style="height: 30px;"></div>
-    </center>
+  </center>
+  <div class="clr"></div>
+
+
+<!--
+  <div class="btn-t1" style="margin-top:20px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
+-->
+  <div style="height: 30px;"></div>
+  </center>
 
 
   <div id="id01" class="w3-modal w3-animate-opacity">
@@ -136,6 +165,7 @@
           <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;line-height: 1.2;">
             ยินดีต้อนรับสู่<br>LINE Retail Society</div>
           <div><img src="./img/welcome.gif" style="padding-top:8px;width:100%;border-radius: 15px;"></div>
+          <div class="header-line" style="margin-top:10px;color:#0056ff;font-weight: 600;">เหรียญต้อนรับ</div>
           <div style="font-size: 14px;font-weight: 600;color:#000;padding-top:12px;">รับแต้มขวัญถุงจากเรา 5 แต้ม</div>
           <div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">ทุก ๆ แต้มของคุณสามารถใช้แลกของรางวัล<br>และใช้ในการเข้าร่วมกิจกรรมกับเรา</div>
           <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">เข้าสู่กิจกรรมของเรา</div>
@@ -167,7 +197,7 @@
   <div id="id03" class="w3-modal w3-animate-opacity">
     <div class="w3-modal-content w3-card-4" style="background: #fff;">
       <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
-          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;line-height: 1.2;">
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">
             รับรางวัลของคุณ</div>
           <div><img src="./img/dribbble_1.gif" style="padding-top:8px;width:100%;border-radius: 15px;"></div>
           <div id="BoxTimeLineNew"></div>
@@ -199,7 +229,21 @@
     <div style="height:20px;"></div>
   </div>
 
+
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #f4f7fb;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <div id="BadgeDetail"></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>
+        <div style="height: 15px;"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
   <script  src="./js/session.js"></script>
-  <script src="./js/scorepoint.js?ver=00001"></script>
+  <script src="./js/scorepoint.js"></script>
+  <!--<script src="./js/badge.js"></script>-->
 </body>
 </html>

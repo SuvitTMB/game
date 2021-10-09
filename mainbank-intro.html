@@ -24,17 +24,16 @@
   <link href='css/w3.css' rel="stylesheet" type="text/css">
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
-  <link rel="stylesheet" href="./css/progress-bar.css">
-  <script src="./js/progress-bar.js"></script>
 
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #5686ac;">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
+  <!--#0016ed-->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!--
 <div class="navbar1">
-  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>#0016ed
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
 </div>
 -->
 
@@ -51,7 +50,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="introgame.html">กิจกรรม</a></li>
-          <li><a href="leaderboard.html">ตารางผู้นำ</a></li>
+          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
           <li><a href="rewards.html">ของรางวัล</a></li>
           <li><a href="aboutus.html">แนะนำเรา</a></li>
           <li><a href="mybadges.html">เกี่ยวกับคุณ</a></li>
@@ -60,53 +59,40 @@
     </div>
   </nav>
 
-  <center>
-  <div class="row" style="margin:-10px auto; width:100%;">
-    <div style="position: relative;width:360px;text-align: center;">
-      <img src="./img/animation.gif" style="width:100%;">
+  <div class="game-bg" style="margin-top:70px;">
+    <div style="background-color: #eef2f8;margin-top:-20px;padding:10px 0;margin-bottom: -20px;">
+      <img src="./img/logoGame.png" style="width:320px;">
     </div>
-    <div style="margin-top:35px;"><img src="./img/head-7.png" style="height:45px;"></div>
-      <div style="margin-top:-40px;">
-        <div id="MyScore"></div>
-      </div>
-      <div class="clr"></div>
-      <div style="margin-top:65px;max-width:360px;width:100%;">
-        <div id="DisplayBoard"></div>
-        <div class="clr"></div>
+    <center>
+    <div style="margin-top:30px;max-width: 320px;">
+      <div style="padding:10px 0 15px 0;"><img src="./img/head-3.png" style="height:45px;"></div>
+      <div onclick="location.href='mainbank.html'" style="cursor: pointer;">
+        <img src="./img/bg-game3.jpg" style="width:100%;border-radius: 10px;">
       </div>
     </div>
+    <div class="clr"></div>
+    <div class="btn-t2" style="margin-top:20px;" onclick="OpenTarget()">ดูภารกิจ</div>
+    <div class="btn-t2" style="margin-top:20px;" onclick="location.href='mainbank.html'">เข้าร่วมกิจกรรม</div>
+    <div class="clr"></div>
+    <div class="btn-t1" style="margin-top:10px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+    <div style="height: 30px;"></div>
+    </center>
   </div>
-
-
-  <div class="clr" style="height: 20px;"></div>
-  <div id="loadmore" class="btn-t2">Load More...</div>
-  <div class="btn-t1" style="margin-top:20px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
-  <div style="height: 30px;"></div>
-  </center>
-
+  <div class="clr"></div>
 
   <div id="id01" class="w3-modal w3-animate-opacity">
     <div class="w3-modal-content w3-card-4" style="background: #dce5f6;">
-      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
-          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">ข้อมูลผู้แข่งขัน</div>
-          <div style="margin-top: 10px;">
-            <div id="UserScore"></div>           
-            <div id="DisplayRatio"></div>
-          </div>
-          <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่าง</div>
-        </center>
-        <div style="height:10px;"></div>
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayTimetoJoin"></div>
+        <div class="clr"></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>
+        <div style="height: 20px;"></div>
       </div>
     </div>
-    <div style="height:30px;"></div>
+    <div style="height:20px;"></div>
   </div>
 
-  <script>
-      $(document).ready(function(){
-          $(".progress-bar").ProgressBar();
-      });
-  </script>
-  <script  src="./js/session.js"></script>
-  <script src="./js/leaderboard.js"></script>
+  <script src="./js/mainbank-intro.js"></script>
+
 </body>
 </html>

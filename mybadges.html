@@ -25,8 +25,11 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
+  <link rel="stylesheet" href="./css/progress-bar.css">
+  <script src="./js/progress-bar.js"></script>
+
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #5686ac;">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -49,87 +52,52 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="introgame.html">กิจกรรม</a></li>
-          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
-          <li><a href="#portfolio">ของรางวัล</a></li>
-          <li><a href="#pricing">แนะนำเรา</a></li>
-          <li><a href="#contact">เกี่ยวกับคุณ</a></li>
+          <li><a href="leaderboard.html">ตารางผู้นำ</a></li>
+          <li><a href="rewards.html">ของรางวัล</a></li>
+          <li><a href="aboutus.html">แนะนำเรา</a></li>
+          <li><a href="mybadges.html">เกี่ยวกับคุณ</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <center>
-  <div class="row" style="margin:60px auto; width:100%;">
-    <div class="leaderboard-head">เหรียญรางวัลของคุณ</div>
-    <div style="margin-top:65px;">
+
+
+  <div class="row" style="margin-top:120px auto; width:100%;">
+    <div style="margin-top:80px;">
       <div id="MyScore"></div>
     </div>
     <div class="clr"></div>
+    <div style="margin-top:30px;"><img src="./img/head-8.png" style="height:45px;"></div>
 
     <div style="margin-top:30px;max-width:360px;width:100%;">
-      <div class="box-badges badges-gray" onclick="ShowBadges(1)">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">เหรียญต้อนรับ</div>
-      </div>
-      <div class="box-badges" onclick="ShowBadges(1)">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges badges-gray">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges badges-gray">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges badges-gray">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
-      <div class="box-badges">
-        <div><img src="./img/leader-1.png" class="badges-img"></div>
-        <div class="badges-txt">Welcome</div>
-      </div>
+      <div id="DisplayBadge"></div>
     </div>
-
-        <div class="clr"></div>
-      </div>
-    </div>
-
   </div>
 
-
-  <div class="clr" style="height: 20px;"></div>
-  <div class="btn-t1" style="margin-top:20px;" onclick="location.href='intro.html'">กลับไปเมนูหลัก</div>
+  <div class="clr" style="height: 15px;"></div>
+  <div class="btn-t1" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
   <div style="height: 30px;"></div>
   </center>
+
+
+<!--
+<div id="#DisplayBadge2">99999</div>
+
+    <div class="progress-bar">
+        <div class="progress" data-percent="45.87" data-color="green" style="width:45%;"><span>45.87%</span></div>
+    </div>
+
+-->
+
 
 
   <div id="id01" class="w3-modal w3-animate-opacity">
     <div class="w3-modal-content w3-card-4" style="background: #fbf8f7;">
       <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
-          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">
-            เหรียญรางวัล</div>
-          <div><img src="./img/badge.png" width="100%"></div>
-          <div style="font-size: 14px;font-weight: 600;color:#000;">เหรียญต้อนรับ</div>
-          <div>เมื่อผู้เข้าร่วมการแข่งขันเข้าร่วมการแข่งขันเป็นครั้งแรก ผู้เข้าแข่งขันจะได้รับเหรียญต้อนรับ สำหรับการเดินทางอันแสนยาวไกล</div>
+        <center>
+            <div id="ViewBadge"></div>
           <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่าง</div>
         </center>
       </div>
@@ -137,7 +105,29 @@
     <div style="height:20px;"></div>
   </div>
 
+
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #f4f7fb;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <div id="BadgeDetail"></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>
+        <div style="height: 15px;"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
+
+  <script>
+      $(document).ready(function(){
+          $(".progress-bar").ProgressBar();
+      });
+  </script>
+
   <script src="./js/scorepoint.js"></script>
   <script src="./js/mybadges.js"></script>
+
+
 </body>
 </html>
