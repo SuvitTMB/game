@@ -62,7 +62,7 @@ function OpenTarget() {
 	}	
 	var sNumber = (sMin/sMax)*100;
 	str += '<center><div style="width:100%;">';
-	str += '<div style="padding:40px 0 15px 0;"><img src="./img/head-2.png" style="height:45px;"></div>';
+	str += '<div style="padding:40px 0 15px 0;"><img src="./img/head-3.png" style="height:45px;"></div>';
 	str += '<div class="bg-timetojoin"><div style="width:100%;padding:50px;">'+ sText +'</div>';
 	str += '<div class="clr"></div><div class="bg-timetojointext2">สำเร็จแล้ว '+ sNumber.toFixed(2) +'%</div>';
 	str += '<div style="color:#fff;">ภารกิจพิชิตเหรียญ MainBank</div></div>';
