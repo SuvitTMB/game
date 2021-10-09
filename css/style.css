@@ -292,7 +292,7 @@ body {
   margin:4px;
 }
 .NameLine {
-  color:#f68b1f;font-weight: 600;padding-top:10px;font-size: 14px;
+  color:#f68b1f;font-weight: 600;padding-top:10px;font-size: 14px; letter-spacing:2px;
 }
 .box-msgtext {
   width:90%;background:#bdd3ff; border-radius: 10px; font-size: 12px; color:#555555;
@@ -370,14 +370,14 @@ box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
   font-size: 14px; width:100%; padding-top:10px; text-align: center; color:#0056ff;padding-bottom: 30px;
 }
 .profile-user {
-  position: relative; width:90px; height:90px; margin:auto; 
+  position: relative; width:130px; height:130px; margin:auto; 
 }
 .profile-user1 {
   position: relative; width:150px; height:150px; margin:auto; 
 }
 .profile-user .profile-level {
   width:35px; height: 35px; border-radius: 50%; background:#0056ff; 
-  color:#fff; position: absolute; bottom: 0px; right: -10px; border: 3px solid #fff;
+  color:#fff; position: absolute; bottom: 0px; right: 0px; border: 3px solid #fff;
 }
 .profile-user .profile-numberlevel {
   font-size: 14px; text-align: center; margin-top:-2px; font-weight: 600;
@@ -386,16 +386,17 @@ box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
   font-size: 8px; text-align: center; margin-top:-6px;
 }
 .txt-point {
-  color:#fff; font-weight: 300; font-size: 18px; text-align: center;
+  color:#000; font-weight: 600; font-size: 18px; text-align: center;
 }
 .txt-level {
-  color:#fff; font-size: 9px; text-align: center; margin-top:-2px;
+  color:#777; font-size: 9px; text-align: center; margin-top:0px;
 }
 .txt-q {
-  color:#999; font-weight: 300; font-size: 12px; text-align: center; margin-bottom: 10px;
+  color:#000; font-weight: 300; font-size: 12px; text-align: center; margin-bottom: 10px;
+  font-weight: 600;
 }
 .txt-qq {
-  color:#fff; font-weight: 300; font-size: 13px; text-align: center; 
+  color:#000000; font-weight: 600; font-size: 14px; text-align: center; 
   max-width: 370px; margin:auto;padding-top:10px;
 }
 .txt-qqq {
@@ -705,6 +706,14 @@ box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
 }
 
 
+.box-5h4 {
+  width:100%; text-align: left;
+  border-radius: 20px; background-color: #00dd39;height:60px;
+  border:2px solid #00dd39;margin-top:5px; padding:3px 0; color:#fff;
+}
+.box-5h4:hover {
+  border:2px solid #06a42f; background-color: #06a42f; cursor: pointer; 
+}
 
 
 
@@ -728,19 +737,111 @@ box-shadow: -1px 4px 11px -11px rgba(178,175,175,0.75);
 }
 
 .box-badges {
-  width:31%; margin:1%; height: 105px; background: #90a9c8; border-radius: 10px; float: left;
+  width:31%; margin:1%; height: 150px; background: #0056ff; border-radius: 10px; float: left;
 }
 .box-badges:hover {
-  background-color: #bbd6f7; cursor: pointer;
+  background-color: #f68b1f; cursor: pointer; color:#fff;
 }
 .badges-img {
-  width:80%;text-align: center;padding:8px;
+  width:90%;text-align: center;padding:8px;
 } 
 .badges-txt {
-  text-align: center; color:#0056ff; margin-top:-10px; font-weight: 600;
+  text-align: center; color:#fff; margin-top:0px; font-weight: 600;
 }
 .badges-gray{
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
   filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+.badge-txt {
+  font-size: 13px; font-weight: 600; color:#0056ff;
+}
+
+.game-bg {
+  background:#fff; height: 300px; width:100%; text-align: center; margin-top:-30px;
+  border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+  /*background:#e7902e;*/
+}
+.game-badge {
+  width:31%; float: left; margin-right: 2%; text-align: center;
+   border:1px solid transparent; border-radius: 5px; padding:5px;
+}
+.game-badge:hover {
+  background-color: #f4f7fb; border:1px solid #dce6f6; border-radius: 5px; cursor: pointer;
+}
+.game-txt {
+  font-weight:600;color:#002d63; letter-spacing: 2px;
+}
+
+.game-redeem {
+  width:31%; float: left; margin-right: 2%; text-align: center; height:130px; overflow: hidden; color: #002d63;
+   background-color: #f4f7fb; border-radius: 5px; padding:5px; border:1px solid #dce6f6; margin-top:5px;
+}
+.game-redeem:hover {
+  background-color: #f68b1f; border:1px solid #eb7d0f; border-radius: 5px; cursor: pointer; color:#fff;
+}
+.game-redeemtxt {
+  font-weight: 600; padding:3px 0 8px 0; line-height: 1.2; font-size: 12px;
+}
+
+
+.game-link {
+  width:340px; cursor: pointer; margin-top: 2px; margin-bottom: 2px;padding:8px 2px;
+}
+.game-link:hover { 
+  background-color: #f4f7fb; border-radius: 10px;
+}
+.bg-timetojoin {
+  height:64vh;  width:300px; 
+  background-image: url(./../img/bg-timetojoin.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+}
+.bg-scorepoint {
+  margin:15px auto;
+  height:45vh;  width:320px; 
+  background-image: url(./../img/bg-scorepoint.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center top;
+}
+.bg-timetojointext {
+  font-size: 14px; font-weight: 600; color:#fff; margin-top:-37px;
+  position: absolute; z-index: 10; text-align: center; width:40px;
+}
+.bg-timetojointext1 {
+  font-size: 14px; font-weight: 600; color:#002d63; margin-top:-37px;
+  position: absolute; z-index: 10; text-align: center; width:40px;
+}
+.bg-timetojointext2 {
+  font-size: 16px; font-weight: 600; color:#ffffff; padding-top: 10px;
+}
+.bg-Question {
+  background:#f68b1f; color:#fff; padding:15px; text-align: center;
+}
+.box-listuser {
+  width:100%; padding:5px; background-color: #f1f1f1; border-radius: 8px; margin:5px;
+  min-height: 55px; text-align: left;
+}
+.box-listtext {
+  font-size: 13px; font-weight: 600; color:#0056ff;
+}
+.box1 {
+  width:100%;background:#e7eef7; height: 120px; border-radius: 10px;
+  padding:5px; margin:5px;
+}
+.box1:hover {
+  background-color: #c0d2eb; cursor: pointer;
+}
+.box3 {
+  width:31%;float: left;background:#f4f7fb; margin:1%; height: 120px; border-radius: 10px;
+  padding:5px;
+}
+.box-text {
+  font-weight: 600; color: #000; padding:3px 0 8px 0;
+}
+.box-redeem {
+  width:100%; height:94px; border-radius: 10px; background-color: #dee7f4; 
+  border:1px solid #c2d5ed; text-align: left;
 }
