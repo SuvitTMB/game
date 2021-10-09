@@ -82,7 +82,7 @@ function AllBadge() {
 			BadgeArr.push([doc.data().BadgeEng, doc.id, doc.data().BadgeTh, doc.data().BadgeImg, doc.data().BadgeDetail, doc.data().BadgeTarget, doc.data().memo, doc.data().BadgePoint, doc.data().BonusPoint]);
 			i = i+1;
 		});
-		console.log(UserBadgeArr);
+		//console.log(UserBadgeArr);
 	});
 }
 
