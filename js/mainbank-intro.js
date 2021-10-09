@@ -12,21 +12,18 @@ var yyyy = today.getFullYear()+543;
 today = dd + '/' + mm + '/' + yyyy;
 var dbScorePoint = "";
 var dbBadgeGame = "";
-//var dbBadgeUser = "";
+var sBadgeEng = "Badge-MainBank";
 
 
 
 $(document).ready(function () {
-  dbBadgeGame = firebase.firestore().collection("BadgeGame");
-  dbBadgeUser = firebase.firestore().collection("BadgeUser");
-  //Connect_DB();
+  Connect_DB();
   //GetBadgeUser();
-  GetBadgeUser();
-  AllBadge();
+  //AllBadge();
 });
  
 
-/*
+
 function Connect_DB() {
   var firebaseConfig = {
     apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
@@ -42,9 +39,9 @@ function Connect_DB() {
   dbBadgeGame = firebase.firestore().collection("BadgeGame");
   dbBadgeUser = firebase.firestore().collection("BadgeUser");
   GetBadgeUser();
-  Badge();
+  AllBadge();
 }
-*/
+
 
 var BadgeArr = [];
 var BadgeArr1 = [];
@@ -70,40 +67,66 @@ function GetBadgeUser() {
 	});
 }
 
+function OpenTarget() {
+	var i = 0;
+	//var sMin = UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2];
+	//alert(UserBadgeArr[UserBadgeArr1.indexOf(sBadgeEng)][2]);
+	//var sMin = 19;
+	var sMin = UserBadgeArr[UserBadgeArr1.indexOf(sBadgeEng)][2];
+	var sMax = 30;
+	var str = "";
+	var sText = "";
+	if(sMin>=sMax) { sMin = sMax; }
+	//sText += '<div style="width:260px;">';
+	for (let i = 0; i < sMax; i++) {
+		if(i<sMin) {
+		  	sText += '<div style="float: left;position: relative;">';
+		  	sText += '<img src="./img/timetojoin-1.png" style="width:40px;padding:2px;">';
+		  	sText += '<div class="bg-timetojointext">'+ (i+1) +'</div></div>';
+		  } else {
+		  	sText += '<div style="float: left;position: relative;">';
+		  	sText += '<img src="./img/timetojoin-0.png" style="width:40px;padding:2px;">';
+		  	sText += '<div class="bg-timetojointext1">'+ (i+1) +'</div></div>';
+		  }
+	}	
+	var sNumber = (sMin/sMax)*100;
+	//sText += '</div>';
+	str += '<center><div style="width:100%;">';
+	str += '<div style="padding:40px 0 15px 0;"><img src="./img/head-3.png" style="height:45px;"></div>';
+	str += '<div class="bg-timetojoin"><div style="width:100%;padding:50px;">'+ sText +'</div>';
+	str += '<div class="clr"></div><div class="bg-timetojointext2">สำเร็จแล้ว '+ sNumber.toFixed(2) +'%</div>';
+	str += '<div style="color:#fff;">ภารกิจพิชิตเหรียญ MainBank</div></div>';
+	str += '</div></center>';
+	$("#DisplayTimetoJoin").html(str);
+	document.getElementById('id01').style.display='block';
+}
+
+
 
 function AllBadge() {
 	var i = 0;
 	var str = "";
-	var calbar = 0;
-  	dbBadgeGame.orderBy('BadgeNo','asc')
+  	dbBadgeGame
+  	.orderBy('BadgeNo','asc')
 	.get().then((snapshot)=> {
 		snapshot.forEach(doc=> {
 			BadgeArr1.push(doc.data().BadgeEng);
 			BadgeArr.push([doc.data().BadgeEng, doc.id, doc.data().BadgeTh, doc.data().BadgeImg, doc.data().BadgeDetail, doc.data().BadgeTarget, doc.data().memo, doc.data().BadgePoint, doc.data().BonusPoint]);
-			//console.log(UserBadgeArr1.indexOf(doc.data().BadgeEng));
+			console.log(UserBadgeArr1.indexOf(doc.data().BadgeEng));
 			//alert(UserBadgeArr[0][0]);
-			//console.log(UserBadgeArr);
 			if(UserBadgeArr1.indexOf(doc.data().BadgeEng)>=0) {
-				calbar = (UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2]/doc.data().BadgeTarget)*100;
-				if(calbar>100) { calbar = 100; }
 				//alert(UserBadgeArr[i][3]);
 				if(UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][3]==1) {
-					str += '<div class="box-badges" onclick="ShowBadges('+i+',1,'+calbar+')">';
+					str += '<div class="box-badges" onclick="ShowBadges('+i+',1)">';
 					str += '<div><img src="'+ doc.data().BadgeImg +'" class="badges-img"></div>';
 					str += '<div class="badges-txt">'+ doc.data().BadgeTh+'</div>';
-					str += '<center><div class="progress-bar">';
-					str += '<div class="progress" data-percent="70" data-color="green" style="width:'+calbar+'%;background:#00f63a;"><span>'+calbar+'%</span></div>'; 
-					str += '</div></center>';
-					//str += '<div>'+ doc.data().BadgeTarget+'==='+UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2]+'</div>';
+					str += '<div>'+ doc.data().BadgeTarget+'==='+UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2]+'</div>';
 					str += '</div>';
 				} else {
-					str += '<div class="box-badges badges-gray" onclick="ShowBadges('+i+',1,'+calbar+')">';
+					str += '<div class="box-badges badges-gray" onclick="ShowBadges('+i+',1)">';
 					str += '<div><img src="'+ doc.data().BadgeImg +'" class="badges-img"></div>';
 					str += '<div class="badges-txt">'+ doc.data().BadgeTh+'</div>';
-					str += '<center><div class="progress-bar">';
-					str += '<div class="progress" data-percent="70" data-color="#fff" style="width:'+calbar+'%;background:#ff0000;"><span>'+calbar+'%</span></div>'; 
-					str += '</div></center>';
-					//str += '<div>'+UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2]+'==='+ doc.data().BadgeTarget+'</div>';
+					str += '<div>'+UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][2]+'==='+ doc.data().BadgeTarget+'</div>';
 					str += '</div>';
 				}
 			} else {
@@ -113,14 +136,6 @@ function AllBadge() {
 			}
 			i = i+1;
 		});
-		//var str1 = "";
-		//str1 += '<center><div class="progress-bar">';
-		//str1 += '<div class="progress" data-percent="70" data-color="green" name="sss'+i+'"><span>70%</span></div>';
-		//str1 += '</div></center>';
-		//$("#DisplayBadge2").html(str1); 
-
-
-		//$(".progress-bar").ProgressBar();
 		$("#DisplayBadge").html(str); 
 		console.log(UserBadgeArr);
 	});
@@ -140,13 +155,13 @@ function badge(x) {
 	} else if(x==2) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-5.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-score.png" width="120xp"></div>';
-		str += '<div class="txt-point">'+ sessionStorage.getItem("XP").toFixed(2) + '</div>';
+		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("XP")) + '</div>';
 		str += '<div class="txt-level">แต้ม</div>';
 		str += '<div style="padding:15px;">แต้มประสบการณ์ หรือ Experience Point(XP) เป็นแต้มสำหรับการสะสมประสบการณ์ในการแข่งขัน โดยผู้เข้าแข่งขันจะได้รับแต้มได้ เมื่อเข้าเก็บการแข่งขันในแต่ละวันที่ทางผู้จัดการแข่งขันได้กำหนดไว้ โดยทุก ๆ แต้มที่สะสมไว้จะบ่งบอกถึงประสบการณ์การเข้ามาร่วมกิจกรรม ยิ่งสะสมมาก แต้มประสบการณ์จะสูงขึ้น และจะส่งผลให้ ระดับการแข่งขัน (Level) ของผู้แข่งขันมากขึ้นไปด้วย</div>';
 	} else if(x==3) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-6.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-point.png" width="120xp"></div>';
-		str += '<div class="txt-point">'+ sessionStorage.getItem("RP").toFixed(2) + '</div>';
+		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("RP")) + '</div>';
 		str += '<div class="txt-level">แต้ม</div>';
 		str += '<div style="padding:15px;">เหรียญรางวัล หรือ Rewards Point (RP) เป็นเหรียญสำหรับการเก็บสะสมไว้เพื่อใช้ในการแลกของรางวัลจากรายการของรางวัลที่ทางผู้จัดกิจกรรมกำหนดไว้ แต่จะสามารถทำการแลกของรางวัลได้ก็ต่อเมื่อสามารถเก็บเหรียญรางวัลได้เท่ากับหรือมากกว่าของรางวัลรายการนั้น ๆ ที่ได้กำหนดไว้ และเมื่อทำการแลกของรางวัลไปแล้ว เหรียญรางวัลนี้จะถูกหักออกไปในมูลค่าเท่ากับของที่ได้ทำการแลกรางวัลมา</div>';
 	}
@@ -154,12 +169,13 @@ function badge(x) {
  	document.getElementById('id05').style.display='block';
 }
 
+
 //function getData(doc) {
 //	UserBadgeArr.push([doc.data().BadgeEng, doc.id, doc.data().BadgeTime, doc.data().BadgeEnd]);
 //}
 
-
-function ShowBadges(x,y,z) {
+/*
+function ShowBadges(x,y) {
 	//alert(BadgeArr[x][0]);
 	//alert(x);
 	var str = "";
@@ -167,32 +183,27 @@ function ShowBadges(x,y,z) {
 		str += '<div>';
 		str += '<div class="header-line" style="margin-top:10px;color:#0056ff;font-weight: 600;">'+ BadgeArr[x][2] +'</div>';
 		str += '<div style="padding:15px"><img src="'+ BadgeArr[x][3] +'" width="80%"></div>';
-		str += '<center><div class="progress-bar">';
-		str += '<div class="progress" data-percent="70" data-color="green" style="width:'+z+'%;background:#00f63a;"><span>'+z+'%</span></div>'; 
-		str += '</div></center>';
-		str += '<div style="padding-top:35px;width:90%;color:#f68b1f;">'+ BadgeArr[x][4] +'</div>';
+		str += '<div style="width:90%;color:#f68b1f;">'+ BadgeArr[x][4] +'</div>';
 		str += '<div class="badge-txt" style="padding-top:10px;color:#000;">'+ BadgeArr[x][6] +'</div>';
-		str += '<div class="badge-txt">เมื่อทำสำเร็จจะได้แต้มเพิ่ม +'+ BadgeArr[x][8] +' แต้ม</div>';
+		str += '<div class="badge-txt">ได้รับแต้มเพิ่ม '+ BadgeArr[x][8] +' แต้ม</div>';
 		str += '</div>';
 	} else {
 		str += '<div class="badges-gray">';
 		str += '<div class="header-line" style="margin-top:10px;color:#0056ff;font-weight: 600;">'+ BadgeArr[x][2] +'</div>';
 		str += '<div style="padding:15px"><img src="'+ BadgeArr[x][3] +'" width="80%"></div>';
-		str += '<center><div class="progress-bar">';
-		str += '<div class="progress" data-percent="70" data-color="green" style="width:'+z+'%;background:#00f63a;"><span>'+z+'%</span></div>'; 
-		str += '</div></center>';
-		str += '<div style="padding-top:35px;width:90%;color:#f68b1f;">'+ BadgeArr[x][4] +'</div>';
+		str += '<div style="width:90%;color:#f68b1f;">'+ BadgeArr[x][4] +'</div>';
 		str += '<div class="badge-txt" style="padding-top:10px;color:#000;">'+ BadgeArr[x][6] +'</div>';
 		if(BadgeArr[x][7]!=0) {
-			str += '<div class="badge-txt">เมื่อทำสำเร็จจะได้แต้มเพิ่ม +'+ BadgeArr[x][8] +' แต้ม</div>';
+			str += '<div class="badge-txt">เมื่อทำสำเร็จจะได้แต้มเพิ่ม '+ BadgeArr[x][8] +' แต้ม</div>';
 		}
 		str += '</div>';
 	}
 	$("#ViewBadge").html(str); 
-	document.getElementById("id01").style.display = "block";
+	//document.getElementById("id01").style.display = "block";
 }
+*/
+
 
 function CloseAll() {
   document.getElementById('id01').style.display='none';
-  document.getElementById('id05').style.display='none';
 }

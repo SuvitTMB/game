@@ -34,6 +34,7 @@ var SumQuizTrue = 0;
 var SumQuizFalse = 0;
 var ExtraPoint = 0;
 var sGroupQuiz = "MainBank";
+
 //var sGroupQuiz = "4Heart";
 
 
@@ -42,6 +43,8 @@ $(document).ready(function () {
   $("#DisplayMyScore").html("<div style='padding:5px 0 15px 0; color:#ffffff;font-size: 10px;''>คลิกเลือกภาพ ... ตามหาคะแนน</div>");
   Connect_DB();
   CheckScorePoint();
+  CheckGetBadge();
+  CheckGetBadgeUser();
   CheckUserQuiz();
   Card();
 });
@@ -61,8 +64,152 @@ function Connect_DB() {
   db = firebase.firestore().collection("QuizoftheDay");
   dbScorePoint = firebase.firestore().collection("GameScorePoint");
   dbCheck = firebase.firestore().collection("QuizScore");
-  //dbQuestion = firebase.firestore().collection("Question");
+  dbBadgeGame = firebase.firestore().collection("BadgeGame");
+  dbBadgeUser = firebase.firestore().collection("BadgeUser");
 }
+
+
+var dbBadgeGame = "";
+var dbBadgeUser = "";
+var sBadgeImg = "";
+var sBadgeTh = "";
+var EidBadgeGame = "";
+var EidBadgeGameUser = "";
+var sBadgeTarget = 0;
+var sBadgePoint = 0;
+var sBonusPoint = 0 ;
+var sSumGetBadge = 0;
+var sSumGetBadgeEnd = 0;
+var sBadgeEng = "Badge-MainBank"; //ชื่อ badge
+
+function CheckGetBadge() {
+    dbBadgeGame.where('BadgeEng','==',sBadgeEng)
+    .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      EidBadgeGame = doc.id;
+      sBadgeImg = doc.data().BadgeImg;
+      sBadgeTh = doc.data().BadgeTh;
+      sBadgeTarget = doc.data().BadgeTarget;
+      sBadgePoint = doc.data().BadgePoint;
+      sBonusPoint = doc.data().BonusPoint;
+      sSumGetBadge = doc.data().SumGetBadge;
+      sSumGetBadgeEnd = doc.data().SumGetBadgeEnd;
+    });
+    //alert("Badge="+sBadgeEng+" Target="+sBadgeTarget+", BadgePoint="+sBadgePoint+" BounsPoint="+sBonusPoint);
+  }); 
+}
+
+
+
+var CheckBadge = 0;
+var sBadgeTime = 0;
+var sBadgeTrue = 0;
+var sBadgeFalse = 0;
+var sBadgeEnd = 0;
+function CheckGetBadgeUser() {
+  var sGet = 0; 
+    dbBadgeUser.where('LineID','==',sessionStorage.getItem("LineID"))
+    .where('BadgeEng','==',sBadgeEng)
+    .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      CheckBadge = 1;
+      EidBadgeGameUser = doc.id;
+      sBadgeTime = doc.data().BadgeTime;
+      sBadgeTrue = doc.data().BadgeTrue;
+      sBadgeFalse = doc.data().BadgeFalse;
+      sBadgeEnd = doc.data().BadgeEnd;
+    });
+    if(sBadgeEnd==0) {
+      //alert("Timer="+sBadgeTime+" | Target="+sBadgeTarget);
+      if(sBadgeTime==sBadgeTarget) {
+        dbBadgeUser.doc(EidBadgeGameUser).update({
+            BadgeEnd : 1,
+            BadgeGetDate : today
+        });
+        dbBadgeGame.doc(EidBadgeGame).update({
+            SumGetBadgeEnd : sSumGetBadgeEnd+1
+        });
+        AddNewPoint();
+        //document.getElementById("id05").style.display = "block";
+      }
+    }
+    if(CheckBadge==0) {
+      AddBadgeUser();
+    }
+  });
+}
+
+
+function AddNewPoint() {
+  //alert("คุณได้รับเหรียญ MainBank และคะแนนเพิ่ม "+sBonusPoint);
+  NewDate();
+  var TimeStampDate = Math.round(Date.now() / 1000);
+  dbCheck.add({
+    GroupQuiz : sBadgeEng,
+    LineID : sessionStorage.getItem("LineID"),
+    LineName : sessionStorage.getItem("LineName"),
+    LinePicture : sessionStorage.getItem("LinePicture"),
+    EmpID : sessionStorage.getItem("EmpID"),
+    EmpName : sessionStorage.getItem("EmpName"),
+    QuizDate : today,
+    PointIN : parseFloat(sBonusPoint),
+    LastScore : sBonusPoint,
+    DateRegister : dateString,
+    TimeStamp : TimeStampDate
+  });
+  sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
+  sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
+  dbScorePoint.doc(EidScorePoint).update({
+    RewardsXP : sRewardsXP,
+    RewardsRP : sRewardsRP
+  });
+  //alert("xp="+sRewardsXP+" | rp="+sRewardsRP+" | bouns="+sBonusPoint);
+  sessionStorage.setItem("XP", sRewardsXP);
+  sessionStorage.setItem("RP", sRewardsRP);
+  var str = "";
+  str += '<div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>';
+  str += '<div><img src="'+ sBadgeImg +'" style="padding-top:8px;width:100%;border-radius: 15px;"></div>';
+  str += '<div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">'+sBadgeTh+'</div>';
+  str += '<div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">';
+  str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
+  $("#DisplayGetBadge").html(str);
+
+    document.getElementById('id05').style.display='block';
+}
+
+
+
+
+
+
+function AddBadgeUser() {
+  if(CheckBadge==0) {
+    dbBadgeUser.add({
+      LineID : sessionStorage.getItem("LineID"),
+      linename : sessionStorage.getItem("LineName"),
+      empPicture : sessionStorage.getItem("LinePicture"),
+      EmpID : sessionStorage.getItem("EmpID"),
+      EmpName : sessionStorage.getItem("EmpName"),
+      BadgeEng : sBadgeEng,
+      BadgeTime : 0,
+      BadgeTrue : 0,
+      BadgeFalse : 0,
+      BadgeEnd : 0,
+      SumGetBadge : sSumGetBadge,
+      BadgeDate : today
+    });
+    dbBadgeGame.doc(EidBadgeGame).update({
+        SumGetBadge : sSumGetBadge+1
+    });
+  }
+  CheckGetBadgeUser();
+}
+
+
+
+
+
+
 
 
 
@@ -221,7 +368,7 @@ function RandomCard() {
     $("#ShowStory").html(str);
     sTypeSelect = "เปิดภาพได้ 0 คะแนน";
     if(CountRec==0) {
-      alert(CountRec);
+      //alert(CountRec);
       CheckAddEdit = 2;
       YourScore = 0;
       AddNewUser();
@@ -244,7 +391,7 @@ function RandomCard() {
     str+='<div class="btn-t1" onclick="CloseAll()" style="margin-top:12px;">ปิดหน้าต่างนี้</div></div></center><br><br></div>';
     $("#ShowStory").html(str);
     //alert("Save --> ได้คะแนน = "+sRewardsXP);
-      alert(CountRec);
+      //alert(CountRec);
     if(CountRec==0) {
       CheckAddEdit = 2;
       AddNewUser();
@@ -524,6 +671,19 @@ function SaveData() {
       TimeStamp : TimeStampDate
     });
   }
+
+  if(YourScore!=0) {
+    sBadgeTrue = sBadgeTrue+1;
+  } else {
+    sBadgeFalse = sBadgeFalse+1;
+  }
+  dbBadgeUser.doc(EidBadgeGameUser).update({
+    BadgeTime : sBadgeTime+1,
+    BadgeTrue : sBadgeTrue,
+    BadgeFalse : sBadgeFalse
+  });
+
+
   if(CheckAddEdit==2) {
     SaveMyScorePoint();
     SaveQuestion();
@@ -706,6 +866,8 @@ function CloseAll() {
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='none';
   document.getElementById('id04').style.display='none';
+  document.getElementById('id05').style.display='none';
+  document.getElementById('id06').style.display='none';
 }
 
 

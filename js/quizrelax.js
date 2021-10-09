@@ -23,13 +23,14 @@ var CheckQuizQuestion = "";
 var YourScore = 0;
 var sTypeSelect = "หมวดคำถามคลายเครียด";
 var sGroupQuiz = "QuizRelax";
+var sBadgeEng = "Badge-QuizRelax"; //ชื่อ badge
 
 
 $(document).ready(function () {
   Connect_DB();
   CheckUserQuiz();
-  //CheckOpenQuiz();
-  //RandomQuestion();
+  CheckGetBadge();
+  CheckGetBadgeUser();
 });
  
 
@@ -48,7 +49,140 @@ function Connect_DB() {
   db = firebase.firestore().collection("QuizoftheDay");
   dbScorePoint = firebase.firestore().collection("GameScorePoint");
   dbCheck = firebase.firestore().collection("QuizScore");
+  dbBadgeGame = firebase.firestore().collection("BadgeGame");
+  dbBadgeUser = firebase.firestore().collection("BadgeUser");
 }
+
+
+
+var dbBadgeGame = "";
+var dbBadgeUser = "";
+var sBadgeImg = "";
+var sBadgeTh = "";
+var EidBadgeGame = "";
+var EidBadgeGameUser = "";
+var sBadgeTarget = 0;
+var sBadgePoint = 0;
+var sBonusPoint = 0 ;
+var sSumGetBadge = 0;
+var sSumGetBadgeEnd = 0;
+
+function CheckGetBadge() {
+    dbBadgeGame.where('BadgeEng','==',sBadgeEng)
+    .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      EidBadgeGame = doc.id;
+      sBadgeImg = doc.data().BadgeImg;
+      sBadgeTh = doc.data().BadgeTh;
+      sBadgeTarget = doc.data().BadgeTarget;
+      sBadgePoint = doc.data().BadgePoint;
+      sBonusPoint = doc.data().BonusPoint;
+      sSumGetBadge = doc.data().SumGetBadge;
+      sSumGetBadgeEnd = doc.data().SumGetBadgeEnd;
+    });
+    //alert("Badge="+sBadgeEng+" Target="+sBadgeTarget+", BadgePoint="+sBadgePoint+" BounsPoint="+sBonusPoint);
+  }); 
+}
+
+
+var CheckBadge = 0;
+var sBadgeTime = 0;
+var sBadgeTrue = 0;
+var sBadgeFalse = 0;
+var sBadgeEnd = 0;
+function CheckGetBadgeUser() {
+  var sGet = 0; 
+    dbBadgeUser.where('LineID','==',sessionStorage.getItem("LineID"))
+    .where('BadgeEng','==',sBadgeEng)
+    .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      CheckBadge = 1;
+      EidBadgeGameUser = doc.id;
+      sBadgeTime = doc.data().BadgeTime;
+      sBadgeTrue = doc.data().BadgeTrue;
+      sBadgeFalse = doc.data().BadgeFalse;
+      sBadgeEnd = doc.data().BadgeEnd;
+    });
+    if(sBadgeEnd==0) {
+      if(sBadgeTime==sBadgeTarget) {
+        dbBadgeUser.doc(EidBadgeGameUser).update({
+            BadgeEnd : 1,
+            BadgeGetDate : today
+        });
+        dbBadgeGame.doc(EidBadgeGame).update({
+            SumGetBadgeEnd : sSumGetBadgeEnd+1
+        });
+        AddNewPoint();
+        document.getElementById("id05").style.display = "block";
+      }
+    }
+    if(CheckBadge==0) {
+      AddBadgeUser();
+    }
+  });
+}
+
+
+
+function AddNewPoint() {
+  //alert("คุณได้รับเหรียญเคลายเครียด และคะแนนเพิ่ม "+sBonusPoint);
+  NewDate();
+  var TimeStampDate = Math.round(Date.now() / 1000);
+  dbCheck.add({
+    GroupQuiz : sBadgeEng,
+    LineID : sessionStorage.getItem("LineID"),
+    LineName : sessionStorage.getItem("LineName"),
+    LinePicture : sessionStorage.getItem("LinePicture"),
+    EmpID : sessionStorage.getItem("EmpID"),
+    EmpName : sessionStorage.getItem("EmpName"),
+    QuizDate : today,
+    PointIN : parseFloat(sBonusPoint),
+    LastScore : sBonusPoint,
+    DateRegister : dateString,
+    TimeStamp : TimeStampDate
+  });
+  sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
+  sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
+  dbScorePoint.doc(EidScorePoint).update({
+    RewardsXP : sRewardsXP,
+    RewardsRP : sRewardsRP
+  });
+  //alert("xp="+sRewardsXP+" | rp="+sRewardsRP+" | bouns="+sBonusPoint);
+  sessionStorage.setItem("XP", sRewardsXP);
+  sessionStorage.setItem("RP", sRewardsRP);
+  var str = "";
+  str += '<div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>';
+  str += '<div><img src="'+ sBadgeImg +'" style="padding-top:8px;width:100%;border-radius: 15px;"></div>';
+  str += '<div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">'+sBadgeTh+'</div>';
+  str += '<div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">';
+  str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
+  $("#DisplayGetBadge").html(str);
+}
+
+
+function AddBadgeUser() {
+  if(CheckBadge==0) {
+    dbBadgeUser.add({
+      LineID : sessionStorage.getItem("LineID"),
+      linename : sessionStorage.getItem("LineName"),
+      empPicture : sessionStorage.getItem("LinePicture"),
+      EmpID : sessionStorage.getItem("EmpID"),
+      EmpName : sessionStorage.getItem("EmpName"),
+      BadgeEng : sBadgeEng,
+      BadgeTime : 0,
+      BadgeTrue : 0,
+      BadgeFalse : 0,
+      BadgeEnd : 0,
+      SumGetBadge : sSumGetBadge,
+      BadgeDate : today
+    });
+    dbBadgeGame.doc(EidBadgeGame).update({
+        SumGetBadge : sSumGetBadge+1
+    });
+  }
+  CheckGetBadgeUser();
+}
+
 
 
 var EidScorePoint = "";
@@ -64,7 +198,7 @@ function CheckScorePoint() {
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       EidScorePoint = doc.id;
-      //sUserLevel = doc.data().UserLevel;
+      sUserLevel = doc.data().UserLevel;
       sJoinTime = doc.data().JoinTime;
       sRewardsXP = doc.data().RewardsXP;
       sRewardsRP = doc.data().RewardsRP;
@@ -105,6 +239,7 @@ var CheckSaveRecord = 0;
 function CheckUserQuiz() {
   CheckScorePoint();
   //alert("Check User Quiz "+sessionStorage.getItem("LineID"));
+  $("#DisplaySummary").val(cleararray);
   $("#DisplayDay").val(cleararray);
   $("#DisplayQuestion").val(cleararray);
   $("#DisplayChoice").val(cleararray);
@@ -119,17 +254,10 @@ function CheckUserQuiz() {
       Eid = doc.id;
       LastScore = doc.data().PointOUT;
       //$("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
-      $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ today +"</i></div>");
+      //$("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div>");
       if(CheckAddEdit!=2) {
-/*
-        if(LastScore!=0) {
-          $("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ parseFloat(doc.data().PointIN).toFixed(2) +"</span> คะแนน555</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
-        } else {
-          $("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ parseFloat(doc.data().PointIN).toFixed(2) +"</span> คะแนน666</div></div>");
-        }
-      } else {
-*/
-        $("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ parseFloat(doc.data().LastScore).toFixed(2) +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
+        $("#DisplaySummary").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div><div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ parseFloat(doc.data().LastScore).toFixed(2) +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
+        //$("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ parseFloat(doc.data().LastScore).toFixed(2) +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
       }
     });
     if(CheckPass==0) {
@@ -138,7 +266,6 @@ function CheckUserQuiz() {
       AddNewUser();
       RandomQuestion();
     }
-    //alert("รหัสพนักงาน "+Eid);
   });
 }
 
@@ -170,7 +297,11 @@ function RandomQuestion() {
 
 function GetQuestion() {
   console.log(NewQuestion);
+  var sSummary = "";
+  document.getElementById('ShowScoreGame').style.display='none';
+  document.getElementById('ShowQuizGame').style.display='block';
   //alert("ID คำถาม = "+EidQuestion);
+  $("#DisplaySummary").val(cleararray);
   $("#DisplayDay").val(cleararray);
   $("#DisplayQuestion").val(cleararray);
   $("#DisplayChoice").val(cleararray);
@@ -202,7 +333,7 @@ function GetQuestion() {
       SumQuizFalse = doc.data().SumQuizFalse;
       if(doc.data().QuizTypeQuestion=="1") {
         //$("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
-        $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ today +"</i></div>");
+        $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div>");
         $("#DisplayQuestion").html("<div class='txt-qq'>"+ doc.data().QuizQuestion +"</div>");
         EQuizForm += "<div style='margin-top:20px;'></div><center>";
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(1,\""+ doc.data().QuizChoice1 +"\")' id='answer1'><input type='radio'>"+ doc.data().QuizChoice1 +"</div>";
@@ -210,18 +341,19 @@ function GetQuestion() {
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(3,\""+ doc.data().QuizChoice3 +"\")' id='answer3'><input type='radio'>"+ doc.data().QuizChoice3 +"</div>";
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(4,\""+ doc.data().QuizChoice4 +"\")' id='answer4'><input type='radio'>"+ doc.data().QuizChoice4 +"</div>";
         EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ</div>";
-        EQuizForm += "</center>";
+        EQuizForm += "<br><br></center>";
       } else if(doc.data().QuizTypeQuestion=="2") {
-        $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
+        $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</div>");
         if(doc.data().QuizQuestion!=null) {
           $("#DisplayQuestion").html("<div><img src='"+ doc.data().QuizImg +"' class='imggame' style='max-width:370px;width:90%;'><div class='txt-qq'>"+doc.data().MoreDetail+"</div></div>");
         } else {
           $("#DisplayQuestion").html("<div><img src='"+ doc.data().QuizImg +"' class='imggame' style='max-width:370px;width:90%;'></div>");
         }
         EQuizForm += "<div><input type='text' id='SendCheckType2' placeholder='กรอกคำตอบของคุณ ..' style='margin-top:25px;width:250px !important;text-align: center; color:#0056ff;font-size:13px;' onkeyup='ChkText()'></div>";
-        EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ </div><div id='chars' style='color:#0016ed;'><div>";
+        EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ </div>";
+        EQuizForm += "<div style='color:#ff0000;padding:10px;'>กรุณาตรวจสอบข้อความให้ถูกต้องก่อนส่งคำตอบ</div><div id='chars' style='color:#f4f7fb;'><div><br><br>";
       } else if(doc.data().QuizTypeQuestion=="3") {
-        $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
+        $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</div>");
         if(doc.data().QuizVDO!=null) {
           $("#DisplayQuestion").html("<div>"+ doc.data().QuizVDO +"<div class='txt-qq'>"+doc.data().MoreDetail+"</div></div>");
         } else {
@@ -233,20 +365,22 @@ function GetQuestion() {
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(3,\""+ doc.data().QuizChoice3 +"\")' id='answer3'><input type='radio'>"+ doc.data().QuizChoice3 +"</div>";
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(4,\""+ doc.data().QuizChoice4 +"\")' id='answer4'><input type='radio'>"+ doc.data().QuizChoice4 +"</div>";
         EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ</div>";
-        EQuizForm += "</center>";
+        EQuizForm += "<br><br></center>";
       } else if(doc.data().QuizTypeQuestion=="4") {
-        $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
+        $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</div>");
         if(doc.data().QuizVDO!=null) {
           $("#DisplayQuestion").html("<div>"+ doc.data().QuizVDO +"<div class='txt-qq'>"+doc.data().MoreDetail+"</div></div>");
         } else {
           $("#DisplayQuestion").html("<div>"+ doc.data().QuizVDO +"</div>");
         }
         EQuizForm += "<div><input type='text' id='SendCheckType4' placeholder='กรอกคำตอบของคุณ ..' style='margin-top:25px;width:250px !important;text-align: center; color:#0056ff;font-size:13px;' onkeyup='ChkText4()'></div>";
-        EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ </div><div id='chars4' style='color:#0016ed;'><div>";
+        EQuizForm += "<div id='SubmitAns' class='btn-t0' onclick='SendAnswer()'>ส่งคำตอบ</div>";
+        EQuizForm += "<div style='color:#ff0000;padding:10px;'>กรุณาตรวจสอบข้อความให้ถูกต้องก่อนส่งคำตอบ</div><div id='chars4' style='color:#f4f7fb;'><div><br><br>";
       }
       $("#DisplayTimer").html("<center><div id='timer' class='timer'></div></center>");
     });
     $("#DisplayChoice").html(EQuizForm);
+    //$("#DisplaySummary").html(EQuizForm);
     //if(Eid=="") {
     //  alert("Quiz not Open55555");
     //  CloseQuiz();
@@ -376,6 +510,18 @@ function SaveData() {
       TimeStamp : TimeStampDate
     });
   }
+  if(YourScore!=0) {
+    sBadgeTrue = sBadgeTrue+1;
+  } else {
+    sBadgeFalse = sBadgeFalse+1;
+  }
+  dbBadgeUser.doc(EidBadgeGameUser).update({
+    BadgeTime : sBadgeTime+1,
+    BadgeTrue : sBadgeTrue,
+    BadgeFalse : sBadgeFalse
+  });
+
+
   //alert("Save Quiz User");
   SaveMyScorePoint();
   SaveQuestion();
@@ -439,31 +585,38 @@ function ClearQuiz() {
   //alert(YourScore);
   if(YourScore!=0) {
     LastScore = YourScore;
-    $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ today +"</i></div>");
-    $("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div></div>");
+
+    $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div>");
+    $("#DisplaySummary").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div><div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div></div>");
+    //$("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div></div>");
     var str1 = "";
     var str2 = "";
     str1 += '<div style="margin:30px;"><img src="./img/true.png" width="100px;"></div>';
     str1 += '<div class="txt-qq" style="color:#f68b1f;height:80px;"><b>ยินดีด้วยคุณตอบคำถามได้ถูกต้อง<br>เรามีข้อเสนอให้คุณ</b><div>';
-    str2 += '<div><img src="./img/true.png" width="70px;"></div>';
+    str2 += '<div style="padding-top:20px;"><img src="./img/true.png" width="70px;"></div>';
     str2 += '<div class="txt-qq">ยินดีด้วยคุณตอบคำถามได้ถูกต้อง<br>เรามีข้อเสนอให้คุณ<div>';
-    str2 += '<div style="padding:20px 0;color:#f7fa06">คุณสามารถเปลี่ยนคะแนนที่ได้รับได้ใหม่<br>โดยคุณอาจจะได้รับคะแนนที่ <b>เพิ่มขึ้น</b> หรือ <b>ลดลง</b> ก็ได้</div>';
+    str2 += '<div style="padding:20px 0;color:#0056ff">คุณสามารถเปลี่ยนคะแนนที่ได้รับได้ใหม่<br>โดยคุณอาจจะได้รับคะแนนที่ <b>เพิ่มขึ้น</b> หรือ <b>ลดลง</b> ก็ได้</div>';
     str2 += '<div class="btn-t1" onclick="ChangeNow()">รับข้อเสนอ</div><div class="btn-t2" onclick="NoChangeNow()">ไม่รับข้อเสนอ</div>';
-    str2 += '<div style="padding:15px 10px;">ช่วงคะแนนใหม่ที่จะได้อยู่ระหว่าง 0.3 - 1.70 คะแนน<br>คุณต้องรู้จักการบริหารความเสี่ยงด้วยน้า</div>';
+    str2 += '<div style="padding:15px 10px;color:#000;font-weight:600;">ช่วงคะแนนใหม่ที่จะได้อยู่ระหว่าง 0.3 - 1.70 คะแนน<br>คุณต้องรู้จักการบริหารความเสี่ยงด้วยน้า</div>';
     $("#DisplayChoice").html(str2);
     $("#SelectWay").html(str1);
     document.getElementById("id02").style.display = "block";
     //$("#DisplayChoice").html("<div class='btn-t1' onclick='xxx' style='margin-top;45px;'>เรามีข้อเสนอให้คุณ</div>");
   } else {
     LastScore = 0;
-    $("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ today +"</i></div>");
-    $("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
+    $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div>");
+    $("#DisplaySummary").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div><div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
+    //$("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ LastScore +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
     var str2 = "";
-    str2 += '<div><img src="./img/false.png" width="100px;"></div>';
+    str2 += '<div style="padding-top:20px;"><img src="./img/false.png" width="100px;"></div>';
     str2 += '<div class="txt-qq">เสียใจด้วยน้า<div>';
-    str2 += '<div style="padding:20px 0;color:#f7fa06">วันนี้คุณตอบคำถามไม่ถูกต้อง</div>';
+    str2 += '<div style="padding:20px 0;color:#ff0000;">วันนี้คุณตอบคำถามไม่ถูกต้อง</div>';
+    str2 += '<div class="btn-t1" onclick="gotoweb()" style="margin-top;25px;"">พรุ่งนี้กลับมาเล่นกันใหม่น้า</div>';
     $("#DisplayChoice").html(str2);
   }  
+  //document.getElementById('ShowScoreGame').style.display='block';
+  //document.getElementById('ShowQuizGame').style.display='none';
+
 }
 
 
@@ -474,16 +627,15 @@ function ChangeNow() {
   newScore = random_item(newPoint);
   var str2 = "";
   if(YourScore>newScore) {
-    str2 += '<div class="header-line" style="margin-top:-30px;">เสียใจนิด ๆ น้า<div>';
+    str2 += '<div class="header-line" style="margin-top:30px;">เสียใจนิด ๆ น้า<div>';
   } else {
-    str2 += '<div class="header-line" style="margin-top:-30px;">ดีใจด้วยน้า<div>';
+    str2 += '<div class="header-line" style="margin-top:30px;">ดีใจด้วยน้า<div>';
   }
   str2 += '<div>คุณได้รับคะแนนใหม่ : <span class="txt-qqq">'+parseFloat(newScore).toFixed(2)+'</span> คะแนน</div>';
-  str2 += '<div class="btn-t2" onclick="gotoweb()" style="margin-top;25px;"">พรุ่งนี้กลับมาเล่นกันใหม่น้า</div>';
+  str2 += '<div class="btn-t1" onclick="gotoweb()" style="margin-top;25px;"">พรุ่งนี้กลับมาเล่นกันใหม่น้า</div>';
   //$("#DisplayChoice").html(str2);
   document.getElementById("DisplayChoice").innerHTML = "";
   $("#DisplayQuestion").html(str2);
-  //$("#DisplayQuestion").html("<div class='txt-qq'>คุณได้เข้าร่วมกิจกรรมนี้ไปแล้วในวันนี้<div>คุณทำคะแนนได้ : <span class='txt-qqq'>"+ doc.data().LastScore +"</span> คะแนน</div><div class='btn-t2' onclick='gotoweb()' style='margin-top;25px;'>พรุ่งนี้กลับมาเล่นกันใหม่น้า</div></div>");
 
   var str1 = "";
   if(YourScore>newScore) {
@@ -552,6 +704,8 @@ function CloseAll() {
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='none';
   document.getElementById('id04').style.display='none';
+  document.getElementById('id05').style.display='none';
+  document.getElementById('id06').style.display='none';
 }
 
 
