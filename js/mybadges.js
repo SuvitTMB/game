@@ -140,13 +140,13 @@ function badge(x) {
 	} else if(x==2) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-5.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-score.png" width="120xp"></div>';
-		str += '<div class="txt-point">'+ sessionStorage.getItem("XP").toFixed(2) + '</div>';
+		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("XP")) + '</div>';
 		str += '<div class="txt-level">แต้ม</div>';
 		str += '<div style="padding:15px;">แต้มประสบการณ์ หรือ Experience Point(XP) เป็นแต้มสำหรับการสะสมประสบการณ์ในการแข่งขัน โดยผู้เข้าแข่งขันจะได้รับแต้มได้ เมื่อเข้าเก็บการแข่งขันในแต่ละวันที่ทางผู้จัดการแข่งขันได้กำหนดไว้ โดยทุก ๆ แต้มที่สะสมไว้จะบ่งบอกถึงประสบการณ์การเข้ามาร่วมกิจกรรม ยิ่งสะสมมาก แต้มประสบการณ์จะสูงขึ้น และจะส่งผลให้ ระดับการแข่งขัน (Level) ของผู้แข่งขันมากขึ้นไปด้วย</div>';
 	} else if(x==3) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-6.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-point.png" width="120xp"></div>';
-		str += '<div class="txt-point">'+ sessionStorage.getItem("RP").toFixed(2) + '</div>';
+		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("RP")) + '</div>';
 		str += '<div class="txt-level">แต้ม</div>';
 		str += '<div style="padding:15px;">เหรียญรางวัล หรือ Rewards Point (RP) เป็นเหรียญสำหรับการเก็บสะสมไว้เพื่อใช้ในการแลกของรางวัลจากรายการของรางวัลที่ทางผู้จัดกิจกรรมกำหนดไว้ แต่จะสามารถทำการแลกของรางวัลได้ก็ต่อเมื่อสามารถเก็บเหรียญรางวัลได้เท่ากับหรือมากกว่าของรางวัลรายการนั้น ๆ ที่ได้กำหนดไว้ และเมื่อทำการแลกของรางวัลไปแล้ว เหรียญรางวัลนี้จะถูกหักออกไปในมูลค่าเท่ากับของที่ได้ทำการแลกรางวัลมา</div>';
 	}
