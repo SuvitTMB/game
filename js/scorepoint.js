@@ -122,8 +122,8 @@ function AddBadgeUser() {
 	    });
 
 		dbBadgeGame.doc(EidBadgeGame).update({
-			SumGetBadge : sSumGetBadge+1;
-			SumGetBadgeEnd : sSumGetBadgeEnd+1;
+			SumGetBadge : sSumGetBadge+1,
+			SumGetBadgeEnd : sSumGetBadgeEnd+1
 		});
 
    		document.getElementById("id01").style.display = "block";
