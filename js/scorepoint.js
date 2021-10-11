@@ -70,6 +70,7 @@ var sBadgeTarget = 0;
 var sBadgePoint = 0;
 var sBonusPoint = 0 ;
 var sSumGetBadge = 0;
+var sSumGetBadgeEnd = 0;
 var sBadgeEng = "Badge-Welcome"; //ชื่อ badge
 function CheckGetBadge() {
   	dbBadgeGame.where('BadgeEng','==',sBadgeEng)
@@ -80,6 +81,7 @@ function CheckGetBadge() {
 			sBadgePoint = doc.data().BadgePoint;
 			sBonusPoint = doc.data().BonusPoint;
 			sSumGetBadge = doc.data().SumGetBadge;
+			sSumGetBadgeEnd = doc.data().SumGetBadgeEnd;
 		});
 	});	
 }
@@ -120,7 +122,8 @@ function AddBadgeUser() {
 	    });
 
 		dbBadgeGame.doc(EidBadgeGame).update({
-			SumGetBadge : sSumGetBadge+1
+			SumGetBadge : sSumGetBadge+1;
+			SumGetBadgeEnd : sSumGetBadgeEnd+1;
 		});
 
    		document.getElementById("id01").style.display = "block";
