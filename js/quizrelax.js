@@ -309,6 +309,7 @@ function GetQuestion() {
   db.where(firebase.firestore.FieldPath.documentId(), "==", EidQuestion)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
+      sAddImg = "";
       //alert("พบคำถาม = "+EidQuestion);
       //QuizNotOpen = 1;
       //EidQuestion = doc.id;
@@ -334,7 +335,8 @@ function GetQuestion() {
       if(doc.data().QuizTypeQuestion=="1") {
         //$("#DisplayDay").html("<div class='txt-q'><i>คำถามประจำวันที่ : "+ doc.data().QuizDate +"</i></div>");
         $("#DisplayDay").html("<div class='txt-q'>คำถามประจำวันที่ : "+ today +"</div>");
-        $("#DisplayQuestion").html("<div class='txt-qq'>"+ doc.data().QuizQuestion +"</div>");
+        if(doc.data().QuizImg!="") { sAddImg = "<div sytle='padding-top:10px;'><img src='"+ doc.data().QuizImg +"' class='imggame' style='max-width:370px;width:90%;'>"; }
+        $("#DisplayQuestion").html("<div class='txt-qq'>"+ doc.data().QuizQuestion +"</div>"+sAddImg);
         EQuizForm += "<div style='margin-top:20px;'></div><center>";
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(1,\""+ doc.data().QuizChoice1 +"\")' id='answer1'><input type='radio'>"+ doc.data().QuizChoice1 +"</div>";
         EQuizForm += "<div class='quiz-choice' onclick='ClickChoice(2,\""+ doc.data().QuizChoice2 +"\")' id='answer2'><input type='radio'>"+ doc.data().QuizChoice2 +"</div>";
