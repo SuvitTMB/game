@@ -36,6 +36,7 @@
             <option value="QuizRelax">คำถามคลายเครียด (สุ่มเลือกคำถาม)</option>
             <option value="QuizoftheDay">คำถามประจำวัน (สุ่มเลือกคำถาม)</option>
             <option value="MainBank">คำถาม Main Bank (สุ่มเลือกคำถาม)</option>
+            <option value="4Heart">ทดสอบ</option>
           </select>
           วันที่คำถาม <input type="text" id="txtQuizDate" class="input" style="width:120px;text-align: center;">
         </div>
@@ -108,6 +109,7 @@
 			            <option value="QuizRelax">คำถามคลายเครียด (สุ่มเลือกคำถาม)</option>
 			            <option value="QuizoftheDay">คำถามประจำวัน (สุ่มเลือกคำถาม)</option>
 			            <option value="MainBank">คำถาม Main Bank (สุ่มเลือกคำถาม)</option>
+            			<option value="4Heart">ทดสอบ</option>
 			          </select>
 					</span>
 					<span><button onclick="AddRec()">Add</button></span>
@@ -154,14 +156,15 @@ function getListValue() {
 //ReadData();
 
 //AddData('Staff','09/08/2564','[{"Rank": 1,"Bank": "TBANK","Branch Name": "สาขาบางนา","Zone": "บางนา","Region": "RH1","Score": "83.88%"},{"Rank": 649,"Bank": "TBANK","Branch Name": "สาขาบิ๊กซี บางพลี","Zone": "บางนา","Region": "RH1","Score": "73.70%"}]');
-
+var CheckOpen = 0;
 function ReadData() {
   //alert(sGroupQuiz);
   document.getElementById("show").innerHTML = "";
   //db.where('GroupQuiz','==',sGroupQuiz)
   //db.orderBy('GroupQuiz')
   db.where('GroupQuiz','==',sGroupQuiz)
-  .orderBy('QuizDate','desc')
+  .orderBy('QuizTypeQuestion','asc')
+  //.orderBy('QuizDate','desc')
   .onSnapshot(function(snapshot) {
     snapshot.docChanges().forEach(function(change) {
     	if(change.type === "added") {
@@ -181,11 +184,17 @@ function ReadData() {
 
 
 function UpdateData(doc) {
+
 //document.getElementById("show").innerHTML = "";
 	var node = document.createElement("LI");
+	var txtCheckOpen = "";
+  	CheckOpen = doc.data().QuizStatus;
+  	if(CheckOpen==1) { txtCheckOpen="Open"; }
+  	else if(CheckOpen==2) { txtCheckOpen="Close"; }
+
 	node.innerHTML = "";	
 	var t1 = document.createTextNode(' | ' + doc.data().GroupQuiz);
-	var t2 = document.createTextNode(' | ' + doc.data().QuizDate);
+	var t2 = document.createTextNode(' | '  + txtCheckOpen +" | " + doc.data().QuizDate);
 	var t3 = document.createTextNode(' | Type-' + doc.data().QuizTypeQuestion);
 	var t4 = document.createTextNode(' | Ans-' + doc.data().QuizAnswer);
 	var t5 = document.createTextNode(' | ' + doc.data().QuizQuestion);
@@ -222,11 +231,18 @@ function UpdateData(doc) {
 
 function ShowData(doc) {
   	//document.getElementById("show").innerHTML = "";
+	var txtCheckOpen = "";
+  	CheckOpen = doc.data().QuizStatus;
+  	if(CheckOpen==1) { txtCheckOpen="Open"; }
+  	else if(CheckOpen==2) { txtCheckOpen="Close"; }
+
+
 	var ul = document.getElementById("show");
 	var node = document.createElement("LI");
 	node.id = "L_"+doc.id;
+//	var t1 = document.createTextNode(' | ' + doc.data().GroupQuiz);
 	var t1 = document.createTextNode(' | ' + doc.data().GroupQuiz);
-	var t2 = document.createTextNode(' | ' + doc.data().QuizDate);
+	var t2 = document.createTextNode(' | ' + txtCheckOpen +" | " + doc.data().QuizDate);
 	var t3 = document.createTextNode(' | Type-' + doc.data().QuizTypeQuestion);
 	var t4 = document.createTextNode(' | Ans-' + doc.data().QuizAnswer);
 	var t5 = document.createTextNode(' | ' + doc.data().QuizQuestion.substring(0,80) + " ...");

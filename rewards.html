@@ -25,6 +25,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
+  <link rel="stylesheet" href="./css/progress-bar.css">
+  <script src="./js/progress-bar.js"></script>
+
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
   <!--#0016ed-->
@@ -59,114 +62,96 @@
     </div>
   </nav>
 
-<!--
-  <div class="game-bg" style="margin-top:70px;">
-    <center>
-    <div style="margin-top:30px;max-width: 320px;">
-      <div style="padding:10px 0 15px 0;"><img src="./img/head-2.png" style="height:45px;"><br>หมวดของรางวัล</div>
-      <div><img src="./img/redeem_point.jpg" style="width:100%;"></div>
-      <div style="margin-top:25px;">
-        <div class="box-redeem">
-          <div style="width:110px;height: 90px;text-align: center;float: left;"><img src="./img/redeem-01.png" width="90px"></div>
-          <div style="width:190px;float: left;margin-left:10px;">กระเป๋าผ้า TMB All Free<br>จำนวน 20 รายการ</div>
-        </div>
-      </div>
-      <div onclick="location.href='quizrelax.html'" style="cursor: pointer;">
-        <img src="./img/bg-game2.jpg" style="width:100%;border-radius: 10px;"><br>หมวดของรางวัล
-      </div>
-    </div>
-    <div class="clr"></div>
-    <div class="btn-t2" style="margin-top:20px;" onclick="GetBadgeUser()">ดูภารกิจ</div>
-    <div class="btn-t2" style="margin-top:20px;" onclick="location.href='quizrelax.html'">เข้าร่วมกิจกรรม</div>
-    <div class="clr"></div>
-    <div class="btn-t1" style="margin-top:10px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
-    <div style="height: 30px;"></div>
-    </center>
-  </div>
-  <div class="clr"></div>
--->
 
   <center>
     <div style="max-width:320px;margin:70px auto;width:100%;">
-      <div style="padding:10px 0 15px 0;"><img src="./img/head-9.png" style="height:45px;"><br></div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
+      <div style="padding:10px 0 15px 0;"><img src="./img/head-9.png" style="height:45px;"></div>
+      <div>| <b>แลกของรางวัล</b> | <a href="yourrewards.html"><font color="#f68b1f"><b>รายการของรางวัลของคุณ</b></font></a> |</div>
+      <div id="DisplayPoint" style="margin:10px 0 10px 0;"></div>
+      <div id="DisplayListAll" style="margin-top:30px;"></div>
+      <!--
+      <div class="game-redeem" onclick="RedeemGift(1)">
+        <div style="height:110px">
+          <div style="padding:5px;"><img src="./img/redeem-1.png" width="65"></div>
+          <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
+        </div>
+        <div class="game-redeem-point">
+          <div><span class="text10">คงเหลือ</span> 45 <span class="text10">รายการ</span></div>
+          <div><span class="text10">แลก</span> 25 <span class="text10">เหรียญรางวัล</span></div>
+        </div>
       </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-2.png" width="95%"></div>
-        <div class="game-redeemtxt">กล่องอเนกประสงค์</div>
+      <div class="game-redeem" onclick="RedeemGift(2)">
+        <div style="height:110px">
+          <div style="padding:5px;"><img src="./img/redeem-3.png" width="65px"></div>
+          <div class="game-redeemtxt">กล่องอเนกประสงค์</div>
+        </div>
+        <div class="game-redeem-point">
+          <div><span class="text10">คงเหลือ</span> 45 <span class="text10">รายการ</span></div>
+          <div><span class="text10">แลก</span> 25 <span class="text10">เหรียญรางวัล</span></div>
+        </div>
       </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-3.png" width="95%"></div>
-        <div class="game-redeemtxt">หมอน TMB TOUCH</div>
+
+      <div class="game-redeem" onclick="RedeemGift(3)">
+        <div style="height:110px">
+          <div style="padding:5px;"><img src="./img/redeem-2.png" width="65px"></div>
+          <div class="game-redeemtxt">หมอน TMB TOUCH</div>
+        </div>
+        <div class="game-redeem-point">
+          <div><span class="text10">คงเหลือ</span> 45 <span class="text10">รายการ</span></div>
+          <div><span class="text10">แลก</span> 25 <span class="text10">เหรียญรางวัล</span></div>
+        </div>
       </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-3.png" width="95%"></div>
-        <div class="game-redeemtxt">TMB Shopping Bag </div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
-      <div class="game-redeem" onclick="window.location.href='intro.html';">
-        <div><img src="./img/redeem-1.png" width="95%"></div>
-        <div class="game-redeemtxt">กระเป๋าผ้า<br>TMB All Free</div>
-      </div>
+    -->
 
 
 
 
     </div>
     <div class="clr"></div>
-    <div class="btn-t1" style="margin-top:10px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+    <div class="btn-t2" style="margin-top:30px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
     <div style="height: 30px;"></div>
   </center>
 
 
 
-<!--
+
   <div id="id01" class="w3-modal w3-animate-opacity">
-    <div class="w3-modal-content w3-card-4" style="background: #dce5f6;">
+    <div class="w3-modal-content w3-card-4" style="background: #fcfcfc;">
       <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
-        <div id="DisplayTimetoJoin"></div>
+        <div id="DisplayByItem"></div>
+
+<!--
+        <div style="margin-top:10px;">
+         <div class="redeem-header">แลกของรางวัล</div>
+         <div><img src="./stock/redeem-1.png" width="200px"></div>
+          <div class="redeem-stock">กระเป๋าผ้า TMB All Free</div>
+          <div style="width:300px;margin:auto;background-color: #ff0000;text-align: left;">
+            <div class="redeem-txt1">มูลค่าสินค้า</div>
+            <div class="redeem-txt2">200 บาท</div>
+            <div class="redeem-txt1">จำนวนสินค้า</div>
+            <div class="redeem-txt2">40 รายการ</div>
+            <div class="redeem-txt1">เหรียญที่ใช้แลก</div>
+            <div class="redeem-txt2">100 เหรียญ</div>
+          </div>
+          <div class="clr"></div>
+          <div class="btn-t1" onclick="CloseAll()" style="margin-top:20px;">แลกของรางวัล</div>
+          <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ยกเลิก</div>
+        </div>
+-->
+
+
         <div class="clr"></div>
-        <div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>
-        <div style="height: 20px;"></div>
+        <div style="height: 40px;"></div>
       </div>
     </div>
     <div style="height:20px;"></div>
   </div>
--->
 
-  <script src="./js/quizrelax-intro.js"></script>
+  <script>
+      $(document).ready(function(){
+          $(".progress-bar").ProgressBar();
+      });
+  </script>
+  <script src="./js/rewards.js"></script>
 </body>
 </html>
