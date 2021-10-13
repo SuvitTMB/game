@@ -25,27 +25,12 @@ $(document).ready(function () {
   Connect_DB();
   CheckScorePoint();
   CheckGetBadge();
-  //CheckGetBadgeUser();
-  //DisplayScore();
 });
  
 
 function Connect_DB() {
-  var firebaseConfig = {
-    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
-    authDomain: "retailproject-6f4fc.firebaseapp.com",
-    projectId: "retailproject-6f4fc",
-    storageBucket: "retailproject-6f4fc.appspot.com",
-    messagingSenderId: "653667385625",
-    appId: "1:653667385625:web:a5aed08500de80839f0588",
-    measurementId: "G-9SKTRHHSW9"
-  };
-  firebase.initializeApp(firebaseConfig);
-  dbScorePoint = firebase.firestore().collection("GameScorePoint");
-  dbCheck = firebase.firestore().collection("QuizScore");
-  dbBadgeGame = firebase.firestore().collection("BadgeGame");
-  dbBadgeUser = firebase.firestore().collection("BadgeUser");
-  
+function _0x25b2(){var _0xa9729b=['372tyyTtw','7408104zuPHEC','10TTNkiE','351467RRfwaw','16179684KLVvuk','13Gteztl','132KhZQMu','21235vFIIKU','2VyzUex','1:653667385625:web:a5aed08500de80839f0588','retailproject-6f4fc','15896ugcyfj','2718018MulxoY','332472QGSWax','retailproject-6f4fc.firebaseapp.com','G-9SKTRHHSW9','AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','88aPfYDr'];_0x25b2=function(){return _0xa9729b;};return _0x25b2();}var _0x5c0f84=_0x1218;(function(_0x344aae,_0x429ec4){var _0x38fc9c=_0x1218,_0x4ac6e1=_0x344aae();while(!![]){try{var _0x129751=parseInt(_0x38fc9c(0x103))/0x1*(parseInt(_0x38fc9c(0x108))/0x2)+parseInt(_0x38fc9c(0x106))/0x3*(-parseInt(_0x38fc9c(0x10b))/0x4)+parseInt(_0x38fc9c(0x107))/0x5*(-parseInt(_0x38fc9c(0x100))/0x6)+parseInt(_0x38fc9c(0xfb))/0x7*(-parseInt(_0x38fc9c(0xff))/0x8)+-parseInt(_0x38fc9c(0x10c))/0x9*(-parseInt(_0x38fc9c(0x102))/0xa)+-parseInt(_0x38fc9c(0x101))/0xb+-parseInt(_0x38fc9c(0x104))/0xc*(-parseInt(_0x38fc9c(0x105))/0xd);if(_0x129751===_0x429ec4)break;else _0x4ac6e1['push'](_0x4ac6e1['shift']());}catch(_0x5eb167){_0x4ac6e1['push'](_0x4ac6e1['shift']());}}}(_0x25b2,0x59c46));function _0x1218(_0xa1660b,_0x41ec52){var _0x25b239=_0x25b2();return _0x1218=function(_0x1218b3,_0xab7276){_0x1218b3=_0x1218b3-0xfb;var _0x11263a=_0x25b239[_0x1218b3];return _0x11263a;},_0x1218(_0xa1660b,_0x41ec52);}var firebaseConfig={'apiKey':_0x5c0f84(0xfe),'authDomain':_0x5c0f84(0xfc),'projectId':_0x5c0f84(0x10a),'storageBucket':'retailproject-6f4fc.appspot.com','messagingSenderId':'653667385625','appId':_0x5c0f84(0x109),'measurementId':_0x5c0f84(0xfd)};  firebase.initializeApp(firebaseConfig);
+function _0x1b01(_0x2b769c,_0x17d317){var _0x814776=_0x8147();return _0x1b01=function(_0x1b0160,_0x176ad4){_0x1b0160=_0x1b0160-0x172;var _0x18a096=_0x814776[_0x1b0160];return _0x18a096;},_0x1b01(_0x2b769c,_0x17d317);}function _0x8147(){var _0x38b04b=['4Bsemtw','20MfpJwy','697612DGLwLW','850113eXEXDl','155570odUWga','898715NORNJx','6WYfvDK','firestore','collection','2954497ePkQiD','1969887PdvTXh','9ePADDe','4221968IlVfnB'];_0x8147=function(){return _0x38b04b;};return _0x8147();}var _0x14dd6c=_0x1b01;(function(_0x149d96,_0x2838e0){var _0x4f3ea6=_0x1b01,_0x4424f7=_0x149d96();while(!![]){try{var _0x4c22ac=parseInt(_0x4f3ea6(0x17b))/0x1+parseInt(_0x4f3ea6(0x17d))/0x2+parseInt(_0x4f3ea6(0x176))/0x3*(parseInt(_0x4f3ea6(0x179))/0x4)+-parseInt(_0x4f3ea6(0x17e))/0x5*(parseInt(_0x4f3ea6(0x172))/0x6)+-parseInt(_0x4f3ea6(0x175))/0x7+parseInt(_0x4f3ea6(0x178))/0x8*(-parseInt(_0x4f3ea6(0x177))/0x9)+parseInt(_0x4f3ea6(0x17a))/0xa*(parseInt(_0x4f3ea6(0x17c))/0xb);if(_0x4c22ac===_0x2838e0)break;else _0x4424f7['push'](_0x4424f7['shift']());}catch(_0x5b7db4){_0x4424f7['push'](_0x4424f7['shift']());}}}(_0x8147,0x6f948),dbScorePoint=firebase['firestore']()[_0x14dd6c(0x174)]('GameScorePoint'),dbCheck=firebase[_0x14dd6c(0x173)]()[_0x14dd6c(0x174)]('QuizScore'),dbBadgeGame=firebase['firestore']()['collection']('BadgeGame'),dbBadgeUser=firebase[_0x14dd6c(0x173)]()[_0x14dd6c(0x174)]('BadgeUser'));  
 }
 
 
