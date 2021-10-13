@@ -269,7 +269,7 @@ function UpdateScorePoint() {
   sessionStorage.setItem("EmpPhone", sPhone)
   sessionStorage.setItem("Address", sAddress)
   sessionStorage.setItem("RP", parseFloat(PointAfterRedeem).toFixed(2));
-  var str1 += '<div class="redeem-headerpoint">คุณมีเหรียญที่จะใช้แลกอยู่ <b><font color="#0056ff">'+ sessionStorage.getItem("RP") +'</font></b> เหรียญรางวัล</div>';
+  var str1 = '<div class="redeem-headerpoint">คุณมีเหรียญที่จะใช้แลกอยู่ <b><font color="#0056ff">'+ sessionStorage.getItem("RP") +'</font></b> เหรียญรางวัล</div>';
   $("#DisplayPoint").html(str1);
   //alert(PointAfterRedeem);
   DisplayStockList();
