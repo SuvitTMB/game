@@ -447,25 +447,17 @@ function badge(x) {
 		str += '<div class="txt-point">'+ sessionStorage.getItem("Level")+ '</div>';
 		str += '<div class="txt-level">ระดับ</div>';
 		str += '<div style="padding:15px;">ระดับการแขังขัน หรือ Level หมายถึง การกำหนดให้ผู้แข่งขันอยู่ในช่วงของระดับการแข่งขัน เมื่อผู้แข่งขันได้เก็บประสบการณ์และสามารถทำภารกิจได้ตามเป้าหมายระดับการแข่งขัน (Level) จะถูกปรับระดับใหม่ ยิ่งผู้แข่งขันมีระดับการแข่งขันที่สูงขึ้น ก็หมายถึงระดับความยากก็จะมากยิ่งขึ้นไปด้วย</div>';
-/*
-		str += '<center><div style="padding:10px 0 20px 0;"><img src="./img/head-4.png" style="height:45px;"></div>';
-		str += '<div class="bg-timetojoin"><div style="padding-top:20px;"><img src="./img/badge-level.png" width="120xp"></div>';
-		str += '<div class="txt-point">'+ sessionStorage.getItem("Level")+ '</div>';
-		str += '<div class="txt-level">ระดับ</div>';
-		str += '<div style="padding:15px;color:#fff;">ระดับการแขังขัน หรือ Level หมายถึง การกำหนดให้ผู้แข่งขันอยู่ในช่วงของระดับการแข่งขัน เมื่อผู้แข่งขันได้เก็บประสบการณ์และสามารถทำภารกิจได้ตามเป้าหมายระดับการแข่งขัน (Level) จะถูกปรับระดับใหม่ ยิ่งผู้แข่งขันมีระดับการแข่งขันที่สูงขึ้น ก็หมายถึงระดับความยากก็จะมากยิ่งขึ้นไปด้วย</div>';
-		str += '</div></center>';
-*/
 	} else if(x==2) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-5.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-score.png" width="120xp"></div>';
 		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("XP")) + '</div>';
-		str += '<div class="txt-level">แต้ม</div>';
+		str += '<div class="txt-level">แต้มสะสม</div>';
 		str += '<div style="padding:15px;">แต้มประสบการณ์ หรือ Experience Point(XP) เป็นแต้มสำหรับการสะสมประสบการณ์ในการแข่งขัน โดยผู้เข้าแข่งขันจะได้รับแต้มได้ เมื่อเข้าเก็บการแข่งขันในแต่ละวันที่ทางผู้จัดการแข่งขันได้กำหนดไว้ โดยทุก ๆ แต้มที่สะสมไว้จะบ่งบอกถึงประสบการณ์การเข้ามาร่วมกิจกรรม ยิ่งสะสมมาก แต้มประสบการณ์จะสูงขึ้น และจะส่งผลให้ ระดับการแข่งขัน (Level) ของผู้แข่งขันมากขึ้นไปด้วย</div>';
 	} else if(x==3) {
 		str += '<div style="padding:10px 0 20px 0;"><img src="./img/head-6.png" style="height:45px;"></div>';
 		str += '<div><img src="./img/badge-point.png" width="120xp"></div>';
 		str += '<div class="txt-point">'+ numberWithCommas(sessionStorage.getItem("RP")) + '</div>';
-		str += '<div class="txt-level">แต้ม</div>';
+		str += '<div class="txt-level">เหรียญรางวัล</div>';
 		str += '<div style="padding:15px;">เหรียญรางวัล หรือ Rewards Point (RP) เป็นเหรียญสำหรับการเก็บสะสมไว้เพื่อใช้ในการแลกของรางวัลจากรายการของรางวัลที่ทางผู้จัดกิจกรรมกำหนดไว้ แต่จะสามารถทำการแลกของรางวัลได้ก็ต่อเมื่อสามารถเก็บเหรียญรางวัลได้เท่ากับหรือมากกว่าของรางวัลรายการนั้น ๆ ที่ได้กำหนดไว้ และเมื่อทำการแลกของรางวัลไปแล้ว เหรียญรางวัลนี้จะถูกหักออกไปในมูลค่าเท่ากับของที่ได้ทำการแลกรางวัลมา</div>';
 	}
 	$("#BadgeDetail").html(str);  
@@ -473,31 +465,10 @@ function badge(x) {
 }
 
 
-
-/*
-line 398
-function CheckLevelUp() {
-	//alert(sessionStorage.getItem("XP")+"==="+sessionStorage.getItem("Level"));
-	alert(sessionStorage.getItem("XP"));
-	if(sessionStorage.getItem("XP") >= 101 && sessionStorage.getItem("XP") <= 300) {
-		alert("Level 2");
-	} else if(sessionStorage.getItem("XP") >= 301 && sessionStorage.getItem("XP") <= 600) {
-		alert("Level 3");
-	} else if(sessionStorage.getItem("XP") >= 601 && sessionStorage.getItem("XP") <= 1000) {
-		alert("Level 4");
-	} else if(sessionStorage.getItem("XP") >= 1000 && sessionStorage.getItem("XP") <= 1500) {
-		alert("Level 5");
-	} else if(sessionStorage.getItem("XP") >= 1500 && sessionStorage.getItem("XP") <= 2000) {
-		alert("Level 6");
-	}
-}
-*/
-
-
-
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 
 
 function CloseAll() {

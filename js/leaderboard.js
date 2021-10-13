@@ -188,7 +188,7 @@ function AllBadge() {
 				if(calbar>100) { calbar = 100; }
 				if(UserBadgeArr[UserBadgeArr1.indexOf(doc.data().BadgeEng)][3]==1) {
 					sBadge += '<div class="box-listuser">';
-					sBadge += '<div style="width:15%;float:left;text-align:center;"><img src="'+ doc.data().BadgeImg +'" width="40px;"></div>';
+					sBadge += '<div style="width:15%;float:left;text-align:center;padding-top:3px;"><img src="'+ doc.data().BadgeImg +'" width="40px;"></div>';
 					sBadge += '<div style="width:80%;padding:4px;float:left;"><div class="box-listtext" style="padding-left:6px;">'+ doc.data().BadgeTh +'</div>';
 					sBadge += '<div class="progress-bar">';
 					sBadge += '<div class="progress" data-percent="70" data-color="green" style="width:'+calbar+'%;background:#0056ff;"><span>'+calbar+'%</span></div>';
