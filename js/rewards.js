@@ -184,10 +184,31 @@ function CheckStock(x) {
         sStockRedeem = doc.data().StockRedeem;
         UpdateStock(doc.id);
       } else {
-        alert("รายการของรางวัลนี้หมดแล้ว");
+        //alert("รายการของรางวัลนี้หมดแล้ว");
+        CloseStock();
       }
     });
   });
+}
+
+
+
+function CloseStock() {
+  var str = "";
+  str += '<div style="margin-top:10px;">';
+  str += '<div class="redeem-header" style="color:#ff0000;">แจ้งรายการสินค้าหมด</div>';
+  str += '<div><img src="'+ sStockImg +'" width="200px"></div>';
+  str += '<div class="redeem-stock">'+ sStockName  +'</div>';
+  str += '<div style="width:300px;margin:auto;text-align: left;">';
+  str += '<div class="redeem-txt1">จำนวนของรางวัล</div>';
+  str += '<div class="redeem-txt2" style="color:ff0000;">สินค้าหมด</div>';
+  str += '</div><div class="clr"></div>';
+  str += '<div style="width:300px;margin:auto;text-align: left;">';
+  str += '<center><div style="width:100%;padding:20px 0 5px 5px;color:#ff0000;"><b>ขณะนี้รายการสินค้าที่ท่านจะทำการแลกหมดแล้ว<br>ขอให้ทำการเลือกรายการของรางวัลอื่น</b></div>';
+  str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div></center></div>';
+  str += '</div></div>';
+  $("#DisplayByItem").html(str);
+  DisplayStockList();
 }
 
 
@@ -226,7 +247,7 @@ function UpdateScorePoint() {
     RewardsRP : parseFloat(PointAfterRedeem),
     StockRedeem : (sStockRedeem+1)
   });
-  alert(EidProfile+"==="+sAddress+"==="+sPhone);
+  //alert(EidProfile+"==="+sAddress+"==="+sPhone);
   dbProfile.doc(EidProfile).update({
     empAddress : sAddress,
     empPhone : sPhone
