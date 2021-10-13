@@ -243,7 +243,7 @@ function UpdateScorePoint() {
     StockImg : sStockImg,
     PointRedeem : sPointRedeem,
     PointIn : parseFloat(sessionStorage.getItem("RP")),
-    PointOut : PointAfterRedeem,
+    PointOut : parseFloat(PointAfterRedeem),
     //PointRedeem : PointAfterRedeem,
     DateRedeem : today,
     StatusOrder : 1, // 1. สั่งซื้อ 2. อยู่ระหว่างการจัดส่ง 3.จัดส่งแล้ว 4. ยืนยันการรับของ
