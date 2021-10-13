@@ -4,11 +4,19 @@ var dbRedeemLog = "";
 var dbProfile = "";
 var EidStockList = "";
 var EidScorePoint = "";
+var EidProfile = "";
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear()+543;
 today = dd + '/' + mm + '/' + yyyy;
+var sPhone = "";
+var sAddress = "";
+var sStockImg = "";
+var sStockName = "";
+var sStockItems = "";
+var sStockRedeem = "";
+var PointRedeem = "";
 
 
 
@@ -86,13 +94,6 @@ function DisplayStockList() {
 
 }
 
-var sPhone = "";
-var sStockImg = "";
-var sStockName = "";
-var sStockItems = "";
-var sStockRedeem = "";
-var PointRedeem = "";
-
 
 
 function RedeemGift(x) {
@@ -162,7 +163,7 @@ function ExchangeGift(x) {
     str += '<div style="color:#0056ff;"><textarea id="address" placeholder="ที่อยู่สาขาสำหรับการจัดส่งของรางวัล .." style="height:80px;font-size:12px; line-height:1.3;">'+sessionStorage.getItem("Address")+'</textarea></div>';
     str += '<div>โทรศัพท์มือถือ</div><div style="color:#0056ff;"><input type="text" name="phone" id="phone" pattern="[+-]?[0-9]" value="'+ sessionStorage.getItem("EmpPhone") +'"></div>';
 
-    str += '<div class="btn-t1" onclick="ConfirmGift(\''+ x +'\')" style="margin-top:20px;">ยืนยันแลกรางวัล</div>';
+    str += '<div class="btn-t1" onclick="CheckStock(\''+ x +'\')" style="margin-top:20px;">ยืนยันแลกรางวัล</div>';
     str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ยกเลิก</div></div>';
     str += '</div></div>';
   }
@@ -170,26 +171,15 @@ function ExchangeGift(x) {
 }
 
 
-
-
-
-function ConfirmGift(x) {
-  CheckStock(x);
-  //alert("ยืนยันการแลกของรางวัล");
-}
-
-
-var sAddress = "";
 function CheckStock(x) {
   sAddress = document.getElementById("address").value;
   sPhone = document.getElementById("phone").value;
-  //alert(document.getElementById("address").value);
-  //alert("Check Stock");
+  ProfileUpdate();
   dbStockList.where(firebase.firestore.FieldPath.documentId(), "==", x)
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       EidStockList = doc.id;
-      if(doc.data().StockRedeem>0) {
+      if(doc.data().StockItems>0) {
         sStockItems = doc.data().StockItems;
         sStockRedeem = doc.data().StockRedeem;
         UpdateStock(doc.id);
@@ -200,6 +190,15 @@ function CheckStock(x) {
   });
 }
 
+
+function ProfileUpdate() {
+  dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      EidProfile = doc.id;
+    });
+  });
+}
 
 
 function UpdateStock(x) {
@@ -227,7 +226,11 @@ function UpdateScorePoint() {
     RewardsRP : parseFloat(PointAfterRedeem),
     StockRedeem : (sStockRedeem+1)
   });
-
+  alert(EidProfile+"==="+sAddress+"==="+sPhone);
+  dbProfile.doc(EidProfile).update({
+    empAddress : sAddress,
+    empPhone : sPhone
+  });
   dbRedeemLog.add({
     LineID : sessionStorage.getItem("LineID"),
     linename : sessionStorage.getItem("LineName"),
@@ -248,7 +251,6 @@ function UpdateScorePoint() {
     TimeStamp : TimeStampDate
   });
 
-
   str += '<div style="margin-top:10px;">';
   str += '<div class="redeem-header">ระบบทำรายการเรียบร้อยแล้ว</div>';
   str += '<div><img src="'+ sStockImg +'" width="200px"></div>';
@@ -264,9 +266,11 @@ function UpdateScorePoint() {
   str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div></center></div>';
   str += '</div></div>';
   $("#DisplayByItem").html(str);
-
+  sessionStorage.setItem("EmpPhone", sPhone)
   sessionStorage.setItem("Address", sAddress)
   sessionStorage.setItem("RP", parseFloat(PointAfterRedeem).toFixed(2));
+  var str1 += '<div class="redeem-headerpoint">คุณมีเหรียญที่จะใช้แลกอยู่ <b><font color="#0056ff">'+ sessionStorage.getItem("RP") +'</font></b> เหรียญรางวัล</div>';
+  $("#DisplayPoint").html(str1);
   //alert(PointAfterRedeem);
   DisplayStockList();
 }
@@ -276,8 +280,6 @@ function UpdateScorePoint() {
 function CloseAll() {
   document.getElementById('id01').style.display='none';
 }
-
-
 
 
 function phone_formatting(ele,restore) {

@@ -75,7 +75,8 @@ function AllBadge() {
 	var i = 0;
 	var str = "";
 	var calbar = 0;
-  	dbBadgeGame.orderBy('BadgeNo','asc')
+  	dbBadgeGame.where('BadgeStatus','==',1)
+  	.orderBy('BadgeNo','asc')
 	.get().then((snapshot)=> {
 		snapshot.forEach(doc=> {
 			BadgeArr1.push(doc.data().BadgeEng);
