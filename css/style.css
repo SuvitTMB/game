@@ -879,3 +879,43 @@ box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
   -webkit-box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17); 
 box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
 }
+.redeem-txt3 {
+  background: #fff; width:150px; margin:3px; border-radius: 8px; padding:7px 10px; float: left; text-align: center;
+  color:#000; font-weight: 600; font-size: 10px;
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17); 
+box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
+}
+.box-yourredeem {
+  background: #a6fbc2;text-align: left;width:100%; padding:5px; border-radius: 10px; height: 100px; margin-top:5px;
+  color:#000; 
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17); 
+box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
+}
+.box-yourredeem:hover {
+  background: #53f689;cursor: pointer;
+}
+.box-yourredeem1 {
+  background: #f3ceaa;text-align: left;width:100%; padding:5px; border-radius: 10px; height: 100px; margin-top:5px;
+  color:#000; 
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17); 
+box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
+}
+.box-yourredeem1:hover {
+  background: #f2b06d;cursor: pointer;
+}
+.box-yourredeem2 {
+  background: #b5caf3;text-align: left;width:100%; padding:5px; border-radius: 10px; height: 100px; margin-top:5px;
+  color:#000; 
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17); 
+box-shadow: 0px 0px 6px 5px rgba(178,178,178,0.17);
+}
+.box-yourredeem2:hover {
+  background: #79a1f0;cursor: pointer;
+}
+
+
+
+
+.box-yourtxt {
+  margin-left:5px; width:210px;float: left;line-height: 1.3; font-size: 12px;
+}
