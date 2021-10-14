@@ -25,9 +25,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
-  <link rel="stylesheet" href="./css/progress-bar.css">
-  <script src="./js/progress-bar.js"></script>
-
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #fff;">
   <!--#0016ed-->
@@ -67,34 +64,34 @@
     <div style="max-width:320px;margin:70px auto;width:100%;">
       <div style="padding:10px 0 15px 0;"><img src="./img/head-9.png" style="height:45px;"></div>
       <div>
-        <div class="btn-t0" style="margin-top:20px;cursor: default;">แลกของรางวัล</div>
-        <div class="btn-t1" onclick="window.location.href = 'yourrewards.html';">รางวัลของคุณ</div>
+        <div class="btn-t1" onclick="window.location.href = 'rewards.html';">แลกของรางวัล</div>
+        <div class="btn-t0" style="margin-top:20px;cursor: default;">รางวัลของคุณ</div>
       </div>
       <div id="DisplayPoint" style="margin:15px 0 10px 0;"></div>
-      <div style="margin-top:30px;">รายการของรางวัล</div>
-      <div id="DisplayListAll" style="margin-top:10px;"></div>
+      <div style="margin-top:30px;">รายการของรางวัลที่คุณได้แลกไว้</div>
+      <div id="DisplayYourList" style="margin-top:10px;"></div>
+      <div class="clr"></div>
     </div>
     <div class="clr"></div>
     <div class="btn-t2" style="margin-top:30px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
     <div style="height: 30px;"></div>
   </center>
 
+
   <div id="id01" class="w3-modal w3-animate-opacity">
     <div class="w3-modal-content w3-card-4" style="background: #fcfcfc;">
       <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
-        <div id="DisplayByItem"></div>
+        <!--<div class="header-line" style="font-size:13px;margin-top:30px;color:#0056ff;font-weight: 600;">ยืนยันการรับสินค้า</div>-->
+        <div id="DisplayYourOrder"></div>
         <div class="clr"></div>
-        <div style="height: 40px;"></div>
+        <!--
+        <div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>
+        -->
+        <div style="height: 30px;"></div>
       </div>
     </div>
     <div style="height:20px;"></div>
   </div>
-
-  <script>
-      $(document).ready(function(){
-          $(".progress-bar").ProgressBar();
-      });
-  </script>
-  <script src="./js/rewards.js"></script>
+  <script src="./js/yourrewards.js"></script>
 </body>
 </html>
