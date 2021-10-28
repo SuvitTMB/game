@@ -172,6 +172,8 @@ function CheckGetBadgeUser() {
     //sBadgeTime = 15;
     //sBadgeEnd = 0;
     if(sBadgeEnd==0) {
+alert("BadgeEnd="+sBadgeEnd)
+
       if(sBadgeTime>=sBadgeTarget) {
 
 		sGameStatus = 1;
