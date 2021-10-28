@@ -267,24 +267,6 @@ function AddNewUserFWB() {
   } else {
   	alert("ไม่พบข้อมูล LINE ของคุณ");
   	SessionNotFound();
-
-/*
-document.getElementById('ShowWB1').style.display='block';
-document.getElementById('ShowWB2').style.display='block';
-document.getElementById('ShowWB3').style.display='block';
-document.getElementById('ShowWB4').style.display='block';
-document.getElementById('ShowWB5').style.display='block';
-document.getElementById('ShowWB6').style.display='block';
-document.getElementById('ShowWB7').style.display='block';
-document.getElementById('ShowWB8').style.display='block';
-document.getElementById('ShowWB9').style.display='block';
-document.getElementById('ShowWB10').style.display='block';
-document.getElementById('ShowWB11').style.display='block';
-document.getElementById('ShowWB12').style.display='block';
-document.getElementById('ShowWB13').style.display='block';
-document.getElementById('ShowWB14').style.display='block';
-*/
-
   }
 }
 
@@ -531,7 +513,6 @@ function RandomPoint(x) {
 	var sCheckUserImg1 = '<img src="./img/true.png" style="width:30px;">';
 	//var sMyPoint = document.getElementById("MyPointSelect").value;
 	if(x==1) {
-
 		document.getElementById('ShowWB1').style.display='none';
 	} else if(x==2) {
 		document.getElementById('ShowWB2').style.display='none';
@@ -593,7 +574,7 @@ function RandomPoint(x) {
 	sessionStorage.setItem("XP", parseFloat(sessionStorage.getItem("XP"))+parseFloat(sNewMyPoint.toFixed(2)));
 	sessionStorage.setItem("RP", parseFloat(sessionStorage.getItem("RP"))+parseFloat(sNewMyPoint.toFixed(2)));
 
-	alert("XP="+sessionStorage.getItem("XP")+"\nRP="+sessionStorage.getItem("RP"));
+	//alert("XP="+sessionStorage.getItem("XP")+"\nRP="+sessionStorage.getItem("RP"));
 	$("#DisplayGetPoint").html(str);  
 	SaveDataFWB(x,sNewMyPoint);
 
@@ -614,10 +595,10 @@ function SaveDataFWB(x,p) {
 			//RewardsXP : sRewardsXP,
 			RewardsRP : sRewardsRP
 		});
-
         dbBadgeUser.doc(EidBadgeGameUser).update({
             BadgeTime : sBadgeTime
         });
+
 		if(x==1 && UserArr[0]==0) {
 			dbGameFWB.doc(EidGameFWB).update({
 				Game1 : p,
