@@ -26,7 +26,7 @@ $(document).ready(function () {
 		SessionNotFound();
 		//alert("Session Not Found");
 	}
-	alert("RP="+sessionStorage.getItem("RP"));
+	//alert("RP="+sessionStorage.getItem("RP"));
 	Connect_DB();
 	CheckUserScorePoint();
 	CheckGetBadge();
