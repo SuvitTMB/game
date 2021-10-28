@@ -828,7 +828,7 @@ function OpenVDO(x) {
 	} else if(x==2) {
 		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวที่สอง ... เงินที่หาได้ ไม่สำคัญเท่าเงินที่เก็บได้</div>';
 		str += '<div class="top-subheader">ฉลาดออม ฉลาดใช้</div><div class="clr"></div>';
-		str += '<video id="VDO1" width="100%" controls="controls" autoplay style="padding-top:15px;">';
+		str += '<video id="VDO2" width="100%" controls="controls" autoplay style="padding-top:15px;">';
 		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep2.mp4?alt=media&token=5d69472d-cdce-4d61-be6a-1849dc539b21" type="video/mp4">';
 		str += '</video><div class="clr"></div>';
 //		str += '<div class="text-subtopic1" style="text-align:left;">เพื่อสร้างชีวิตทางการเงินที่ดี เราสนับสนุนให้พนักงานรู้จักวางแผนการเงิน ใช้ให้เป็น ออมให้ถูกที่ และมีวินัยในการออม</div>';
@@ -844,7 +844,7 @@ function OpenVDO(x) {
 		str += '<li><span class="text-blue">เปลี่ยนแปลงนิสัยตนเอง</span><br>รู้จักหารายได้เพิ่ม ไม่ใช้เงินฟุ่มเฟือย มีวินัยในการออม และตั้งเป้าหมายในการเก็บเงิน<br></li>';
 		str += '</ul></div></div>';
 */
-		str += '<div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '<div class="btn-t2" onclick="CloseVDO2()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
 		str += '</center><div style="height: 30px;"></div>';
 
 
@@ -891,6 +891,14 @@ function CloseVDO() {
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='none';
 }
+
+function CloseVDO2() {
+  clearInterval(counter);;	
+  document.getElementById('VDO2').pause();
+  document.getElementById('id02').style.display='none';
+  document.getElementById('id03').style.display='none';
+}
+
 
 function NewDate() {
   var today = new Date();
