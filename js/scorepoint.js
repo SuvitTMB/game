@@ -151,6 +151,7 @@ function CheckScorePoint() {
 			Update_BadgeLevel = "Badge-LevelUp-6";
 		}
 		*/
+	    	UpdateProfile();
 		UpdateLevel(doc.data().RewardsXP);
 
     });
@@ -163,6 +164,13 @@ function CheckScorePoint() {
   });
 }
 
+function UpdateProfile() {
+  dbScorePoint.doc(EidScorePoint).update({
+    //lineID : sessionStorage.getItem("LineID"),
+    linename : sessionStorage.getItem("LineName"),
+    empPicture : sessionStorage.getItem("LinePicture")
+  });
+}
 
 
 function UpdateTimeLine() {
