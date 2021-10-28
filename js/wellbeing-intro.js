@@ -108,6 +108,8 @@ function CheckUserFWB() {
 */
 
 
+      } else {
+      	alert("ไม่เเข้าเงื่อนไข");
       }
       //console.log(UserArr);
       CheckButton();
