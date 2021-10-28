@@ -171,8 +171,8 @@ function CheckGetBadgeUser() {
     });
     //sBadgeTime = 15;
     //sBadgeEnd = 0;
-    if(sBadgeEnd==0) {
 alert("BadgeEnd="+sBadgeEnd)
+    if(sBadgeEnd==0) {
 
       if(sBadgeTime>=sBadgeTarget) {
 
