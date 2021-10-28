@@ -291,12 +291,12 @@ function GetTarget(x) {
 	timer();
 	if(x==1) {
 		document.getElementById('ShowWB1').style.display='none';
-		//str += '<div class="slideanim slide"><img src="./img/wellbeing-01.jpg" style="width:100%;"></div>';
-		//str += '<div class="text-topic">';
-		//str += '<div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
-		//str += '<div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
-		//str += '</div>';
-
+		str += '<div class="slideanim slide"><img src="./img/wellbeing-01.jpg" style="width:100%;"></div>';
+		str += '<div class="text-topic">';
+		str += '<div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		str += '</div>';
+/*
 		seeVDO = 2;
 		sVDOnumber = x;
 		VDOtimer = 175;
@@ -309,7 +309,7 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
 		str += '</div>';
-
+*/
 	} else if(x==2) {
 		document.getElementById('ShowWB2').style.display='none';
         str += '<div class="wb-top-header" style="margin-top:20px;">เส้นทางก้าวสู่<br>การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>';
@@ -339,6 +339,7 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic2"><span class="text-blue">รอบรู้เรื่องกู้ยืม หรือ healthy Borrowing</span> เป็นแนวคิดที่ธนาคารต้องการ ให้พนักงานเข้าใจ และให้ความสำคัญเกี่ยวกับความรู้ด้านสินเชื่อก่อนการกู้ยืม เพื่อมีข้อมูลประกอบการพิจารณา และตัดสินใจเลือกใช้สินเชื่อได้อย่างถูกต้องและเหมาะสม</div>';
 		str += '</div><div class="clr"></div>';
 	} else if(x==4) {
+/*
 		seeVDO = 1;
 		sVDOnumber = x;
 		VDOtimer = 32;
@@ -348,6 +349,20 @@ function GetTarget(x) {
 		str += '<div class="top-subheader">โซลูชันรวบหนี้ ลดภาระดอกเบี้ย</div><div class="clr"></div>';
 		str += '<div style="width:100%; height:180px;margin-top:20px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/icpgq9qgnd0?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
 		str += '<div style="padding:10px 20px;color:#555;text-align:left;"><span class="text-blue">การรวบหนี้ หรือ debt consolidation</span><br>เป็นแนวคิดเพื่อการจัดการหนี้อย่างมีประสิทธิภาพ โดยขอสินเชื่อวงเงินใหม่ ที่อัตราดอกเบี้ยต่ำลง เพื่อนำเงินมาจ่ายคืนหนี้อื่น ๆ ที่มีอัตราดอกเบี้ยสูงกว่า และปิดบัญชีหนี้เหล่านั้น ทำให้เหลือหนี้เพียงด้านเดียว ช่วยลดภาระ สามารถทยอยผ่านชำระหนี้ได้เหมาะสมกับความสามารถ ภาระอัตราดอกเบี้ยลดลงเป็นการรวบหนี้อื่น ๆ มาอยู่ในที่เดียว</div>';
+*/
+		seeVDO = 2;
+		sVDOnumber = x;
+		VDOtimer = 175;
+		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
+		counter = setInterval(timer, 1000);
+		str += '<div class="text-topic">';
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep1.mp4?alt=media&token=0aae3eec-1943-46f6-a0aa-93905f462e4d" type="video/mp4">';
+		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">การเป็น <span class="text-naviblue">"หนี้"</span> ไม่ใช่ความล้มเหลวของชีวิต และไม่ใช่ความผิด แต่หากจำเป็นต้องสร้างหนี้ เราต้องเลือกว่าจะเป็น <span class="text-naviblue">"หนี้แบบไหน"</span> ที่สำคัญต้องเป็นหนี้แบบ <span class="text-naviblue">"มีวันจบ"</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;"><span class="text-blue">รอบรู้เรื่องกู้ยืม หรือ healthy Borrowing</span> เป็นแนวคิดที่ธนาคารต้องการ ให้พนักงานเข้าใจ และให้ความสำคัญเกี่ยวกับความรู้ด้านสินเชื่อก่อนการกู้ยืม เพื่อมีข้อมูลประกอบการพิจารณา และตัดสินใจเลือกใช้สินเชื่อได้อย่างถูกต้องและเหมาะสม</div>';               
+		str += '</div>';
+
 	} else if(x==5) {
 		str += '<div class="text-naviblue" style="padding:20px 0 10px 20px; text-align:left;">สินเชื่อที่<span class="text-org">มีหลักทรัพย์</span>ค้ำประกัน</div>';
 		str += '<div class="slideanim slide"><img src="./img/wellbeing-04.jpg" class="box-wb1"></div>';
@@ -400,8 +415,8 @@ function GetTarget(x) {
 		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
 		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep2.mp4?alt=media&token=5d69472d-cdce-4d61-be6a-1849dc539b21" type="video/mp4">';
 		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
-		//str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
-		//str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
 		str += '</div>';
 
 
@@ -792,17 +807,55 @@ function wb_topic(x) {
 function OpenVDO(x) {
 	var str = "";
 	if(x==1) {
+		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวแรก ... บริหารชีวิตไม่ติดลบ</div>';
+		str += '<div class="top-subheader">โซลูชันรวบหนี้ ลดภาระดอกเบี้ย</div><div class="clr"></div>';
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay style="padding-top:15px;">';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep1.mp4?alt=media&token=0aae3eec-1943-46f6-a0aa-93905f462e4d" type="video/mp4">';
+		str += '</video><div class="clr"></div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+
+		str += '<div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '</center><div style="height: 30px;"></div>';
+
+/*
 		str += '<div class="top-header" style="padding-top:20px;">ttb debt consolidation</div>';
 		str += '<div class="top-subheader">โซลูชันรวบหนี้ ลดภาระดอกเบี้ย</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:180px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/icpgq9qgnd0?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>';
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>';
 		str += '<div class="clr"></div>';
+*/
 	} else if(x==2) {
+		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวที่สอง ... เงินที่หาได้ ไม่สำคัญเท่าเงินที่เก็บได้</div>';
+		str += '<div class="top-subheader">ฉลาดออม ฉลาดใช้</div><div class="clr"></div>';
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay style="padding-top:15px;">';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep2.mp4?alt=media&token=5d69472d-cdce-4d61-be6a-1849dc539b21" type="video/mp4">';
+		str += '</video><div class="clr"></div>';
+//		str += '<div class="text-subtopic1" style="text-align:left;">เพื่อสร้างชีวิตทางการเงินที่ดี เราสนับสนุนให้พนักงานรู้จักวางแผนการเงิน ใช้ให้เป็น ออมให้ถูกที่ และมีวินัยในการออม</div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+
+
+/*
+		str += '<div class="wb-top-header1" style="margin-top:0px;"><u>3 ป. เพื่อการฉลาดออม ฉลาดใช้</u></div>';
+		str += '<div style="text-align:left;width:90%;font-size:12px;><div style="text-align: left;"><ul>';
+		str += '<li><span class="text-blue">ประเมินสถานการณ์การเงิน</span><br>คำนวณรายรับรายจ่าย เพื่อกำหนดค่าใช้จ่ายในแต่ละเดือน<br></li>';
+		str += '<li><span class="text-blue">ประหยัดค่าใช้จ่าย</span><br>สำรวจและตัดรายจ่ายที่ไม่จำเป็นออกไป เพื่อให้มีเงินเหลือเก็บมากขึ้น<br></li>';
+		str += '<li><span class="text-blue">เปลี่ยนแปลงนิสัยตนเอง</span><br>รู้จักหารายได้เพิ่ม ไม่ใช้เงินฟุ่มเฟือย มีวินัยในการออม และตั้งเป้าหมายในการเก็บเงิน<br></li>';
+		str += '</ul></div></div>';
+*/
+		str += '<div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '</center><div style="height: 30px;"></div>';
+
+
+
+/*
 		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
 		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:180px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/B69taBZOEkw?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>';
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>';
 		str += '<div class="clr"></div>';
+*/
 	} else if(x==3) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
 		str += '<div class="top-subheader">พอร์ตลงทุน ดูเลโดยผู้เชี่ยวชาญ</div><div class="clr"></div>';
@@ -836,6 +889,7 @@ function CloseVDO() {
   clearInterval(counter);;	
   document.getElementById('VDO1').pause();
   document.getElementById('id02').style.display='none';
+  document.getElementById('id03').style.display='none';
 }
 
 function NewDate() {
