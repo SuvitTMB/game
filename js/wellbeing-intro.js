@@ -86,6 +86,7 @@ function CheckUserFWB() {
       sGameSumPoint = doc.data().GameSumPoint;
       UserArr = [doc.data().Game1,doc.data().Game2,doc.data().Game3,doc.data().Game4,doc.data().Game5,doc.data().Game6,doc.data().Game7,doc.data().Game8,doc.data().Game9,doc.data().Game10,doc.data().Game11,doc.data().Game12,doc.data().Game13,doc.data().Game14,doc.data().Game15];
       if(doc.data().GameCount>=15 && doc.data().GameStatus==0) {
+      	alert("check count = "+doc.data().GameCount);
       	CheckGetBadgeUser();
 /*
 		dbGameFWB.doc(EidGameFWB).update({
