@@ -380,6 +380,7 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic2">เพื่อสร้างชีวิตทางการเงินที่ดี เราสนับสนุนให้พนักงานรู้จักวางแผนการเงิน ใช้ให้เป็น ออมให้ถูกที่ และมีวินัยในการออม</div>';
 		str += '</div><div class="clr"></div>';
 	} else if(x==9) {
+		/*
 		seeVDO = 1;
 		sVDOnumber = x;
 		VDOtimer = 33;
@@ -388,6 +389,23 @@ function GetTarget(x) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
 		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
 		str += '<div style="width:100%; height:180px;margin-top:20px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/B69taBZOEkw?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
+		*/
+
+		seeVDO = 2;
+		sVDOnumber = x;
+		VDOtimer = 180;
+		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
+		counter = setInterval(timer, 1000);
+		str += '<div class="text-topic">';
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep2.mp4?alt=media&token=5d69472d-cdce-4d61-be6a-1849dc539b21" type="video/mp4">';
+		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
+		//str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		//str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		str += '</div>';
+
+
+
 	} else if(x==10) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
 		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
