@@ -86,13 +86,28 @@ function CheckUserFWB() {
       sGameSumPoint = doc.data().GameSumPoint;
       UserArr = [doc.data().Game1,doc.data().Game2,doc.data().Game3,doc.data().Game4,doc.data().Game5,doc.data().Game6,doc.data().Game7,doc.data().Game8,doc.data().Game9,doc.data().Game10,doc.data().Game11,doc.data().Game12,doc.data().Game13,doc.data().Game14,doc.data().Game15];
       if(doc.data().GameCount>=15) {
-		CheckGetBadgeUser();
-/*
 		dbGameFWB.doc(EidGameFWB).update({
 			GameStatus : 1
 		});	
 		sGameStatus = 1;
-*/
+
+
+
+		dbGameFWB.doc(EidGameFWB).update({
+			BonusGame : sBonusPoint,
+			GameSumPoint : (sGameSumPoint+sBonusPoint)
+		});	
+		var str = "";
+		str += '<div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>';
+		str += '<div><img src="'+ sBadgeImg +'" style="padding-top:8px;width:100%;border-radius: 15px;"></div>';
+		str += '<div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">'+sBadgeTh+'</div>';
+		str += '<div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">';
+		str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
+		$("#DisplayGetBadge").html(str);
+    	document.getElementById('id05').style.display='block';
+
+
+
       }
       //console.log(UserArr);
       CheckButton();
@@ -156,13 +171,6 @@ function CheckGetBadgeUser() {
     //sBadgeEnd = 0;
     if(sBadgeEnd==0) {
       if(sBadgeTime>=sBadgeTarget) {
-
-		dbGameFWB.doc(EidGameFWB).update({
-			GameStatus : 1
-		});	
-		sGameStatus = 1;
-
-
         dbBadgeUser.doc(EidBadgeGameUser).update({
             BadgeEnd : 1,
             BadgeGetDate : today
@@ -194,7 +202,7 @@ function CheckGetBadgeUser() {
 		str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
 		$("#DisplayGetBadge").html(str);
     	document.getElementById('id05').style.display='block';
-    	alert("get badge");
+    	//alert("get badge");
         //alert("คุณได้รับ Badge-Well-being เรียบร้อยแล้ว ขึ้น popup");
         /*popup get badge done */
       } else {
