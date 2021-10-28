@@ -299,7 +299,7 @@ function GetTarget(x) {
 
 		seeVDO = 2;
 		sVDOnumber = x;
-		VDOtimer = 165;
+		VDOtimer = 175;
 		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
 		counter = setInterval(timer, 1000);
 		str += '<div class="text-topic">';
@@ -748,7 +748,7 @@ function wb_topic(x) {
 		str += '<div class="wb-imgbox-text"><div class="wb-header">รอบรู้เรื่องกู้ยืม</div>';
 		str += '<div class="wb-subheader">Healthy Borrowing</div>';
 		str += '<div class="text-subtopic3"><span class="text-org">เปลี่ยน</span> ... <br>มาศึกษา และวางแผนการกู้ยืมอย่างเหมาะสม เพื่อเพิ่มสภาพคล่อง และลดภาระหนี้ที่จะเกิดขึ้นในอนาคต</div>';
-		str += '<div class="text-subtopic4">ผ่านโซลูชนสินเชื่อที่มีให้เลือกตามความเหมาะสม เช่น รับดอกเบี้ยถูกพิเศษเมื่อกู้ยืมในสิ่งที่จำเป็น รวมนี้ปลดภาระด้วยดอกเบี้ยต่ำ</div>';
+		str += '<div class="text-subtopic4">ผ่านโซลูชันสินเชื่อที่มีให้เลือกตามความเหมาะสม เช่น รับดอกเบี้ยถูกพิเศษเมื่อกู้ยืมในสิ่งที่จำเป็น รวบนี้ปลดภาระด้วยดอกเบี้ยต่ำ</div>';
 		str += '</div></div><div class="clr"></div>';
 		str += '<div class="btn-t1" onClick=window.location="wellbeing-healthy.html" style="margin-top:10px;">ดูรายละเอียด</div>';
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>';
@@ -801,7 +801,6 @@ function OpenVDO(x) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
 		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:180px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/B69taBZOEkw?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>';
-		//str += '<div style="margin:15px; width:92%; height:190px;"><img src="./img/wb8.jpg" style="width:100%;"></div>';
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>';
 		str += '<div class="clr"></div>';
 	} else if(x==3) {
