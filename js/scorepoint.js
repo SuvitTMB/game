@@ -167,8 +167,8 @@ function CheckScorePoint() {
 function UpdateProfile() {
   dbScorePoint.doc(EidScorePoint).update({
     //lineID : sessionStorage.getItem("LineID"),
-    linename : sessionStorage.getItem("LineName"),
-    empPicture : sessionStorage.getItem("LinePicture")
+    LineName : sessionStorage.getItem("LineName"),
+    LinePicture : sessionStorage.getItem("LinePicture")
   });
 }
 
