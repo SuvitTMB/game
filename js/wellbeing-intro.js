@@ -177,8 +177,23 @@ function CheckGetBadgeUser() {
 
 
 function CheckButton() {
-	sGameStatus = 0;
+	//sGameStatus = 0;
 	//alert("Game Status = "+sGameStatus);
+document.getElementById('ShowWB1').style.display='block';
+document.getElementById('ShowWB2').style.display='block';
+document.getElementById('ShowWB3').style.display='block';
+document.getElementById('ShowWB4').style.display='block';
+document.getElementById('ShowWB5').style.display='block';
+document.getElementById('ShowWB6').style.display='block';
+document.getElementById('ShowWB7').style.display='block';
+document.getElementById('ShowWB8').style.display='block';
+document.getElementById('ShowWB9').style.display='block';
+document.getElementById('ShowWB10').style.display='block';
+document.getElementById('ShowWB11').style.display='block';
+document.getElementById('ShowWB12').style.display='block';
+document.getElementById('ShowWB13').style.display='block';
+document.getElementById('ShowWB14').style.display='block';
+/*
 	if(sGameStatus==0) {
 		if(UserArr[0]==0) { document.getElementById('ShowWB1').style.display='block'; }
 		if(UserArr[1]==0) { document.getElementById('ShowWB2').style.display='block'; }
@@ -195,13 +210,6 @@ function CheckButton() {
 		if(UserArr[12]==0) { document.getElementById('ShowWB13').style.display='block'; }
 		if(UserArr[13]==0) { document.getElementById('ShowWB14').style.display='block'; }
 		if(UserArr[14]==0) { document.getElementById('ShowWB15').style.display='block'; }
-
-document.getElementById('ShowWB2').style.display='block';
-//document.getElementById('ShowWB4').style.display='block';
-//document.getElementById('ShowWB9').style.display='block'; 
-//document.getElementById('ShowWB12').style.display='block';
-//document.getElementById('ShowWB14').style.display='block';
-
 	} else {
 		document.getElementById('ShowWB1').style.display='none'; 
 		document.getElementById('ShowWB2').style.display='none'; 
@@ -219,6 +227,7 @@ document.getElementById('ShowWB2').style.display='block';
 		document.getElementById('ShowWB14').style.display='none';
 		document.getElementById('ShowWB15').style.display='none';
 	}
+*/
 }
 
 
