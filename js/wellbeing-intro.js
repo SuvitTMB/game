@@ -163,8 +163,9 @@ function CheckGetBadgeUser() {
 
 		dbGameFWB.doc(EidGameFWB).update({
 			BonusGame : sBonusPoint,
-			GameSumPoint : (sGameSumPoint+BonusPoint)
+			GameSumPoint : (sGameSumPoint+sBonusPoint)
 		});	
+
 		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
 		dbScorePoint.doc(EidScorePoint).update({
@@ -175,8 +176,6 @@ function CheckGetBadgeUser() {
 		sessionStorage.setItem("XP", parseFloat(sessionStorage.getItem("XP"))+parseFloat(sBonusPoint));
 		sessionStorage.setItem("RP", parseFloat(sessionStorage.getItem("RP"))+parseFloat(sBonusPoint));
 
-
-
 		var str = "";
 		str += '<div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>';
 		str += '<div><img src="'+ sBadgeImg +'" style="padding-top:8px;width:100%;border-radius: 15px;"></div>';
@@ -185,6 +184,7 @@ function CheckGetBadgeUser() {
 		str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
 		$("#DisplayGetBadge").html(str);
     	document.getElementById('id05').style.display='block';
+    	alert("get badge");
         //alert("คุณได้รับ Badge-Well-being เรียบร้อยแล้ว ขึ้น popup");
         /*popup get badge done */
       } else {
