@@ -160,6 +160,11 @@ function CheckGetBadgeUser() {
         dbBadgeGame.doc(EidBadgeGame).update({
             SumGetBadgeEnd : sSumGetBadgeEnd+1
         });
+
+		dbGameFWB.doc(EidGameFWB).update({
+			BonusGame : sBonusPoint,
+			GameSumPoint : (sGameSumPoint+BonusPoint)
+		});	
 		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
 		dbScorePoint.doc(EidScorePoint).update({
