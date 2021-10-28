@@ -86,6 +86,8 @@ function CheckUserFWB() {
       sGameSumPoint = doc.data().GameSumPoint;
       UserArr = [doc.data().Game1,doc.data().Game2,doc.data().Game3,doc.data().Game4,doc.data().Game5,doc.data().Game6,doc.data().Game7,doc.data().Game8,doc.data().Game9,doc.data().Game10,doc.data().Game11,doc.data().Game12,doc.data().Game13,doc.data().Game14,doc.data().Game15];
       if(doc.data().GameCount>=15 && doc.data().GameStatus==0) {
+      	CheckGetBadgeUser();
+/*
 		dbGameFWB.doc(EidGameFWB).update({
 			GameStatus : 1,
 			BonusGame : sBonusPoint,
@@ -102,7 +104,7 @@ function CheckUserFWB() {
 		str += 'เมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม '+sBadgeTarget+' ครั้ง<br>รับแต้มพิเศษ '+sBonusPoint+' แต้ม</div>';
 		$("#DisplayGetBadge").html(str);
     	document.getElementById('id05').style.display='block';
-
+*/
 
 
       }
@@ -168,18 +170,27 @@ function CheckGetBadgeUser() {
     //sBadgeEnd = 0;
     if(sBadgeEnd==0) {
       if(sBadgeTime>=sBadgeTarget) {
+
+		sGameStatus = 1;
+		dbGameFWB.doc(EidGameFWB).update({
+			GameStatus : sGameStatus,
+			BonusGame : sBonusPoint,
+			GameSumPoint : (sGameSumPoint+sBonusPoint)
+		});	
+
         dbBadgeUser.doc(EidBadgeGameUser).update({
             BadgeEnd : 1,
             BadgeGetDate : today
         });
+
         dbBadgeGame.doc(EidBadgeGame).update({
             SumGetBadgeEnd : sSumGetBadgeEnd+1
         });
 
-		dbGameFWB.doc(EidGameFWB).update({
-			BonusGame : sBonusPoint,
-			GameSumPoint : (sGameSumPoint+sBonusPoint)
-		});	
+		//dbGameFWB.doc(EidGameFWB).update({
+		//	BonusGame : sBonusPoint,
+		//	GameSumPoint : (sGameSumPoint+sBonusPoint)
+		//});	
 
 		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
