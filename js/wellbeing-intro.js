@@ -157,6 +157,7 @@ var sBadgeTrue = 0;
 var sBadgeFalse = 0;
 var sBadgeEnd = 0;
 function CheckGetBadgeUser() {
+alert("CheckGetBadgeUser="+sGameStatus)
   	var sGet = 0; 
     dbBadgeUser.where('LineID','==',sessionStorage.getItem("LineID"))
     .where('BadgeEng','==',sBadgeEng)
