@@ -261,7 +261,7 @@ function AddNewUserFWB() {
 	document.getElementById('id04').style.display='block'; 
     CheckUserFWB();
   } else {
-  	alert("ไม่พบข้อมูล LINE ของคุณ");
+  	alert("ไม่พบข้อมูล LINE ของคุณ 555");
 
 document.getElementById('ShowWB1').style.display='block';
 document.getElementById('ShowWB2').style.display='block';
