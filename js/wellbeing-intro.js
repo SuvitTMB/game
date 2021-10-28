@@ -159,6 +159,18 @@ function CheckGetBadgeUser() {
         dbBadgeGame.doc(EidBadgeGame).update({
             SumGetBadgeEnd : sSumGetBadgeEnd+1
         });
+		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
+		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
+		dbScorePoint.doc(EidScorePoint).update({
+			//RewardsXP : sRewardsXP,
+			RewardsRP : sRewardsRP
+		});
+		alert("XP="+sRewardsXP+"---RP="+sRewardsRP);
+		sessionStorage.setItem("XP", parseFloat(sessionStorage.getItem("XP"))+parseFloat(sBonusPoint));
+		sessionStorage.setItem("RP", parseFloat(sessionStorage.getItem("RP"))+parseFloat(sBonusPoint));
+
+
+
 		var str = "";
 		str += '<div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">คุณทำภารกิจสำเร็จ</div>';
 		str += '<div><img src="'+ sBadgeImg +'" style="padding-top:8px;width:100%;border-radius: 15px;"></div>';
@@ -571,9 +583,6 @@ function RandomPoint(x) {
 	str += '<div class="clr"></div>';
 	str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:10px;">ปิดหน้าต่างนี้</div>';
 	str += '<div style="height: 30px;"></div>';
-	sessionStorage.setItem("XP", parseFloat(sessionStorage.getItem("XP"))+parseFloat(sNewMyPoint.toFixed(2)));
-	sessionStorage.setItem("RP", parseFloat(sessionStorage.getItem("RP"))+parseFloat(sNewMyPoint.toFixed(2)));
-
 	//alert("XP="+sessionStorage.getItem("XP")+"\nRP="+sessionStorage.getItem("RP"));
 	$("#DisplayGetPoint").html(str);  
 	SaveDataFWB(x,sNewMyPoint);
@@ -588,8 +597,10 @@ function SaveDataFWB(x,p) {
 	sSumGetBadge = sSumGetBadge+1;
 	sGameSumPoint = parseFloat(sGameSumPoint)+parseFloat(p);
 	if(sGameStatus==0) {
+		sessionStorage.setItem("XP", parseFloat(sessionStorage.getItem("XP"))+parseFloat(p.toFixed(2)));
+		sessionStorage.setItem("RP", parseFloat(sessionStorage.getItem("RP"))+parseFloat(p.toFixed(2)));
 
-		//sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sGameSumPoint);
+		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(p);
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(p);
 		dbScorePoint.doc(EidScorePoint).update({
 			//RewardsXP : sRewardsXP,
