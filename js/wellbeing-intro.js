@@ -443,7 +443,7 @@ function GetTarget(x) {
 	} else if(x==12) {
 		seeVDO = 1;
 		sVDOnumber = x;
-		VDOtimer = 33;
+		VDOtimer = 35;
 		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
 		counter = setInterval(timer, 1000);
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
@@ -459,7 +459,7 @@ function GetTarget(x) {
 	} else if(x==14) {
 		seeVDO = 1;
 		sVDOnumber = x;
-		VDOtimer = 33;
+		VDOtimer = 35;
 		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
 		counter = setInterval(timer, 1000);
 		str += '<div class="top-header" style="padding-top:20px;">ttb all free</div>';
