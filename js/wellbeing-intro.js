@@ -22,11 +22,15 @@ var UserArr = [];
 
 
 $(document).ready(function () {
-  Connect_DB();
-  CheckUserScorePoint();
-  CheckGetBadge();
-  CheckGetBadgeUser();
-  CheckUserFWB();
+	if(sessionStorage.getItem("LineID")==null || sessionStorage.getItem("LineID")=="") {
+		SessionNotFound();
+		//alert("Session Not Found");
+	}
+	Connect_DB();
+	CheckUserScorePoint();
+	CheckGetBadge();
+	CheckGetBadgeUser();
+	CheckUserFWB();
 });
 
 
@@ -63,7 +67,7 @@ function CheckUserScorePoint() {
       sRewardsRP = doc.data().RewardsRP;
       sessionStorage.setItem("XP", doc.data().RewardsXP);
       sessionStorage.setItem("RP", doc.data().RewardsRP);
-      alert("XP = "+doc.data().RewardsXP+"\nRP = "+doc.data().RewardsRP);
+      //alert("XP = "+doc.data().RewardsXP+"\nRP = "+doc.data().RewardsRP);
     });
     //alert("Badge="+sBadgeEng+" Target="+sBadgeTarget+", BadgePoint="+sBadgePoint+" BounsPoint="+sBonusPoint);
   }); 
@@ -261,8 +265,10 @@ function AddNewUserFWB() {
 	document.getElementById('id04').style.display='block'; 
     CheckUserFWB();
   } else {
-  	alert("ไม่พบข้อมูล LINE ของคุณ 555");
+  	alert("ไม่พบข้อมูล LINE ของคุณ");
+  	SessionNotFound();
 
+/*
 document.getElementById('ShowWB1').style.display='block';
 document.getElementById('ShowWB2').style.display='block';
 document.getElementById('ShowWB3').style.display='block';
@@ -277,7 +283,7 @@ document.getElementById('ShowWB11').style.display='block';
 document.getElementById('ShowWB12').style.display='block';
 document.getElementById('ShowWB13').style.display='block';
 document.getElementById('ShowWB14').style.display='block';
-
+*/
 
   }
 }
@@ -606,7 +612,7 @@ function SaveDataFWB(x,p) {
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(p);
 		dbScorePoint.doc(EidScorePoint).update({
 			//RewardsXP : sRewardsXP,
-			//RewardsRP : sRewardsRP
+			RewardsRP : sRewardsRP
 		});
 
         dbBadgeUser.doc(EidBadgeGameUser).update({
@@ -924,4 +930,11 @@ function checkZero(data){
     data = "0" + data;
   }
   return data;
+}
+
+
+
+
+function SessionNotFound() {
+  window.location.href = 'index.html';
 }
