@@ -291,11 +291,25 @@ function GetTarget(x) {
 	timer();
 	if(x==1) {
 		document.getElementById('ShowWB1').style.display='none';
-		str += '<div class="slideanim slide"><img src="./img/wellbeing-01.jpg" style="width:100%;"></div>';
+		//str += '<div class="slideanim slide"><img src="./img/wellbeing-01.jpg" style="width:100%;"></div>';
+		//str += '<div class="text-topic">';
+		//str += '<div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		//str += '<div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		//str += '</div>';
+
+		seeVDO = 2;
+		sVDOnumber = x;
+		VDOtimer = 165;
+		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
+		counter = setInterval(timer, 1000);
 		str += '<div class="text-topic">';
-		str += '<div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
-		str += '<div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep1.mp4?alt=media&token=0aae3eec-1943-46f6-a0aa-93905f462e4d" type="video/mp4">';
+		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
 		str += '</div>';
+
 	} else if(x==2) {
 		document.getElementById('ShowWB2').style.display='none';
         str += '<div class="wb-top-header" style="margin-top:20px;">เส้นทางก้าวสู่<br>การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>';
@@ -429,6 +443,11 @@ function GetTarget(x) {
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ขอทบทวนใหม่</div>';
 		str += '<div style="padding:10px;font-size:11px;color:#f68b1f;">ชมวิดิโอจนจบแล้วไปลุ้นเหรียญรางวัลกันเลย</div>';
 		str += '</center><div style="height: 30px;"></div>';
+	} else if(seeVDO==2) {
+		str += '<div class="clr"></div><center>';
+		str += '<div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ขอทบทวนใหม่</div>';
+		str += '<div style="padding:10px;font-size:11px;color:#f68b1f;">ชมวิดิโอจนจบแล้วไปลุ้นเหรียญรางวัลกันเลย</div>';
+		str += '</center><div style="height: 30px;"></div>';
 	}
 	$("#DisplayGetPoint").html(str);  
 	document.getElementById('id02').style.display='block';
@@ -473,6 +492,7 @@ function RandomPoint(x) {
 	var sCheckUserImg1 = '<img src="./img/true.png" style="width:30px;">';
 	//var sMyPoint = document.getElementById("MyPointSelect").value;
 	if(x==1) {
+
 		document.getElementById('ShowWB1').style.display='none';
 	} else if(x==2) {
 		document.getElementById('ShowWB2').style.display='none';
@@ -786,6 +806,7 @@ function OpenVDO(x) {
 
 
 function CloseAll() {
+  stopVideo();
   $("iframe").remove();
   document.getElementById('id01').style.display='none';
   document.getElementById('id02').style.display='none';
@@ -795,6 +816,11 @@ function CloseAll() {
 }
 
 
+function CloseVDO() {
+  clearInterval(counter);;	
+  document.getElementById('VDO1').pause();
+  document.getElementById('id02').style.display='none';
+}
 
 function NewDate() {
   var today = new Date();
