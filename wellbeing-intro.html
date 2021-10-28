@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/add.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+-->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+<style type="text/css">
+  .w3-container, .w3-panel {
+    padding:0px;
+  }
+</style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #e6e7e9;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
+</div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="introgame.html">กิจกรรม</a></li>
+          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
+          <li><a href="rewards.html">ของรางวัล</a></li>
+          <li><a href="aboutus.html">แนะนำเรา</a></li>
+          <li><a href="mybadges.html">เกี่ยวกับคุณ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <main id="main">
+    <section id="team" class="team section-bg" style="min-height:450px;">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up" style="margin-top:20px;">
+            <center>
+              <div class="wb-top-header">มารู้จักกับ<br>เส้นทางก้าวสู่การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>
+              <div style="margin:15px 0;">
+                <div class="box-wb-select" onClick="window.location='wellbeing-intro.html'">Financial<br>Well-being</div>
+                <div class="box-wb" onClick="window.location='wellbeing-healthy.html'">รอบรู้<br>เรื่องกู้ยืม</div>
+                <div class="box-wb" onClick="window.location='wellbeing-mindful.html'">ฉลาดออม<br>ฉลาดใช้</div>
+                <div class="box-wb" onClick="window.location='wellbeing-investing.html'">ลงทุน<br>เพื่ออนาคต</div>
+                <div class="box-wb" onClick="window.location='wellbeing-sufficient.html'">มีความ<br>คุ้มครองอุ่นใจ</div>
+              </div>
+              <div class="clr"></div>
+              <div style="margin-top:10px;width:100%;border-radius: 10px;">
+                <div class="slideanim slide"><img src="./img/wellbeing-01.jpg" style="width:100%;"></div>
+                <div class="text-topic">
+                  <div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>
+                  <div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>                 
+                </div>
+                <div><img src="./img/wellbeing-02.jpg" style="width:100%;"></div>
+              </div>
+              <div class="getpoint" id="ShowWB1"><div class="btn-t1" onclick="GetTarget(1)" style="font-size: 11px;">คลิกเพื่อร้บทราบ<br>และลุ้นเหรียญรางวัลของคุณ</div></div>
+
+              <div class="main-wb slideanim slide">
+                <div style="padding:10px 20px;text-align: left;">
+                  <div class="wb-box" onclick="wb_topic(1)">
+                    <div style="padding:10px;">
+                      <div><img src="./img/wb-01.png" class="wb-img"></div>
+                      <div class="wb-header">รอบรู้เรื่องกู้ยืม</div>
+                      <div class="wb-subheader">Healthy Borrowing</div>
+                    </div>
+                  </div>
+                  <div class="wb-box" onclick="wb_topic(2)">
+                    <div style="padding:10px;">
+                      <div><img src="./img/wb-02.png" class="wb-img"></div>
+                      <div class="wb-header">ฉลาดออม ฉลาดใช้</div>
+                      <div class="wb-subheader">Mindful Spending & Start Saving</div>
+                    </div>
+                  </div>
+                  <div class="wb-box" onclick="wb_topic(3)">
+                    <div style="padding:10px;">
+                      <div><img src="./img/wb-03.png" class="wb-img"></div>
+                      <div class="wb-header">ลงทุนเพื่ออนาคต</div>
+                      <div class="wb-subheader">Investing for Future</div>
+                    </div>
+                  </div>
+                  <div class="wb-box" onclick="wb_topic(4)">
+                    <div style="padding:10px;">
+                      <div><img src="./img/wb-04.png" class="wb-img"></div>
+                      <div class="wb-header">มีความคุ้มครองอุ่นใจ</div>
+                      <div class="wb-subheader">Sufficient Protection</div>
+                    </div>
+                  </div>
+                  <div style="padding-top:5px;color:#fff;">. </div>
+                </div>
+              </div>
+              <div class="getpoint" id="ShowWB2"><div class="btn-t1" onclick="GetTarget(2)" style="font-size: 11px;">คลิกเพื่อร้บทราบ</div></div>
+              <div style="margin-top:30px;">
+                <div class="text-org">ร่วมเปลี่ยนไปด้วยกัน</div>
+                <div class="text-blue">ให้ชีวิตทางการเงินดีทั้งวันนี้ และอนาคต</div>
+                <div class="text-navi">มารู้จัก ttb ให้มากขึ้น ... ทั้งความคิด ความตั้งใจ และเป้าหมายของเรา</div>
+              </div>
+            </center>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="clr"></div>
+  <center>
+    <div class="btn-t1" style="margin-top:20px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+  </center>
+  <div class="clr"></div>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <div id="DisplayWB"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <div id="DisplayGetPoint"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <center><div id="DisplayVDO"></div></center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id04" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <center>
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">ยินดีต้อนรับสู่ภารกิจ เล่น-ลุ้น-รับ</div>
+          <div><img src="./img/badge/badge-04.png" style="padding-top:8px;width:100%;border-radius: 15px;"></div>
+          <div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">Badge-Well-being</div>
+          <div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">
+            ผู้เข้าร่วมกิจกรรมจะต้องทำการค้นหา<br>อ่าน และการชมวิดีโอ ในหัวข้อที่กำหนดไว้<br>โดยหลังจากทำภารกิจในแต่ละตอน<br>จะได้ลุ้นเหรียญรางวัล ซึ่งมีมูลค่ารวม<br>
+            60 เหรียญรางวัล ผู้แข่งขันจะต้องทายผล<br>การสุ่มเหรียญรางวัลเพื่อลุ้นรับเพิ่ม 2 เท่า<br><br>
+            <font color="#0056ff">และเมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม 15 ครั้ง<br>รับแต้มพิเศษเพิ่มอีก 5 แต้ม</font></div>
+          <div class="btn-t1" onclick="CloseAll()">เริ่มภารกิจของคุณ</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <center>
+          <div id="DisplayGetBadge"></div>
+          <div class="btn-t2" onclick="window.location='mybadges.html';" style="margin-top:20px;">ดูเหรียญรางวัล</div>
+          <div class="btn-t1" onclick="CloseAll()">ปิดหน้านี้</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div style="height:50px;"></div>
+  <div style="display: none;">
+    <div id="ShowWB3"></div>
+    <div id="ShowWB4"></div>
+    <div id="ShowWB5"></div>
+    <div id="ShowWB6"></div>
+    <div id="ShowWB7"></div>
+    <div id="ShowWB8"></div>
+    <div id="ShowWB9"></div>
+    <div id="ShowWB10"></div>
+    <div id="ShowWB11"></div>
+    <div id="ShowWB12"></div>
+    <div id="ShowWB13"></div>
+    <div id="ShowWB14"></div>
+    <div id="ShowWB15"></div>
+  </div>
+  <script src="./js/session-test.js"></script>
+  <script src="./js/wellbeing-intro.js"></script>
+</body>
+</html>

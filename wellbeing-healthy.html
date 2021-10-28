@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/add.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+-->
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+<style type="text/css">
+  .w3-container, .w3-panel {
+    padding:0px;
+  }
+</style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #e6e7e9;">
+  <!--#0016ed-->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+<div class="navbar1">
+  <center><div class="btn-t2" onclick="location.href='intro.html'">กลับไปหน้าแรก</div></center>
+</div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#myPage" onclick="location.href='intro.html'">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="introgame.html">กิจกรรม</a></li>
+          <li><a href="leaderboard.html">คะแนนผู้นำ</a></li>
+          <li><a href="rewards.html">ของรางวัล</a></li>
+          <li><a href="aboutus.html">แนะนำเรา</a></li>
+          <li><a href="mybadges.html">เกี่ยวกับคุณ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <main id="main">
+    <section id="team" class="team section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up"  style="margin-top:20px;">
+            <center>
+              <div class="wb-top-header">มารู้จักกับ<br>เส้นทางก้าวสู่การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>
+              <div style="margin:15px 0;">
+                <div class="box-wb" onClick="window.location='wellbeing-intro.html'">Financial<br>Well-being</div>
+                <div class="box-wb-select" onClick="window.location='wellbeing-healthy.html'">รอบรู้<br>เรื่องกู้ยืม</div>
+                <div class="box-wb" onClick="window.location='wellbeing-mindful.html'">ฉลาดออม<br>ฉลาดใช้</div>
+                <div class="box-wb" onClick="window.location='wellbeing-investing.html'">ลงทุน<br>เพื่ออนาคต</div>
+                <div class="box-wb" onClick="window.location='wellbeing-sufficient.html'">มีความ<br>คุ้มครองอุ่นใจ</div>
+              </div>
+              <div class="clr"></div>
+              <div class="box-topic">
+                <div class="bg_topic">ก้าวแรก ... บริหารชีวิตไม่ติดลบ</div>
+                <div class="slideanim slide"><img src="./img/wb1.jpg" class="box-wb1"></div>
+                <div class="text-wb1" style="text-align: left;">
+                  <div class="text-subtopic1">การเป็น <span class="text-naviblue">"หนี้"</span> ไม่ใช่ความล้มเหลวของชีวิต และไม่ใช่ความผิด แต่หากจำเป็นต้องสร้างหนี้ เราต้องเลือกว่าจะเป็น <span class="text-naviblue">"หนี้แบบไหน"</span> ที่สำคัญต้องเป็นหนี้แบบ <span class="text-naviblue">"มีวันจบ"</span></div>
+                  <div class="text-subtopic2"><span class="text-blue">รอบรู้เรื่องกู้ยืม หรือ healthy Borrowing</span> เป็นแนวคิดที่ธนาคารต้องการ ให้พนักงานเข้าใจ และให้ความสำคัญเกี่ยวกับความรู้ด้านสินเชื่อก่อนการกู้ยืม เพื่อมีข้อมูลประกอบการพิจารณา และตัดสินใจเลือกใช้สินเชื่อได้อย่างถูกต้องและเหมาะสม</div>
+                </div>
+                <div class="clr"></div>
+                <div class="text-subtopic1" style="margin-top:-20px;">
+                  <div><center><img src="./img/wb5.jpg" style="width:60%;border-bottom-right-radius: 25px;"></center></div>
+                  <div class="wb-top-header1"><u>3 หลักคิดเพื่อการเป็นหนี้ที่ดี</u></div>
+                  <div style="text-align: left; margin-top:20px;">
+                    <ul>
+                      <li><span class="text-blue">เป็นหนี้กับสิ่งที่จำเป็น</span><br>ลดพฤติกรรมการใช้จ่ายเกินตัว หากต้องเป็นหนี้ควรเป็นหนี้ที่ช่วยสร้างรายได้ สร้างอนาคต สร้างอาชีพหรือความมั่นคงระยะยาว<br><br></li>
+                      <li><span class="text-blue">มีความรู้ด้านสินเชื่อก่อนการกู้ยืม</span><br>ศึกษาประเภท และเงื่อนไขการขอสินเชื่อ เพื่อสามารถเลือกใช้สินเชื่อได้อย่างเหมาะสม และถูกวัตถุประสงค์<br><br></li>
+                      <li><span class="text-blue">บริหารสภาพคล่องได้อย่างเหมาะสม</span><br>ศึกษาแนวคิดเพื่อการจัดการหนี้อย่างมีประสิทธิภาพ อาทิ การรวบหนี้ รวมถึงควบคุมรายรับ-รายจ่าย และสำรองเงินไว้ยามฉุกเเฉิน<br><br></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="getpoint" id="ShowWB3"><div class="btn-t1" onclick="GetTarget(3)" style="font-size: 11px;">คลิกเพื่อร้บทราบ</div></div>
+              <div class="clr"></div>
+
+              <div class="bg-topic">ttb solution</div>
+              <div class="main-wb1">
+                <div style="padding:10px 20px;text-align: left;">
+                    <button class="accordion">ttb debt consolidation</button>
+                    <div class="panel1">
+                      <div class="top-header" style="padding-top:20px;">ttb debt consolidation</div>
+                      <div class="top-subheader">โซลูชันรวบหนี้ ลดภาระดอกเบี้ย</div>
+                      <div style="margin-top:20px;">
+                        <div style="width:200px;float: left;margin-right: 10px;">
+                          <div onclick="OpenVDO(1)" style="cursor: pointer;"><img src="./img/wb6.jpg" style="width:100%;"></div>
+                          <div class="text-navi1">คลิกเพื่อชมหนังโฆษณา ttb debt consolidation</div>
+                        </div>
+                        <div><div class="top-subheader1">"เปลี่ยนมามีวินัยทางการเงิน<br>เลิกใช้เงินเกินตัว<br>อยู่กับความจริง<br>และอยู่กับความฝัน<br>อย่างเป็นขั้นเป็นตอน"</div></div>
+                      </div>
+                      <div class="clr"></div>
+                      <div style="margin-top:20px;color:#555;padding-bottom: 20px;"><span class="text-blue">การรวบหนี้ หรือ debt consolidation</span><br>เป็นแนวคิดเพื่อการจัดการหนี้อย่างมีประสิทธิภาพ โดยขอสินเชื่อวงเงินใหม่ ที่อัตราดอกเบี้ยต่ำลง เพื่อนำเงินมาจ่ายคืนหนี้อื่น ๆ ที่มีอัตราดอกเบี้ยสูงกว่า และปิดบัญชีหนี้เหล่านั้น ทำให้เหลือหนี้เพียงด้านเดียว ช่วยลดภาระ สามารถทยอยผ่านชำระหนี้ได้เหมาะสมกับความสามารถ ภาระอัตราดอกเบี้ยลดลงเป็นการรวบหนี้อื่น ๆ มาอยู่ในที่เดียว</div>
+                      <div class="getpoint" id="ShowWB4"><div class="btn-t1" onclick="GetTarget(4)" style="font-size: 11px;">คลิกเพี่อดูวิดิโอ</div></div>
+                    </div>
+
+                    <button class="accordion">ttb cash2care</button>
+                    <div class="panel1">
+                      <div class="top-header" style="padding-top:20px;">ttb cash2care</div>
+                      <div class="top-subheader">เปลี่ยนมาเป็นหนี้กับสิ่งที่จำเป็น</div>
+                      <div style="margin-top:20px;">
+                        <div style="width:200px;float: left;margin-right: 10px;">
+                          <div><img src="./img/wb7.jpg" style="width:100%;"></div>
+                          <div class="text-navi1">คลิกเพื่อชมหนังโฆษณา ttb debt consolidation</div>
+                        </div>
+                        <div><div class="top-subheader1">"ถ้าหากคุณจะต้องเป็นหนี้<br> ก็ให้มันเป็นหนี้<br>ที่ช่วยเปลี่ยนแปลงชีวิตคุณ<br>ให้ดีขึ้นกว่าเดิม"</div></div>
+                      </div>
+                      <div class="clr"></div>
+                      <div><img src="./img/border.png" style="width:100%;padding:10px 0;"></div>
+
+                      <div style="margin:15px 0;">
+                        <a href="#Product1"><div class="box-product">สินเชื่อบ้าน<br>แลกเงิน<br>ทีทีบี</div></a>
+                        <a href="#Product2"><div class="box-product">สินเชื่อ<br>รถแลกเงิน<br>ทีทีบีไดรฟ์</div></a>
+                        <a href="#Product3"><div class="box-product">สินเชื่อ<br>บุคคลทีทีบี<br>แคชทูแคร์</div></a>
+                      </div>
+                      <div id="Product1"></div>
+                      <div class="clr"></div>
+
+                      <div style="margin-top:10px;color:#555;padding-bottom: 20px;">
+                      <span class="text-naviblue">สินเชื่อที่<span class="text-org">มีหลักทรัพย์</span>
+                      ค้ำประกัน</span><br><img src="./img/wellbeing-04.jpg" style="width:100%;padding:10px 0;"><div class="text-blue" style="margin:10px 0;">สินเชื่อบ้านแลกเงิน ทีทีบี</div>
+                      <div><span class="text-naviblue">โซลูชันด้านการเงินกู้เพื่อคนที่มีบ้าน เพื่อใช้สินทรัพย์ที่มีให้เกิดประโยชน์ ปลดล็อกทุกภาระหนี้ เปลี่ยนดอกเบี้ยแพงให้ถูกลง หรือต้องการเงินก้อนใหญ่ไปเสริมสภาพคล่องส่วนตัว หรือธุรกิจ และบ้านยังมีอยู่เหมือนเดิม</span></div>
+                        <div style="padding-top:15px;"><span class="text-org">เหมาะสำหรับ</span> ... <br>คนที่ต้องการวงเงินสูง 5 แสน - 10 ล้านบาท เพียงมีบ้านที่ปลอดภาระแล้ว หรือกรณีผ่อนอยู่ก็รีไฟแนนซ์มาที่ ทีทีบี และขอวงเงินเพิ่มเติมได้</div>
+                      </div>
+                      <div class="getpoint" id="ShowWB5"><div class="btn-t1" onclick="GetTarget(5)" style="font-size: 11px;">คลิกเพี่อรับทราบ</div></div>
+                      <div id="Product2"></div>
+                      <div><img src="./img/border.png" style="width:100%;padding:10px 0;"></div>
+
+
+                      <div style="margin-top:10px;color:#555;padding-bottom: 20px;">
+                      <span class="text-naviblue">สินเชื่อที่<span class="text-org">มีหลักทรัพย์</span>ค้ำประกัน</span><br><img src="./img/wellbeing-05.jpg" style="width:100%;padding:10px 0;"><div class="text-blue" style="margin:10px 0;">สินเชื่อรถแลกเงิน ทีทีบีไดรฟ์</div>
+                      <div><span class="text-naviblue">สินเชื่อด้านเงินกู้เพื่อคนมีรถ นำเงินไปเคลียร์หนี้เดิม ลดภาระดอกเบี้ย ผ่านต่อเดือนน้อยลง</span></div>
+                        <div style="padding-top:15px;"><span class="text-org">เหมาะสำหรับ</span> ... <br>คนที่ต้องการวงเงินปานกลาง (เฉลี่ยประมาณ 2 แสนบาทขึ้นไป) กู้ได้ 100% ของมูลค่ารถ ไม่ว่ารถจะปลอดภาระแล้ว หรือยังผ่อนอยู่ก็กู้ได้</div></div>
+                      <div class="getpoint" id="ShowWB6"><div class="btn-t1" onclick="GetTarget(6)" style="font-size: 11px;">คลิกเพี่อรับทราบ</div></div>
+                      <div id="Product3"></div>
+                      <div><img src="./img/border.png" style="width:100%;padding:10px 0;"></div>
+
+
+                      <div style="margin-top:10px;color:#555;padding-bottom: 20px;">
+                      <span class="text-naviblue">สินเชื่อที่<span class="text-org">ไม่มีหลักทรัพย์</span>ค้ำประกัน</span><br><img src="./img/wellbeing-09.jpg" style="width:100%;padding:10px 0;"><div class="text-blue" style="margin:10px 0;">สินเชื่อบุคคลทีทีบี แคชทูแคร์</div>
+                      <div><span class="text-naviblue">โซลูชันด้านเงินกู้ที่ตั้งใจคิดดอกเบี้ยต่ำสำหรับเรื่องจำเป็น ไม่ว่าจะอุบัติเหตุ เจ็บป่วย หรืออยากรวบหนี้</span></div>
+                        <div style="padding-top:15px;"><span class="text-org">เหมาะสำหรับ</span> ... <br>คนที่ต้องการใช้เงินด่วนสำหรับเรื่องสำคัญ จำเป็นในชีวิต รับวงเงินสูงสุด 5 เท่า ของรายได้ต่อเดือน</div></div>
+                      <div class="getpoint" id="ShowWB7"><div class="btn-t1" onclick="GetTarget(7)" style="font-size: 11px;">คลิกเพี่อรับทราบ</div></div>
+                      </div>
+
+                </div>
+              </div>
+              <div style="margin-top:30px;">
+                <div class="text-org">ร่วมเปลี่ยนไปด้วยกัน</div>
+                <div class="text-blue">ให้ชีวิตทางการเงินดีทั้งวันนี้ และอนาคต</div>
+                <div class="text-navi">มารู้จัก ttb ให้มากขึ้น ... ทั้งความคิด ความตั้งใจ และเป้าหมายของเรา</div>
+              </div>
+            </center>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="clr"></div>
+  <center>
+    <div class="btn-t1" style="margin-top:20px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+  </center>
+
+  <div class="clr"></div>
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <div id="DisplayWB"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <div id="DisplayGetPoint"></div>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:450px;width:100%;text-align:center;">
+        <center><div id="DisplayVDO"></div></center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id04" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <center>
+          <div class="header-line" style="margin:10px;color:#0056ff;font-weight: 600;">ยินดีต้อนรับสู่ภารกิจ เล่น-ลุ้น-รับ</div>
+          <div><img src="./img/badge/badge-04.png" style="padding-top:8px;width:100%;border-radius: 15px;"></div>
+          <div style="font-size: 14px;font-weight: 600;color:#000;padding-top:20px;">Badge-Well-being</div>
+          <div style="font-size: 12px;color:#f68b1f;padding-top:10px;line-height: 1.4;font-weight: 600;">
+            ผู้เข้าร่วมกิจกรรมจะต้องทำการค้นหา<br>อ่าน และการชมวิดีโอ ในหัวข้อที่กำหนดไว้<br>โดยหลังจากทำภารกิจในแต่ละตอน<br>จะได้ลุ้นเหรียญรางวัล ซึ่งมีมูลค่ารวม<br>
+            60 เหรียญรางวัล ผู้แข่งขันจะต้องทายผล<br>การสุ่มเหรียญรางวัลเพื่อลุ้นรับเพิ่ม 2 เท่า<br><br>
+            <font color="#0056ff">และเมื่อผู้เข้าร่วมการแข่งขันทำภารกิจสำเร็จ<br>โดยได้ทำการแข่งขันรวม 15 ครั้ง<br>รับแต้มพิเศษเพิ่มอีก 5 แต้ม</font></div>
+          <div class="btn-t1" onclick="CloseAll()">เริ่มภารกิจของคุณ</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div id="id05" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <center>
+          <div id="DisplayGetBadge"></div>
+          <div class="btn-t2" onclick="window.location='mybadges.html';" style="margin-top:20px;">ดูเหรียญรางวัล</div>
+          <div class="btn-t1" onclick="CloseAll()">ปิดหน้านี้</div>
+          <div style="height: 15px;"></div>
+        </center>
+      </div>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+
+  <div style="height:50px;"></div>
+  <div style="display: none;">
+    <div id="ShowWB1"></div>
+    <div id="ShowWB2"></div>
+    <div id="ShowWB7"></div>
+    <div id="ShowWB8"></div>
+    <div id="ShowWB9"></div>
+    <div id="ShowWB10"></div>
+    <div id="ShowWB11"></div>
+    <div id="ShowWB12"></div>
+    <div id="ShowWB13"></div>
+    <div id="ShowWB14"></div>
+    <div id="ShowWB15"></div>
+  </div>
+  <script src="./js/wellbeing-intro.js"></script>
+  <script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    });
+  }
+  </script>
+</body>
+</html>
