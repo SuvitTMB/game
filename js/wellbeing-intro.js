@@ -262,6 +262,7 @@ function AddNewUserFWB() {
       Game13 : 0,
       Game14 : 0,
       Game15 : 0,
+      BonusGame : 0,
       FWBDate : dateString
     });
     dbBadgeUser.add({
