@@ -108,8 +108,8 @@ function CheckUserFWB() {
 */
 
 
-      } else {
-      	alert("ไม่เเข้าเงื่อนไข");
+      //} else {
+      	//alert("ไม่เเข้าเงื่อนไข");
       }
       //console.log(UserArr);
       CheckButton();
@@ -157,7 +157,7 @@ var sBadgeTrue = 0;
 var sBadgeFalse = 0;
 var sBadgeEnd = 0;
 function CheckGetBadgeUser() {
-alert("CheckGetBadgeUser="+sGameStatus)
+	//alert("CheckGetBadgeUser="+sGameStatus)
   	var sGet = 0; 
     dbBadgeUser.where('LineID','==',sessionStorage.getItem("LineID"))
     .where('BadgeEng','==',sBadgeEng)
@@ -172,7 +172,7 @@ alert("CheckGetBadgeUser="+sGameStatus)
     });
     //sBadgeTime = 15;
     //sBadgeEnd = 0;
-alert("BadgeEnd="+sBadgeEnd)
+	//alert("BadgeEnd="+sBadgeEnd)
     if(sBadgeEnd==0) {
 
       if(sBadgeTime>=sBadgeTarget) {
