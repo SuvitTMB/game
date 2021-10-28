@@ -192,8 +192,8 @@ function CheckGetBadgeUser() {
 		//	GameSumPoint : (sGameSumPoint+sBonusPoint)
 		//});	
 
-		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(sBonusPoint);
-		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(sBonusPoint);
+		sRewardsXP = parseFloat(sessionStorage.getItem("XP"))+parseFloat(sBonusPoint);
+		sRewardsRP = parseFloat(sessionStorage.getItem("RP"))+parseFloat(sBonusPoint);
 		dbScorePoint.doc(EidScorePoint).update({
 			//RewardsXP : sRewardsXP,
 			RewardsRP : sRewardsRP
