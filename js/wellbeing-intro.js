@@ -548,7 +548,7 @@ function BeForRandom(x) {
 
 function SelectBox(x) {
 	var i = 0;
-	for (i = 0; i < 20; i++) {
+	for (i = 0; i < 15; i++) {
 		document.getElementById(i).classList.remove('box-novi');
 	}	
 	sMyPoint = NewPoint[x].toFixed(2);
