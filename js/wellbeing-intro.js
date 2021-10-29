@@ -532,7 +532,7 @@ function BeForRandom(x) {
 	var i = 0;
 	var str = "";
 	var str1 = "";
-	for (i = 0; i < 20; i++) {
+	for (i = 0; i < 15; i++) {
 	  str1 += '<div class="box-number" id="'+i+'" onclick="SelectBox('+i+')">'+NewPoint[i].toFixed(2)+'</div>';
 	}	
 	str += '<div class="wb-top-header" style="margin-top:30px;">ระบบสุ่มเหรียญรางวัล</div>';
