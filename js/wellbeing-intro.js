@@ -336,23 +336,9 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic1">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
 		str += '</div>';
-/*
-		seeVDO = 2;
-		sVDOnumber = x;
-		VDOtimer = 175;
-		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
-		counter = setInterval(timer, 1000);
-		str += '<div class="text-topic">';
-		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
-		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep1.mp4?alt=media&token=0aae3eec-1943-46f6-a0aa-93905f462e4d" type="video/mp4">';
-		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
-		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
-		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
-		str += '</div>';
-*/
 	} else if(x==2) {
 		document.getElementById('ShowWB2').style.display='none';
-        str += '<div class="wb-top-header" style="margin-top:20px;">เส้นทางก้าวสู่<br>การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>';
+        	str += '<div class="wb-top-header" style="margin-top:20px;">เส้นทางก้าวสู่<br>การมีชีวิตทางการเงินที่ดีขึ้น 4 มิติ</div>';
 		str += '<div class="slideanim slide" style="padding:10px 20px;text-align: left;">';
 		str += '<div class="wb-box"><div style="padding:10px;">';
 		str += '<div><img src="./img/wb-01.png" class="wb-img"></div>';
@@ -379,17 +365,6 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic2"><span class="text-blue">รอบรู้เรื่องกู้ยืม หรือ healthy Borrowing</span> เป็นแนวคิดที่ธนาคารต้องการ ให้พนักงานเข้าใจ และให้ความสำคัญเกี่ยวกับความรู้ด้านสินเชื่อก่อนการกู้ยืม เพื่อมีข้อมูลประกอบการพิจารณา และตัดสินใจเลือกใช้สินเชื่อได้อย่างถูกต้องและเหมาะสม</div>';
 		str += '</div><div class="clr"></div>';
 	} else if(x==4) {
-/*
-		seeVDO = 1;
-		sVDOnumber = x;
-		VDOtimer = 32;
-		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
-		counter = setInterval(timer, 1000);
-		str += '<div class="top-header" style="padding-top:20px;">ttb debt consolidation</div>';
-		str += '<div class="top-subheader">โซลูชันรวบหนี้ ลดภาระดอกเบี้ย</div><div class="clr"></div>';
-		str += '<div style="width:100%; height:180px;margin-top:20px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/icpgq9qgnd0?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
-		str += '<div style="padding:10px 20px;color:#555;text-align:left;"><span class="text-blue">การรวบหนี้ หรือ debt consolidation</span><br>เป็นแนวคิดเพื่อการจัดการหนี้อย่างมีประสิทธิภาพ โดยขอสินเชื่อวงเงินใหม่ ที่อัตราดอกเบี้ยต่ำลง เพื่อนำเงินมาจ่ายคืนหนี้อื่น ๆ ที่มีอัตราดอกเบี้ยสูงกว่า และปิดบัญชีหนี้เหล่านั้น ทำให้เหลือหนี้เพียงด้านเดียว ช่วยลดภาระ สามารถทยอยผ่านชำระหนี้ได้เหมาะสมกับความสามารถ ภาระอัตราดอกเบี้ยลดลงเป็นการรวบหนี้อื่น ๆ มาอยู่ในที่เดียว</div>';
-*/
 		seeVDO = 2;
 		sVDOnumber = x;
 		VDOtimer = 175;
@@ -402,7 +377,6 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic1" style="text-align:left;">การเป็น <span class="text-naviblue">"หนี้"</span> ไม่ใช่ความล้มเหลวของชีวิต และไม่ใช่ความผิด แต่หากจำเป็นต้องสร้างหนี้ เราต้องเลือกว่าจะเป็น <span class="text-naviblue">"หนี้แบบไหน"</span> ที่สำคัญต้องเป็นหนี้แบบ <span class="text-naviblue">"มีวันจบ"</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;"><span class="text-blue">รอบรู้เรื่องกู้ยืม หรือ healthy Borrowing</span> เป็นแนวคิดที่ธนาคารต้องการ ให้พนักงานเข้าใจ และให้ความสำคัญเกี่ยวกับความรู้ด้านสินเชื่อก่อนการกู้ยืม เพื่อมีข้อมูลประกอบการพิจารณา และตัดสินใจเลือกใช้สินเชื่อได้อย่างถูกต้องและเหมาะสม</div>';               
 		str += '</div>';
-
 	} else if(x==5) {
 		str += '<div class="text-naviblue" style="padding:20px 0 10px 20px; text-align:left;">สินเชื่อที่<span class="text-org">มีหลักทรัพย์</span>ค้ำประกัน</div>';
 		str += '<div class="slideanim slide"><img src="./img/wellbeing-04.jpg" class="box-wb1"></div>';
@@ -435,17 +409,6 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic2">เพื่อสร้างชีวิตทางการเงินที่ดี เราสนับสนุนให้พนักงานรู้จักวางแผนการเงิน ใช้ให้เป็น ออมให้ถูกที่ และมีวินัยในการออม</div>';
 		str += '</div><div class="clr"></div>';
 	} else if(x==9) {
-		/*
-		seeVDO = 1;
-		sVDOnumber = x;
-		VDOtimer = 33;
-		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
-		counter = setInterval(timer, 1000);
-		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
-		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
-		str += '<div style="width:100%; height:180px;margin-top:20px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/B69taBZOEkw?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
-		*/
-
 		seeVDO = 2;
 		sVDOnumber = x;
 		VDOtimer = 180;
@@ -458,9 +421,6 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
 		str += '</div>';
-
-
-
 	} else if(x==10) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
 		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
@@ -474,6 +434,21 @@ function GetTarget(x) {
 		str += '<div class="text-navi">การลงทุนคืออีกหนึ่งทางเลือกที่ช่วยกระตุ้นให้เงินของเราเติบโตได้มากกว่าการฝากเงิน แม้ทุกการลงทุนมีความเสี่ยง แต่การไม่ลงทุนอะไรเลยก็นับเป็นความเสี่ยงเช่นเดียวกัน</div>';
 		str += '</div><div class="clr"></div>';
 	} else if(x==12) {
+
+		seeVDO = 2;
+		sVDOnumber = x;
+		VDOtimer = 175;
+		timeup = now.setSeconds(now.getSeconds() + Number(VDOtimer));
+		counter = setInterval(timer, 1000);
+		str += '<div class="text-topic">';
+		str += '<video id="VDO1" width="100%" controls="controls" autoplay>';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep3.mp4?alt=media&token=8d2ecca4-8eb7-4839-bd22-dd19c2e14b74" type="video/mp4">';
+		str += '</video><div id="timer" class="timer btn-t1" style="margin-top:10px;"></div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">เพราะการลงทุนคือเรื่องการเงินพื้นฐาน ที่เชื่อมโยงไปสู่เป้าหมายในทุก ๆ ช่วงของชีวิต</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">การลงทุนคืออีกหนึ่งทางเลือกที่ช่วยกระตุ้นให้เงินของเราเติบโตได้มากกว่าการฝากเงิน แม้ทุกการลงทุนมีความเสี่ยง แต่การไม่ลงทุนอะไรเลยก็นับเป็นความเสี่ยงเช่นเดียวกัน</div>';               
+		str += '</div>';
+		
+		<!--
 		seeVDO = 1;
 		sVDOnumber = x;
 		VDOtimer = 35;
@@ -482,6 +457,7 @@ function GetTarget(x) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
 		str += '<div class="top-subheader">พอร์ตลงทุน ดูเลโดยผู้เชี่ยวชาญ</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:190px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/0Yy9498hZ8Q?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
+		-->
 	} else if(x==13) {
 		str += '<div class="bg_topic">ก้าวที่สี่ ... เปลี่ยนมาดูแลคนอื่น ด้วยการดูแลตัวคุณเอง</div>';
 		str += '<div class="slideanim slide"><img src="./img/wb4.jpg" class="box-wb1"></div>';
