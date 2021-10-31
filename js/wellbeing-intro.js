@@ -828,7 +828,6 @@ function OpenVDO(x) {
 		str += '</video><div class="clr"></div>';
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
-
 		str += '<div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
 		str += '</center><div style="height: 30px;"></div>';
 
@@ -845,10 +844,8 @@ function OpenVDO(x) {
 		str += '<video id="VDO2" width="100%" controls="controls" autoplay style="padding-top:15px;">';
 		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep2.mp4?alt=media&token=5d69472d-cdce-4d61-be6a-1849dc539b21" type="video/mp4">';
 		str += '</video><div class="clr"></div>';
-//		str += '<div class="text-subtopic1" style="text-align:left;">เพื่อสร้างชีวิตทางการเงินที่ดี เราสนับสนุนให้พนักงานรู้จักวางแผนการเงิน ใช้ให้เป็น ออมให้ถูกที่ และมีวินัยในการออม</div>';
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
-
 
 /*
 		str += '<div class="wb-top-header1" style="margin-top:0px;"><u>3 ป. เพื่อการฉลาดออม ฉลาดใช้</u></div>';
@@ -871,11 +868,20 @@ function OpenVDO(x) {
 		str += '<div class="clr"></div>';
 */
 	} else if(x==3) {
+		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวที่สาม ... การวางแผนการเงินคือการวางแผนชีวิตหลังจากนี้</div>';
+		str += '<div class="top-subheader">ลงทุนเพื่ออนาคต</div><div class="clr"></div>';
+		str += '<video id="VDO2" width="100%" controls="controls" autoplay style="padding-top:15px;">';
+		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep3.mp4?alt=media&token=8d2ecca4-8eb7-4839-bd22-dd19c2e14b74" type="video/mp4">';
+		str += '</video><div class="clr"></div>';
+		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
+		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+/*		
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
 		str += '<div class="top-subheader">พอร์ตลงทุน ดูเลโดยผู้เชี่ยวชาญ</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:180px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/0Yy9498hZ8Q?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>';
 		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>';
 		str += '<div class="clr"></div>';
+*/
 	} else if(x==4) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb all free</div>';
 		str += '<div class="top-subheader">เปลี่ยนมาดูแลคนอื่น ด้วยการดูแลตัวคุณเอง</div><div class="clr"></div>';
