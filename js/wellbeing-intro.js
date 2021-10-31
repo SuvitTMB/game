@@ -159,7 +159,7 @@ var sBadgeFalse = 0;
 var sBadgeEnd = 0;
 function CheckGetBadgeUser() {
 	//alert("CheckGetBadgeUser="+sGameStatus)
-  	var sGet = 0; 
+    var sGet = 0; 
     dbBadgeUser.where('LineID','==',sessionStorage.getItem("LineID"))
     .where('BadgeEng','==',sBadgeEng)
     .get().then((snapshot)=> {
@@ -173,7 +173,7 @@ function CheckGetBadgeUser() {
     });
     //sBadgeTime = 15;
     //sBadgeEnd = 0;
-	//alert("BadgeEnd="+sBadgeEnd)
+    //alert("BadgeEnd="+sBadgeEnd)
     if(sBadgeEnd==0) {
       if(sBadgeTime>=sBadgeTarget) {
 	sGameStatus = 1;
