@@ -612,7 +612,7 @@ function SaveDataFWB(x,p) {
 		sRewardsXP = parseFloat(sRewardsXP)+parseFloat(p);
 		sRewardsRP = parseFloat(sRewardsRP)+parseFloat(p);
 		dbScorePoint.doc(EidScorePoint).update({
-			//RewardsXP : sRewardsXP,
+			RewardsXP : sRewardsXP,
 			RewardsRP : sRewardsRP
 		});
         dbBadgeUser.doc(EidBadgeGameUser).update({
