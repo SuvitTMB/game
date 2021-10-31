@@ -448,7 +448,7 @@ function GetTarget(x) {
 		str += '<div class="text-subtopic2" style="text-align:left;">การลงทุนคืออีกหนึ่งทางเลือกที่ช่วยกระตุ้นให้เงินของเราเติบโตได้มากกว่าการฝากเงิน แม้ทุกการลงทุนมีความเสี่ยง แต่การไม่ลงทุนอะไรเลยก็นับเป็นความเสี่ยงเช่นเดียวกัน</div>';               
 		str += '</div>';
 		
-		<!--
+		/*
 		seeVDO = 1;
 		sVDOnumber = x;
 		VDOtimer = 35;
@@ -457,7 +457,7 @@ function GetTarget(x) {
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
 		str += '<div class="top-subheader">พอร์ตลงทุน ดูเลโดยผู้เชี่ยวชาญ</div><div class="clr"></div>';
 		str += '<div style="margin-top:20px; width:100%; height:190px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/0Yy9498hZ8Q?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div><div id="timer" class="timer btn-t1" style="margin-top:-10px;"></div>';
-		-->
+		*/
 	} else if(x==13) {
 		str += '<div class="bg_topic">ก้าวที่สี่ ... เปลี่ยนมาดูแลคนอื่น ด้วยการดูแลตัวคุณเอง</div>';
 		str += '<div class="slideanim slide"><img src="./img/wb4.jpg" class="box-wb1"></div>';
