@@ -855,7 +855,7 @@ function OpenVDO(x) {
 		str += '<li><span class="text-blue">เปลี่ยนแปลงนิสัยตนเอง</span><br>รู้จักหารายได้เพิ่ม ไม่ใช้เงินฟุ่มเฟือย มีวินัยในการออม และตั้งเป้าหมายในการเก็บเงิน<br></li>';
 		str += '</ul></div></div>';
 */
-		str += '<div class="btn-t2" onclick="CloseVDO2()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '<div class="btn-t2" onclick="CloseVDO3()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
 		str += '</center><div style="height: 30px;"></div>';
 
 
@@ -870,7 +870,7 @@ function OpenVDO(x) {
 	} else if(x==3) {
 		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวที่สาม ... การวางแผนการเงินคือการวางแผนชีวิตหลังจากนี้</div>';
 		str += '<div class="top-subheader">ลงทุนเพื่ออนาคต</div><div class="clr"></div>';
-		str += '<video id="VDO2" width="100%" controls="controls" autoplay style="padding-top:15px;">';
+		str += '<video id="VDO3" width="100%" controls="controls" autoplay style="padding-top:15px;">';
 		str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FFWBep3.mp4?alt=media&token=8d2ecca4-8eb7-4839-bd22-dd19c2e14b74" type="video/mp4">';
 		str += '</video><div class="clr"></div>';
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
@@ -906,19 +906,25 @@ function CloseAll() {
 
 
 function CloseVDO() {
-  clearInterval(counter);;	
+  clearInterval(counter);	
   document.getElementById('VDO1').pause();
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='none';
 }
 
 function CloseVDO2() {
-  clearInterval(counter);;	
+  clearInterval(counter);	
   document.getElementById('VDO2').pause();
   document.getElementById('id02').style.display='none';
   document.getElementById('id03').style.display='none';
 }
 
+function CloseVDO3() {
+  clearInterval(counter);	
+  document.getElementById('VDO3').pause();
+  document.getElementById('id02').style.display='none';
+  document.getElementById('id03').style.display='none';
+}
 
 function NewDate() {
   var today = new Date();
