@@ -846,7 +846,8 @@ function OpenVDO(x) {
 		str += '</video><div class="clr"></div>';
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
-
+		str += '<div class="btn-t2" onclick="CloseVDO2()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '</center><div style="height: 30px;"></div>';
 /*
 		str += '<div class="wb-top-header1" style="margin-top:0px;"><u>3 ป. เพื่อการฉลาดออม ฉลาดใช้</u></div>';
 		str += '<div style="text-align:left;width:90%;font-size:12px;><div style="text-align: left;"><ul>';
@@ -854,18 +855,6 @@ function OpenVDO(x) {
 		str += '<li><span class="text-blue">ประหยัดค่าใช้จ่าย</span><br>สำรวจและตัดรายจ่ายที่ไม่จำเป็นออกไป เพื่อให้มีเงินเหลือเก็บมากขึ้น<br></li>';
 		str += '<li><span class="text-blue">เปลี่ยนแปลงนิสัยตนเอง</span><br>รู้จักหารายได้เพิ่ม ไม่ใช้เงินฟุ่มเฟือย มีวินัยในการออม และตั้งเป้าหมายในการเก็บเงิน<br></li>';
 		str += '</ul></div></div>';
-*/
-		str += '<div class="btn-t2" onclick="CloseVDO3()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
-		str += '</center><div style="height: 30px;"></div>';
-
-
-
-/*
-		str += '<div class="top-header" style="padding-top:20px;">ttb no fixed</div>';
-		str += '<div class="top-subheader">โซลูชันบัญชีเพื่อออม ฝากไม่ประจำ ดอกสูง ถอนได้</div><div class="clr"></div>';
-		str += '<div style="margin-top:20px; width:100%; height:180px;"><center><iframe width="280" height="158" src="https://www.youtube.com/embed/B69taBZOEkw?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></div>';
-		str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:20px;">ปิดหน้าต่างนี้</div>';
-		str += '<div class="clr"></div>';
 */
 	} else if(x==3) {
 		str += '<center><div class="top-header" style="padding-top:20px;">ก้าวที่สาม ... การวางแผนการเงินคือการวางแผนชีวิตหลังจากนี้</div>';
@@ -875,6 +864,9 @@ function OpenVDO(x) {
 		str += '</video><div class="clr"></div>';
 		str += '<div class="text-subtopic1" style="text-align:left;">การที่พนักงานทุกคนมีชีวิตทางการเงินที่ดี คือ <span class="text-blue">ก้าวแรกและเป็นก้าวสำคัญ</span> ของธนาคารที่จะแสดงจุดยืนให้สังคมเห็นว่า <span class="text-org">เราพร้อมเปลี่ยน</span> เพื่อให้ลูกค้ามีชีวิตทางการเงินที่ดีขึ้น ... <span class="text-blue">โดยเริ่มที่ตัวเราก่อน</span></div>';
 		str += '<div class="text-subtopic2" style="text-align:left;">ดังนั้น ในฐานะธนาคาร เราจึงอยากเห็น <span class="text-blue">"พนักงานทุกคน"</span> มี Financeial Well-being ที่ดี ซึ่งหมายถึง <span class="text-org">สามารถใช้เงินได้ตามต้องการ</span> เพื่อมีความสุขในการใช้ชีวิตในแบบของตนเอง</div>';               
+		str += '<div class="btn-t2" onclick="CloseVDO3()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+		str += '</center><div style="height: 30px;"></div>';
+
 /*		
 		str += '<div class="top-header" style="padding-top:20px;">ttb smart port</div>';
 		str += '<div class="top-subheader">พอร์ตลงทุน ดูเลโดยผู้เชี่ยวชาญ</div><div class="clr"></div>';
