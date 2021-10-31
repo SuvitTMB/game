@@ -565,8 +565,8 @@ function RandomPoint(x) {
 		document.getElementById('ShowWB15').style.display='none';
 	}
 	//CheckUserFWB();
+	NewScore = 0;
 	ChangeNow();
-	//NewScore = 1.5;
 	if(sMyPoint==NewScore) { sNewMyPoint=(NewScore*2); }
 	else if(sMyPoint!=NewScore) { sNewMyPoint=NewScore; sCheckUserImg = '<img src="./img/false.png" style="width:30px;">'; }
 	str += '<div class="wb-top-header" style="margin-top:30px;">ผลการสุ่มเหรียญรางวัล</div>';
