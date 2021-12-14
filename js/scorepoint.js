@@ -22,6 +22,7 @@ var Update_BadgeLevel = "";
 
 
 $(document).ready(function () {
+  document.getElementById('News').style.display='block';
   Connect_DB();
   CheckScorePoint();
   CheckGetBadge();
@@ -470,6 +471,7 @@ function CloseAll() {
   document.getElementById('id03').style.display='none';
   document.getElementById('id04').style.display='none';
   document.getElementById('id05').style.display='none';
+  document.getElementById('News').style.display='none';
 }
 
 
